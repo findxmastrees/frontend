@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header'
-import { useParams } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { useGetTreeQuery } from '../../store/api/treeApiSlice'
 import { selectComment } from '../../store/slices/reviewSlice'
 import { useGetCommentsListQuery, useSetReviewMutation } from '../../store/api/reviewApiSlice'
@@ -13,57 +13,52 @@ import * as S from './style'
 
 export const WriteReviewPage = () => {
   const dispatch = useDispatch()
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const { tree_id } = useParams()
   const [setReview] = useSetReviewMutation()
   const { data: tree, isTreeLoading } = useGetTreeQuery({ tree_id })
   const { data: commentsList, isLoading } = useGetCommentsListQuery()
-
   const { comment } = useSelector((store) => store.review)
-  const [char, setChar] = useState('')
+
+  const [reviewChar, setReviewChar] = useState('')
   const [image, setImage] = useState({
     image_file: '',
     preview_URL: '',
   })
 
-  const onActive = (selectedComment) => {
-    dispatch(selectComment(selectedComment))
+  const onActive = (comment) => {
+    dispatch(selectComment(comment))
   }
 
   const showLimitChar = (e) => {
-    const char = e.target.value
-    setChar(char)
+    const reviewChar = e.target.value
+    setReviewChar(reviewChar)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const commentId = comment.map((list) => list.comment_id)
 
-    const formData = new FormData()
-    // formData.append('file', files[0])
-    const commentList = comment.map((list) => list.comment_id)
-
-    let value = {
-      title: `${tree && tree.tree_name}`,
-      content: `${char}`,
-      tree_id: `${tree && tree.tree_id}`,
-      img: image ? image.preview_URL : null,
-      comment_id_list: commentList ? commentList.join(',') : null,
+    let data = {
+      img: image ? image.image_file : null,
+      title: tree && `${tree.tree_name}`,
+      contents: reviewChar && `${reviewChar}`,
+      user_id: '',
+      tree_id: tree && `${tree.tree_id}`,
+      comment_id_list: commentId ? commentId.join(',') : null,
     }
 
-    // const blob = new Blob([JSON.stringify(value)], { type: 'application/json' })
-    // console.log(blob)
-    // formData.append('data', blob)
-    formData.append('data', value)
-    console.log(formData)
-    setReview(formData)
-    // .then(navigate(`/review/${tree.tree_id}`))
+    const formData = new FormData()
+    if (data.img) formData.append('img', data.img)
+    formData.append('title', data.title)
+    formData.append('contents', data.contents)
+    formData.append('user_id', data.user_id)
+    formData.append('tree_id', data.tree_id)
+    formData.append('comment_id_list', data.comment_id_list)
+    setReview(formData).then(navigate(`/tree/${tree_id}`, { replace: true }))
   }
 
-  if (isLoading) {
-    return <p>...loading</p>
-  }
-
-  if (isTreeLoading) {
+  if (isLoading && isTreeLoading) {
     return <p>...loading</p>
   }
 
@@ -88,7 +83,7 @@ export const WriteReviewPage = () => {
               <UploadPhotoAndReview
                 image={image}
                 setImage={setImage}
-                char={char}
+                reviewChar={reviewChar}
                 showLimitChar={showLimitChar}
               />
             </S.ReviewBox>

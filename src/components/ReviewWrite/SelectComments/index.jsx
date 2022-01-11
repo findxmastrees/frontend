@@ -8,17 +8,10 @@ export const SelectComments = ({ comment, onActive }) => {
 
   return (
     <>
-      {comment.active ? (
-        <S.Container selected onClick={handleSelectComment}>
-          <S.CommentsImg src={comment.icon_img} alt='comments' />
-          <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
-        </S.Container>
-      ) : (
-        <S.Container onClick={handleSelectComment}>
-          <S.CommentsImg src={comment.icon_img} alt='comments' />
-          <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
-        </S.Container>
-      )}
+      <S.Container onClick={handleSelectComment}>
+        <S.CommentsImg src={comment.icon_img} alt='comments' />
+        <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
+      </S.Container>
     </>
   )
 }

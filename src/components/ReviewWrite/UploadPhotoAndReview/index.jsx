@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './style'
 import { Review_uploadIcon, CloseIcon } from '../../Icons'
 
-export const UploadPhotoAndReview = ({ image, setImage, char, showLimitChar }) => {
+export const UploadPhotoAndReview = ({ image, setImage, reviewChar, showLimitChar }) => {
   const handleChange = (e) => {
     e.preventDefault()
 
@@ -55,7 +55,7 @@ export const UploadPhotoAndReview = ({ image, setImage, char, showLimitChar }) =
         onChange={showLimitChar}
       />
       <S.LimitCharBox>
-        <S.LimitChar>{char.length}</S.LimitChar> / 150
+        <S.LimitChar>{reviewChar.length}</S.LimitChar> / 150
       </S.LimitCharBox>
     </>
   )
