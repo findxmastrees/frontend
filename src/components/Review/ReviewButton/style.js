@@ -16,10 +16,10 @@ export const ReviewBtn = styled.button`
 `
 
 export const BtnWrapper = styled.div`
-  width: ${(props) => (props.write ? '372px' : 'inherit')};
-  position: ${(props) => (props.write ? 'initial' : 'fixed')};
+  width: ${(props) => (props.typeSubmit ? '372px' : 'inherit')};
+  position: ${(props) => (props.typeSubmit ? 'initial' : 'fixed')};
   bottom: 0;
   padding: 24px 0;
   text-align: center;
-  background: ${(props) => (props.write ? 'transparent' : '#fff')};
+  background: ${(props) => (props.typeSubmit ? 'transparent' : '#fff')};
 `
