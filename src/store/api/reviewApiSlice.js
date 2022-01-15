@@ -29,9 +29,9 @@ export const reviewApiSlice = apiSlice.injectEndpoints({
       query: (formData) => ({
         url: '/review',
         method: 'POST',
-        body: formData,
+        body: formData
       }),
-      invalidatesTags: ['Review'],
+      invalidatesTags: [{type: 'Review'}],
     }),
   }),
 })
