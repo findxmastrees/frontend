@@ -5,6 +5,7 @@ const authSlice = createSlice({
   initialState: { displayName: null, uid: null, email: null },
   reducers: {
     setActiveUser: (state, action) => {
+      console.log(action.payload)
       const { displayName, uid, email } = action.payload
       state.displayName = displayName
       state.uid = uid
