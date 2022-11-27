@@ -1,0 +1,123 @@
+.mapContainer {
+  max-width: 420px;
+  height: 100vh;
+  border-right: 1px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mapContainer .top, .middle, .bottom {
+  width: 100%;
+  display: flex;
+}
+
+.mapContainer .top {
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.mapContainer .top .title {
+  font-size: 17px;
+}
+
+.mapContainer .middle {
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.mapContainer .middle .input {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  background-color: #ECECEC;
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 0 0 0 15px;
+  box-sizing: border-box;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.mapContainer .middle .input img {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  color: gray;
+}
+
+.mapContainer .middle .input.search input {
+  border: none;
+  width: 100%;
+  background: inherit;
+  outline: none;
+}
+
+.mapContainer .middle .input.gps {
+  justify-content: flex-start;
+}
+
+.mapContainer .middle .input.gps img {
+  width: 20px;
+  height: 20px;
+}
+.mapContainer .middle .input.gps img:last-child{
+  margin-left: auto;
+  width: 15px;
+  height: 15px;
+}
+
+.mapContainer .middle .input span {
+  color: gray;
+}
+
+.mapContainer .divide {
+  width: 100%;
+  height: 7px;
+  background-color: #ECECEC;
+}
+
+.mapContainer .bottom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.mapContainer .bottom .keywordItem {
+  width: 100%;
+  height: fit-content;
+  border-bottom: 2px solid #ECECEC;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.mapContainer .bottom .keywordItem .placeName {
+  font-size: 14px;
+}
+
+.mapContainer .bottom .keywordItem .addressName {
+  display: flex;
+  margin-top: 10px;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.mapContainer .bottom .keywordItem .addressName .tagName {
+  background-color: #ECECEC;
+  font-size: 11px;
+  padding: 0 5px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+@media (min-width: 480px) {
+  /*.mapContainer {*/
+  /*  background-color: yellow;*/
+  /*}*/
+}
+
