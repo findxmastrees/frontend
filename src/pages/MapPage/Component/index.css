@@ -7,6 +7,7 @@
   height: 20px;
   position: absolute;
   left: 15px;
+  cursor: pointer;
 }
 
 .mapContainer .registerContainer .bottom {
@@ -15,6 +16,7 @@
 
 .mapContainer .registerContainer .bottom .keywordItem {
   border: none;
+  cursor: default;
 }
 
 .mapContainer .registerContainer .bottom span {
@@ -63,11 +65,11 @@
 }
 
 .registerContainer .button {
-
   height: 45px;
   border: 1px solid #EAEAEA;
   background-color: white;
   border-radius: 10px;
   line-height: 45px;
   text-align: center;
+  cursor: pointer;
 }
