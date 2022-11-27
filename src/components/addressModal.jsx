@@ -14,12 +14,12 @@ const AddressModal = (props) => {
 
 const Container = styled.div`
   position: absolute;
-  top: 100px;
-  left: 55px;
-  width: 300px;
+  bottom: 190px;
+  left: 51px;
+  width: 351px;
   height: 50px;
   background: #ffffff;
-  border: 1px solid black;
+  border: 0.5px solid gray;
   z-index: 1000;
 `
 
