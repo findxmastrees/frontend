@@ -17,4 +17,7 @@ const Button = styled.button`
   background-color: #fff;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top: 27px;
+  left: 25px;
 `
