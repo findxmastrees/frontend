@@ -12,13 +12,6 @@ export const Container = styled.article`
   z-index: 10000;
 `
 
-// 사진
-// export const TreeImagesBox = styled.div`
-//   display: flex;
-//   height: 102px;
-//   margin: 13px 0 22px 22px;
-// `
-
 export const ImgSection = styled.section`
   width: 100%;
   text-align: center;

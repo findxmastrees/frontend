@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
 import { ReactComponent as SharingIcon } from '../../../assets/icons/sharing.svg'
@@ -6,18 +7,21 @@ import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
 
 export const TreeNames = ({
+  uid,
   goToTreePage, // 트리 페이지로
   setBookMarking, // 북마크
   IsBookMarking, // 북마크
   setClickModal, // 주소 모달
   IsClickModal, // 주소 모달
 }) => {
+  const navigate = useNavigate()
+
   return (
     <>
       <ClickBox>
         <Title onClick={goToTreePage}>treeTitle</Title>
         <IconBox>
-          <Bookmark onClick={() => setBookMarking(!IsBookMarking)}>
+          <Bookmark onClick={() => (uid ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
             {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
           </Bookmark>
           <IconTitle>저장됨</IconTitle>
@@ -61,7 +65,6 @@ export const IconBox = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 18px;
-  cursor: pointer;
 `
 
 export const Bookmark = styled.button`
@@ -90,7 +93,7 @@ export const IconTitle = styled.span`
 `
 
 export const AddressBox = styled.article`
-  margin: 0 0 13px 22px;
+  margin: 0 0 0 22px;
 `
 
 export const Location = styled.span`
@@ -103,7 +106,6 @@ export const Address = styled.span`
   font-weight: 300;
   font-size: 12px;
   margin: 0 4px 0 12px;
-  cursor: pointer;
 `
 
 export const AddressArrow = styled.button`

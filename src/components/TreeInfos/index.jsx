@@ -7,7 +7,7 @@ import { TreeNames } from '../common/tree/TreeNames'
 
 const arr = Array.from({ length: 3 }, (_, i) => i)
 
-const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
+const TreeInfos = ({ uid, setIsRoadName, setCopiedAlert }) => {
   const [IsClickModal, setClickModal] = useState(false)
   const [IsBookMarking, setBookMarking] = useState(false)
 
@@ -24,6 +24,8 @@ const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
       )}
       <S.Container>
         <TreeNames
+          uid={uid}
+          goToTreePage={goToTreePage}
           setClickModal={setClickModal}
           IsClickModal={IsClickModal}
           IsBookMarking={IsBookMarking}
