@@ -5,6 +5,8 @@ import AddressModal from '../common/tree/AddressModal'
 import { ReviewImg } from '../common/TreeImg/index'
 import { TreeNames } from '../common/tree/TreeNames'
 
+const arr = Array.from({ length: 3 }, (_, i) => i)
+
 const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
   const [IsClickModal, setClickModal] = useState(false)
   const [IsBookMarking, setBookMarking] = useState(false)
@@ -29,12 +31,16 @@ const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
           setIsRoadName={setIsRoadName}
           setCopiedAlert={setCopiedAlert}
         />
-        <S.TreeImagesBox goToTreePage={goToTreePage}>
+        <S.ImgSection goToTreePage={goToTreePage}>
           {/* {.map((image) => (
             <TreeImages>image={image}</TreeImages>
           ))} */}
-          <ReviewImg />
-        </S.TreeImagesBox>
+          <S.ImgItems>
+            {arr.map((_, i) => (
+              <ReviewImg key={i} />
+            ))}
+          </S.ImgItems>
+        </S.ImgSection>
       </S.Container>
     </>
   )
