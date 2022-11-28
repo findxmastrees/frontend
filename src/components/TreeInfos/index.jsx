@@ -20,7 +20,9 @@ const TreeInfos = (props) => {
 
   return (
     <>
-      {IsClickModal && <AddressModal />}
+      {IsClickModal && (
+        <AddressModal setIsRoadName={props.setIsRoadName} setCopiedAlert={props.setCopiedAlert} />
+      )}
       <S.Container>
         <S.ClickBox>
           <S.Title onClick={goToTreePage}>{props.treeTitle}</S.Title>

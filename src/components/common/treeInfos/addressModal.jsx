@@ -4,9 +4,12 @@ import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy
 
 const AddressModal = (props) => {
   const handleCopyClipBoard = async (text) => {
-    await navigator.clipboard.writeText(text)
-
-    return true
+    try {
+      await navigator.clipboard.writeText(text)
+      return true
+    } catch (err) {
+      return false
+    }
   }
 
   return (
@@ -17,7 +20,15 @@ const AddressModal = (props) => {
           {/* <RoadName>{props.roadName}</RoadName> */}
           <RoadName>
             서울 송파구 올림픽로43길 88 서울아산병원{' '}
-            <AddressIcon onClick={() => handleCopyClipBoard('RoadName')} />
+            <AddressIcon
+              onClick={() =>
+                handleCopyClipBoard(
+                  '도로명주소 복사됨',
+                  props.setIsRoadName(true),
+                  props.setCopiedAlert(true),
+                )
+              }
+            />
           </RoadName>
         </AdBox>
         <AdBox>
@@ -25,7 +36,15 @@ const AddressModal = (props) => {
           {/* <LotNumber>{props.lotNumber}</LotNumber> */}
           <LotNumber>
             풍납2동 288-1 서울아산병원{' '}
-            <AddressIcon onClick={() => handleCopyClipBoard('LotNumber')} />
+            <AddressIcon
+              onClick={() =>
+                handleCopyClipBoard(
+                  '지번주소 복사됨',
+                  props.setIsRoadName(false),
+                  props.setCopiedAlert(true),
+                )
+              }
+            />
           </LotNumber>
         </AdBox>
       </Container>
