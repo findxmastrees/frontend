@@ -4,6 +4,7 @@ import InfoHeader from '../../components/InfoHeader'
 
 // Component
 import { RegisterLocation } from './Component/RegisterLocation'
+import { Map } from './Component/Map'
 
 // CSS
 import '../MapPage/index.css'
@@ -21,17 +22,6 @@ export const MapPage = () => {
   }, [])
 
   const searchLocation = async () => {
-    //     let mapContainer = document.getElementById('map'), // 지도를 표시할 div
-    //       mapOption = {
-    //         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-    //         level: 3 // 지도의 확대 레벨
-    //       };
-    //
-    // // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-    //     let map = new kakao.maps.Map(mapContainer, mapOption);
-    //
-    //     console.log(map)
-
     const url =
       'https://dapi.kakao.com/v2/local/search/keyword.json?page=1&size=15&query=' + keyword
     axios
@@ -77,7 +67,7 @@ export const MapPage = () => {
                   onKeyPress={onKeyEvent}
                 />
               </div>
-              <div className={'input gps'}>
+              <div className={'input gps'} onClick={() => handleDetailPage('map')}>
                 <img src={'/icon/ico-gps.png'} alt={'gps icon'} />
                 <span>현재 위치로 설정</span>
                 <img src={'/icon/ico-right-arrow.png'} alt={'right-arrow icon'} />
@@ -106,9 +96,11 @@ export const MapPage = () => {
             </div>
           </>
         ) : null}
-        <div id={'map'}></div>
         {page === 'detail' ? (
           <RegisterLocation location={selectLocation} setPage={setPage} />
+        ) : null}
+        {page === 'map' ? (
+          <Map location={selectLocation} setSelectedLocation={setSelectedLocation} setPage={setPage} />
         ) : null}
       </div>
     </>
