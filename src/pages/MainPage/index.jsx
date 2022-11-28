@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import * as S from './style'
+import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
 import TreeInfos from '../../components/treeInfos'
 
@@ -22,6 +23,7 @@ export const MainPage = () => {
 
   return (
     <S.Container ref={container}>
+      <MainSearch />
       <S.InfoSection>
         <ZoomButton map={_map} />
         <TreeInfos />

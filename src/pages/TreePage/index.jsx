@@ -1,5 +1,6 @@
 import React from 'react'
+import { ImgList } from '../../components/Review/ImgList'
 
 export const TreePage = () => {
-  return <div>TreePage(2)</div>
+  return <ImgList />
 }
