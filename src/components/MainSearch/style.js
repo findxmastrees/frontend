@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ReactComponent as Search } from '../../assets/icons/search_icon.svg'
 
 export const SearchButton = styled.button`
-  max-width: calc(100% - 20px);
+  max-width: calc(100% - 28px);
   width: 100%;
   height: 53px;
   border: none;
@@ -11,20 +11,22 @@ export const SearchButton = styled.button`
   border-radius: 5px;
   position: absolute;
   left: 50%;
+  padding: 0;
   transform: translateX(-50%);
   z-index: 2;
 `
 
 export const SearchIcon = styled(Search)`
+  vertical-align: bottom;
   float: left;
-  margin-left: 16px;
+  margin: 13px 0 0 16px;
 `
 
 export const Text = styled.span`
   color: #aeaeae;
   font-weight: 400;
   font-size: 14px;
-  line-height: 28px;
+  line-height: 53px;
   float: left;
   margin-left: 10px;
 `
