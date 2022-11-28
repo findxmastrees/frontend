@@ -51,25 +51,31 @@ const initialState = {
     lng: 127.10499340309457,
     reviews: [
       {
-        userName: '쿠쿠123',
+        userName: '복순',
+        content:
+          '트리가 너무 이뻐요! 근데 야외라서 꼭 따숩게 입고 가셔야 해요!! 모두 메리클스마스~',
+        src: '../../assets/img/image.png',
+      },
+      {
+        userName: '쿠쿠',
         content:
           '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
         src: '../../assets/img/image.png',
       },
       {
-        userName: '쿠쿠123',
+        userName: '주스',
         content:
           '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
         src: '../../assets/img/image.png',
       },
       {
-        userName: '쿠쿠123',
+        userName: '에린',
         content:
           '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
         src: '../../assets/img/image.png',
       },
       {
-        userName: '쿠쿠123',
+        userName: '투니',
         content:
           '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
         src: '../../assets/img/image.png',
