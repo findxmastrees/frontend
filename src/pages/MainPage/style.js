@@ -14,7 +14,7 @@ export const InfoSection = styled.section`
   width: 90%;
   z-index: 2;
   overflow: hidden;
-  bottom: 0;
-  left: 50%;
+  bottom: 290px;
+  left: 51%;
   transform: translate(-50%, -80%);
 `
