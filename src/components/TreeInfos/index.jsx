@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as S from './style'
 import AddressModal from '../common/tree/AddressModal'
-import TreeImages from '../common/tree/TreeImages'
+import { ReviewImg } from '../common/TreeImg/index'
 import { TreeNames } from '../common/tree/TreeNames'
 
 const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
@@ -33,7 +33,7 @@ const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
           {/* {.map((image) => (
             <TreeImages>image={image}</TreeImages>
           ))} */}
-          <TreeImages />
+          <ReviewImg />
         </S.TreeImagesBox>
       </S.Container>
     </>
