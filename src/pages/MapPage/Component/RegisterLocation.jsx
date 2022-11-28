@@ -6,7 +6,6 @@ import './index.css'
 
 export const RegisterLocation = ({...props}) => {
   const location = props['location'];
-  console.log(location)
 
   return (
     <div className={'registerContainer'}>
@@ -31,7 +30,7 @@ export const RegisterLocation = ({...props}) => {
       </div>
 
       <div className={'locate'}>
-        <div className={'input gps'}>
+        <div className={'input gps'}  onClick={() => props.setPage('map')}>
           <img src={'/icon/ico-pin.png'} alt={'pin icon'}/>
           <span>현재 위치로 설정</span>
           <img src={'/icon/ico-right-arrow.png'} alt={'right-arrow icon'}/>
