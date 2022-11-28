@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const ButtonWrapper = styled.div`
-  position: absolute;
-  z-index: 2;
+  float: right;
 `
 export const Button = styled.button`
   display: block;
@@ -11,5 +10,5 @@ export const Button = styled.button`
   border: none;
   background-color: #fff;
   border-radius: ${({ top }) => (top ? '5px 5px 0 0 ' : '0 0 5px 5px')};
-  ${({ top }) => top && `border-bottom: 1px solid #DEDEDE`}
+  ${({ top }) => top && `border-bottom: 1px solid #DEDEDE`};
 `
