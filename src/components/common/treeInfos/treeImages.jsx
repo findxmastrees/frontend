@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ExImage from '../assets/img/image.png'
+import ExImage from '../../../assets/img/image.png'
 
 const TreeImages = () => {
   return (

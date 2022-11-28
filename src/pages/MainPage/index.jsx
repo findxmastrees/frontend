@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as S from './style'
 import { ZoomButton } from '../../components/MainZoom/index'
-import TreeInfos from '../../components/treeInfos'
+import TreeInfos from '../../components/TreeInfos/index'
 
 export const MainPage = () => {
   // const [latLng, setLatLng] = useState({
@@ -24,8 +24,8 @@ export const MainPage = () => {
     <S.Container ref={container}>
       <S.InfoSection>
         <ZoomButton map={_map} />
-        <TreeInfos />
       </S.InfoSection>
+      <TreeInfos />
     </S.Container>
   )
 }

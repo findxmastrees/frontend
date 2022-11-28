@@ -15,12 +15,12 @@ const AddressModal = (props) => {
 const Container = styled.div`
   position: absolute;
   bottom: 190px;
-  left: 51px;
+  left: 36px;
   width: 351px;
   height: 50px;
   background: #ffffff;
   border: 0.5px solid gray;
-  z-index: 1000;
+  z-index: 100000;
 `
 
 const RoadName = styled.div``
