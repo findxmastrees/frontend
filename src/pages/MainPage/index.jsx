@@ -91,9 +91,15 @@ export const MainPage = () => {
           <LocationBtn />
           <ZoomButton map={_map} />
         </S.ButtonWrapper>
-        {isClick && <TreeInfos />}
+        {isClick && (
+          <TreeInfos
+            email={email}
+            setIsRoadName={setIsRoadName}
+            setAdCopiedAlert={setAdCopiedAlert}
+          />
+        )}
       </S.InfoSection>
-      <TreeInfos email={email} setIsRoadName={setIsRoadName} setAdCopiedAlert={setAdCopiedAlert} />
+
       {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
       {urlcopiedAlert && (
         <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />

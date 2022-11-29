@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as BackIcon } from '../../assets/icons/back_icon.svg'
+import { useNavigate } from 'react-router-dom'
 
 export const BackButton = () => {
+  const navigate = useNavigate()
+
   return (
-    <Button>
+    <Button onClick={() => navigate(-1)}>
       <BackIcon />
     </Button>
   )
