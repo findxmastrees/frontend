@@ -21,7 +21,7 @@ export const NavBar = () => {
   const location = useLocation().pathname
 
   return (
-    <div>
+
       <S.Wrapper>
         <S.Menu>
           <S.MenuWrap style={({ isActive }) => (isActive ? activeStyle : {})} to='/'>
@@ -43,6 +43,6 @@ export const NavBar = () => {
           </S.MenuWrap>
         </S.Menu>
       </S.Wrapper>
-    </div>
+
   )
 }

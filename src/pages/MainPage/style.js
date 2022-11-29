@@ -5,7 +5,7 @@ export const Container = styled.main`
   width: 100%;
   height: 100vh;
   padding: 24px 14px 0;
-  border: 1px solid black;
+  //border: 1px solid black;
   position: relative;
 `
 
