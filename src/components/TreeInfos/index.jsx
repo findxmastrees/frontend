@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
 import * as S from './style'
 import AddressModal from '../common/Tree/AddressModal'
 import { ReviewImg } from '../common/TreeImg/index'
@@ -13,6 +13,7 @@ export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
   const currentUrl = window.location.href
   const [IsClickModal, setClickModal] = useState(false)
   const [IsBookMarking, setBookMarking] = useState(false)
+  const { address, lotNumber } = useSelector((store) => store.tree.tree)
 
   const goToTreePage = () => {
     navigate('/tree')
@@ -20,10 +21,15 @@ export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
 
   return (
     <>
-      {IsClickModal && (
-        <AddressModal setIsRoadName={setIsRoadName} setAdCopiedAlert={setAdCopiedAlert} />
-      )}
       <S.Container>
+        {IsClickModal && (
+          <AddressModal
+            address={address}
+            lotNumber={lotNumber}
+            setIsRoadName={setIsRoadName}
+            setAdCopiedAlert={setAdCopiedAlert}
+          />
+        )}
         <TreeNames
           email={email}
           goToTreePage={goToTreePage}

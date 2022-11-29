@@ -11,6 +11,7 @@ const treesLatLng = [
   id: uuidv4(),
   name: `더현대 서울 트리${i}`,
   address: '서울특별시 어쩌구 무슨동 101 1, 2층',
+  lotNumber: '서울시 무슨동 1004-1 1,2층 ',
   lat,
   lng,
   reviews: [
@@ -48,6 +49,7 @@ const initialState = {
     id: uuidv4(),
     name: '더현대 서울 트리',
     address: '서울특별시 어쩌구 무슨동 101 1, 2층',
+    lotNumber: '서울시 무슨동 1004-1 1,2층 ',
     lat: 37.508800099360364,
     lng: 127.10499340309457,
     reviews: [
@@ -111,12 +113,13 @@ export const selectAllLocation = (state) =>
   }))
 
 export const selectAllTrees = (state) =>
-  state.tree.trees.map(({ id, lat, lng, name, address }) => ({
+  state.tree.trees.map(({ id, lat, lng, name, address, lotNumber }) => ({
     id,
     lat,
     lng,
     name,
     address,
+    lotNumber,
   }))
 
 export default treeSlice.reducer

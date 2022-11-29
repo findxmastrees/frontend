@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
 
-export const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
+export const AddressModal = ({ address, lotNumber, setIsRoadName, setAdCopiedAlert }) => {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text)
@@ -17,13 +17,12 @@ export const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
       <Container>
         <AdBox>
           <RoadNameBtn>도로명</RoadNameBtn>
-          {/* <RoadName>{props.roadName}</RoadName> */}
           <RoadName>
-            서울 송파구 올림픽로43길 88 서울아산병원{' '}
+            {address}
             <AddressIcon
               onClick={() =>
                 handleCopyClipBoard(
-                  '도로명주소 복사됨',
+                  Object.values({ address })[0],
                   setIsRoadName(true),
                   setAdCopiedAlert(true),
                 )
@@ -35,10 +34,14 @@ export const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
           <LotNumberBtn>지번</LotNumberBtn>
           {/* <LotNumber>{props.lotNumber}</LotNumber> */}
           <LotNumber>
-            풍납2동 288-1 서울아산병원{' '}
+            {lotNumber}
             <AddressIcon
               onClick={() =>
-                handleCopyClipBoard('지번주소 복사됨', setIsRoadName(false), setAdCopiedAlert(true))
+                handleCopyClipBoard(
+                  Object.values({ lotNumber })[0],
+                  setIsRoadName(false),
+                  setAdCopiedAlert(true),
+                )
               }
             />
           </LotNumber>
@@ -50,10 +53,10 @@ export const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
 
 const Container = styled.article`
   position: absolute;
-  bottom: 165px;
-  left: 30px;
-  width: 348px;
-  height: 80px;
+  top: 90px;
+  left: 32px;
+  width: 328.99px;
+  height: 90px;
   background: #ffffff;
   border: 0.5px solid gray;
   padding: 10px;
