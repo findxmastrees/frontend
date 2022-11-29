@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import * as S from './style'
 import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
 import ToastAlert from '../../components/common/ToastAlert'
 import { LocationBtn } from '../../components/common/LocationBtn/LocationButton'
-import TreeInfos from '../../components/treeInfos'
-import { useSelector, useDispatch } from 'react-redux'
+import { TreeInfos } from '../../components/TreeInfos/index'
 import { selectAllTrees, selectTree } from '../../store/slices/treeSlice'
 import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
 
 export const MainPage = () => {
+  const { email } = useSelector((store) => store.auth)
   const { kakao } = window
 
   const dispatch = useDispatch()
@@ -21,7 +22,13 @@ export const MainPage = () => {
   const [_map, setMap] = useState()
   const container = useRef(null)
   const [IsRoadName, setIsRoadName] = useState()
-  let [copiedAlert, setCopiedAlert] = useState(false)
+  const [adcopiedAlert, setAdCopiedAlert] = useState(false)
+  const [urlcopiedAlert, setUrlCopiedAlert] = useState(false)
+
+  // const [latLng, setLatLng] = useState({
+  //   lat: 33.450701,
+  //   lng: 126.570667,
+  // })
 
   useEffect(() => {
     // 트리들의 중심 좌표
@@ -86,8 +93,11 @@ export const MainPage = () => {
         </S.ButtonWrapper>
         {isClick && <TreeInfos />}
       </S.InfoSection>
-      <TreeInfos setIsRoadName={setIsRoadName} setCopiedAlert={setCopiedAlert} />
-      {copiedAlert && <ToastAlert setCopiedAlert={setCopiedAlert} IsRoadName={IsRoadName} />}
+      <TreeInfos email={email} setIsRoadName={setIsRoadName} setAdCopiedAlert={setAdCopiedAlert} />
+      {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
+      {urlcopiedAlert && (
+        <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
+      )}
     </S.Container>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
 
-const AddressModal = (props) => {
+export const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text)
@@ -24,8 +24,8 @@ const AddressModal = (props) => {
               onClick={() =>
                 handleCopyClipBoard(
                   '도로명주소 복사됨',
-                  props.setIsRoadName(true),
-                  props.setCopiedAlert(true),
+                  setIsRoadName(true),
+                  setAdCopiedAlert(true),
                 )
               }
             />
@@ -38,11 +38,7 @@ const AddressModal = (props) => {
             풍납2동 288-1 서울아산병원{' '}
             <AddressIcon
               onClick={() =>
-                handleCopyClipBoard(
-                  '지번주소 복사됨',
-                  props.setIsRoadName(false),
-                  props.setCopiedAlert(true),
-                )
+                handleCopyClipBoard('지번주소 복사됨', setIsRoadName(false), setAdCopiedAlert(true))
               }
             />
           </LotNumber>
@@ -55,13 +51,13 @@ const AddressModal = (props) => {
 const Container = styled.article`
   position: absolute;
   bottom: 165px;
-  left: 38px;
+  left: 30px;
   width: 348px;
   height: 80px;
   background: #ffffff;
   border: 0.5px solid gray;
   padding: 10px;
-  z-index: 100000;
+  z-index: 200;
 `
 
 const AdBox = styled.div`

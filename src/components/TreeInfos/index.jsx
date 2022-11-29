@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import * as S from './style'
-import AddressModal from '../common/tree/AddressModal'
+import AddressModal from '../common/Tree/AddressModal'
 import { ReviewImg } from '../common/TreeImg/index'
-import { TreeNames } from '../common/tree/TreeNames'
+import { TreeNames } from '../common/Tree/TreeNames'
 
 const arr = Array.from({ length: 3 }, (_, i) => i)
 
-const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
+export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
+  const navigate = useNavigate()
+  const currentUrl = window.location.href
   const [IsClickModal, setClickModal] = useState(false)
   const [IsBookMarking, setBookMarking] = useState(false)
-
-  const navigate = useNavigate()
 
   const goToTreePage = () => {
     navigate('/tree')
@@ -20,16 +21,19 @@ const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
   return (
     <>
       {IsClickModal && (
-        <AddressModal setIsRoadName={setIsRoadName} setCopiedAlert={setCopiedAlert} />
+        <AddressModal setIsRoadName={setIsRoadName} setAdCopiedAlert={setAdCopiedAlert} />
       )}
       <S.Container>
         <TreeNames
+          email={email}
+          goToTreePage={goToTreePage}
           setClickModal={setClickModal}
           IsClickModal={IsClickModal}
           IsBookMarking={IsBookMarking}
           setBookMarking={setBookMarking}
           setIsRoadName={setIsRoadName}
-          setCopiedAlert={setCopiedAlert}
+          setAdCopiedAlert={setAdCopiedAlert}
+          currentUrl={currentUrl}
         />
         <S.ImgSection goToTreePage={goToTreePage}>
           {/* {.map((image) => (
@@ -45,4 +49,3 @@ const TreeInfos = ({ setIsRoadName, setCopiedAlert }) => {
     </>
   )
 }
-export default TreeInfos

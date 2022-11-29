@@ -1,16 +1,27 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
-const ToastAlert = ({ setCopiedAlert, IsRoadName }) => {
+const ToastAlert = ({ setUrlCopiedAlert, setAdCopiedAlert, IsRoadName }) => {
   useEffect(() => {
-    let timer = setTimeout(() => {
-      setCopiedAlert(false)
+    let adTimer = setTimeout(() => {
+      setAdCopiedAlert(false)
     }, 2000)
 
     return () => {
-      clearTimeout(timer)
+      clearTimeout(adTimer)
     }
   }, [])
+
+  // useEffect(() => {
+  //   let urlTimer = setTimeout(() => {
+  //     setUrlCopiedAlert(false)
+  //   }, 2000)
+
+  //   return () => {
+  //     clearTimeout(urlTimer)
+  //   }
+  // }, [])
+  // console.log(setUrlCopiedAlert)
 
   return (
     <>
@@ -26,8 +37,8 @@ export default ToastAlert
 
 const Container = styled.div`
   position: absolute;
-  bottom: 17px;
-  left: 37.5px;
+  bottom: 113px;
+  left: 28.5px;
   width: 348px;
   height: 42px;
   text-align: center;

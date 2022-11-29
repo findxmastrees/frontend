@@ -1,34 +1,37 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
-import { ReactComponent as SharingIcon } from '../../../assets/icons/sharing.svg'
 import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom.svg'
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
+import { SharingButton } from '../Sharing/SharingButton'
 
 export const TreeNames = ({
-  name,
-  address,
+  email,
   goToTreePage, // 트리 페이지로
   setBookMarking, // 북마크
   IsBookMarking, // 북마크
   setClickModal, // 주소 모달
   IsClickModal, // 주소 모달
+  currentUrl,
 }) => {
+  const navigate = useNavigate()
+
+  const { name, address } = useSelector((store) => store.tree.tree)
+
   return (
     <>
       <ClickBox>
         <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
-          <Bookmark onClick={() => setBookMarking(!IsBookMarking)}>
+          <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
             {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
           </Bookmark>
           <IconTitle>저장됨</IconTitle>
         </IconBox>
         <IconBox>
-          <Share>
-            <SharingIcon />
-          </Share>
-          <IconTitle>공유</IconTitle>
+          <SharingButton currentUrl={currentUrl} />
         </IconBox>
       </ClickBox>
       <AddressBox>
@@ -63,19 +66,9 @@ export const IconBox = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 18px;
-  cursor: pointer;
 `
 
 export const Bookmark = styled.button`
-  width: 25px;
-  height: 24px;
-  background: #ffffff;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`
-
-export const Share = styled.button`
   width: 25px;
   height: 24px;
   background: #ffffff;
@@ -92,20 +85,30 @@ export const IconTitle = styled.span`
 `
 
 export const AddressBox = styled.article`
-  margin: 0 0 13px 22px;
+  margin: 0 0 0 22px;
 `
 
 export const Location = styled.span`
+  position: relative;
   font-weight: 700;
   font-size: 12px;
   margin-right: 12px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    background-color: #e8e8e8;
+    width: 1px;
+    top: 3px;
+    height: 12px;
+  }
 `
 
 export const Address = styled.span`
   font-weight: 300;
   font-size: 12px;
   margin: 0 4px 0 12px;
-  cursor: pointer;
 `
 
 export const AddressArrow = styled.button`
