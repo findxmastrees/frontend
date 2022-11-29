@@ -63,7 +63,7 @@ const Container = styled.article`
   width: 330px;
   height: 90px;
   background: #ffffff;
-  border: 0.5px solid gray;
+  border: 1px solid #e1e1e1;
   padding: 10px;
   z-index: 200;
   font-size: 12px;
@@ -84,7 +84,7 @@ const RoadNameBtn = styled.button`
   padding: 3px;
   margin-right: 7px;
   background: transparent;
-  border: 1px solid gray;
+  border: 1px solid #e1e1e1;
 `
 
 const LotNumberBtn = styled.button`
@@ -96,7 +96,7 @@ const LotNumberBtn = styled.button`
   color: gray;
   font-size: 12px;
   background: transparent;
-  border: 1px solid gray;
+  border: 1px solid #e1e1e1;
 `
 
 const RoadName = styled.div``

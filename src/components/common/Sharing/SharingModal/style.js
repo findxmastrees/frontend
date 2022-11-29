@@ -6,22 +6,23 @@ export const Container = styled.section`
   height: 80px;
   right: 10px;
   margin-top: 45px;
-  background: black;
+  background: #ffffff;
   opacity: 90%;
   z-index: 555;
   border-radius: 5px;
+  border: 1px solid #e1e1e1;
 `
 
 export const Btn = styled.button`
   width: 100%;
   height: 40px;
-  color: #c1bdbd;
+  color: #454040;
   font-size: 15px;
   font-weight: 600;
   border-radius: 5px;
   border: none;
   background: transparent;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e1e1e1;
 
   cursor: pointer;
 `
