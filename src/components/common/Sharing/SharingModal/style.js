@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  position: fixed;
+  position: absolute;
   width: 280px;
   height: 80px;
-  bottom: 120px;
-  right: 77px;
+  bottom: 40px;
+  right: 50px;
   background: black;
   opacity: 90%;
   z-index: 555;

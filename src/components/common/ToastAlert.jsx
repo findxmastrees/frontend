@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
-const ToastAlert = ({ setUrlCopiedAlert, setAdCopiedAlert, IsRoadName }) => {
+const ToastAlert = ({ whichAd, setAdCopiedAlert }) => {
   useEffect(() => {
     let adTimer = setTimeout(() => {
       setAdCopiedAlert(false)
@@ -26,7 +26,7 @@ const ToastAlert = ({ setUrlCopiedAlert, setAdCopiedAlert, IsRoadName }) => {
   return (
     <>
       <Container>
-        <AddressName>{IsRoadName ? '도로명주소' : '지번주소'}</AddressName>
+        <AddressName>{whichAd}</AddressName>
         <Desc>가 복사되었습니다.</Desc>
       </Container>
     </>

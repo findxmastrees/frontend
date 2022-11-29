@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
+// import ToastAlert from '../ToastAlert'
 
-export const AddressModal = ({ address, lotNumber, setIsRoadName, setAdCopiedAlert }) => {
+export const AddressModal = ({ address, lotNumber }) => {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text)
@@ -11,6 +12,10 @@ export const AddressModal = ({ address, lotNumber, setIsRoadName, setAdCopiedAle
       return false
     }
   }
+
+  // toast alert
+  // const [whichAd, setWhichAd] = useState('')
+  // const [adCopiedAlert, setAdCopiedAlert] = useState(false)
 
   return (
     <>
@@ -23,8 +28,8 @@ export const AddressModal = ({ address, lotNumber, setIsRoadName, setAdCopiedAle
               onClick={() =>
                 handleCopyClipBoard(
                   Object.values({ address })[0],
-                  setIsRoadName(true),
-                  setAdCopiedAlert(true),
+                  // setWhichAd('RoadName'),
+                  // setAdCopiedAlert(true),
                 )
               }
             />
@@ -32,21 +37,23 @@ export const AddressModal = ({ address, lotNumber, setIsRoadName, setAdCopiedAle
         </AdBox>
         <AdBox>
           <LotNumberBtn>지번</LotNumberBtn>
-          {/* <LotNumber>{props.lotNumber}</LotNumber> */}
           <LotNumber>
             {lotNumber}
             <AddressIcon
               onClick={() =>
                 handleCopyClipBoard(
                   Object.values({ lotNumber })[0],
-                  setIsRoadName(false),
-                  setAdCopiedAlert(true),
+                  // setWhichAd('lotNumber'),
+                  // setAdCopiedAlert(true),
                 )
               }
             />
           </LotNumber>
         </AdBox>
       </Container>
+      {/* {adCopiedAlert && (
+        <ToastAlert adCopiedAlert={adCopiedAlert} setWhichAd={setWhichAd} whichAd={whichAd} />
+      )} */}
     </>
   )
 }
@@ -54,26 +61,28 @@ export const AddressModal = ({ address, lotNumber, setIsRoadName, setAdCopiedAle
 const Container = styled.article`
   position: absolute;
   top: 90px;
-  left: 32px;
+  left: 24.5px;
   width: 328.99px;
   height: 90px;
   background: #ffffff;
   border: 0.5px solid gray;
   padding: 10px;
   z-index: 200;
+  font-size: 12px;
+  line-height: 20px;
 `
 
 const AdBox = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-bottom: 5px;
+  padding-bottom: 5px;
 `
 const RoadNameBtn = styled.button`
   height: 21px;
   width: 47px;
   line-height: 0;
   color: gray;
-  font-size: 8px;
+  font-size: 12px;
   padding: 3px;
   margin-right: 7px;
   background: transparent;
@@ -87,7 +96,7 @@ const LotNumberBtn = styled.button`
   padding: 2px;
   margin-right: 7px;
   color: gray;
-  font-size: 8px;
+  font-size: 12px;
   background: transparent;
   border: 1px solid gray;
 `
@@ -98,5 +107,6 @@ const LotNumber = styled.div``
 
 const AddressIcon = styled(AddressCopy)`
   cursor: pointer;
+  margin-left: 3px;
 `
 export default AddressModal

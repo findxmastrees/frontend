@@ -1,13 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.article`
-  position: absolute;
-  bottom: 98px;
-  left: 22px;
-  width: 90%;
-  margin-bottom: 15px;
+  position: relative;
   box-sizing: border-box;
-  /* height: 35%; */
   background: #ffffff;
   box-shadow: 0px -4px 4px rgb(0 0 0 / 5%);
   border-radius: 10px;
