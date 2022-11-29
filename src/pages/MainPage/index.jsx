@@ -11,7 +11,6 @@ import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
 
 export const MainPage = () => {
-  const { email } = useSelector((store) => store.auth)
   const { kakao } = window
 
   const dispatch = useDispatch()
@@ -91,7 +90,7 @@ export const MainPage = () => {
           <LocationBtn />
           <ZoomButton map={_map} />
         </S.ButtonWrapper>
-        {isClick && <TreeInfos email={email} />}
+        {isClick && <TreeInfos />}
       </S.InfoSection>
 
       {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
