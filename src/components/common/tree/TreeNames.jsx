@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
@@ -9,16 +9,15 @@ import { SharingButton } from '../Sharing/SharingButton'
 import { AddressModal } from '../Tree/AddressModal'
 
 export const TreeNames = ({
-  email,
   goToTreePage, // 트리 페이지로
   currentUrl,
 }) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
   const [IsModalClick, setModalClick] = useState(false)
-  const [IsBookMarking, setBookMarking] = useState(false)
+  // const [IsBookMarking, setBookMarking] = useState(false)
 
   const onModal = () => {
     setModalClick(!IsModalClick)
@@ -32,8 +31,11 @@ export const TreeNames = ({
       <ClickBox>
         <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
-          <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
+          {/* <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
             {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
+          </Bookmark> */}
+          <Bookmark>
+            <BookMarkerIcon />
           </Bookmark>
           <IconTitle>저장됨</IconTitle>
         </IconBox>
