@@ -28,7 +28,7 @@
   height: 40px;
   margin: 0 10px 20px 10px;
   padding-left: 10px;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #eaeaea;
   border-radius: 5px;
 }
 
@@ -54,7 +54,7 @@
   height: 20px;
   margin-right: 5px;
 }
-.registerContainer .locate .input.gps img:last-child{
+.registerContainer .locate .input.gps img:last-child {
   margin-left: auto;
   width: 15px;
   height: 15px;
@@ -66,7 +66,7 @@
 
 .registerContainer .button {
   height: 45px;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #eaeaea;
   background-color: white;
   border-radius: 10px;
   line-height: 45px;

@@ -88,6 +88,12 @@
   flex-direction: column;
   overflow: scroll;
   /*padding-bottom: 100px;*/
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.mapContainer .bottom::-webkit-scrollbar {
+  display: none;
 }
 
 .mapContainer .bottom .keywordItem {
