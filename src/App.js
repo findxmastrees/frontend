@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavBar } from './components/common/NavBar'
 import Router from './routes/Router'
 import GlobalStyles from './styles/globalStyles'
 
@@ -8,7 +7,6 @@ function App() {
     <>
       <GlobalStyles />
       <Router />
-      <NavBar />
     </>
   )
 }

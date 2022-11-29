@@ -21,28 +21,26 @@ export const NavBar = () => {
   const location = useLocation().pathname
 
   return (
-    <div>
-      <S.Wrapper>
-        <S.Menu>
-          <S.MenuWrap style={({ isActive }) => (isActive ? activeStyle : {})} to='/'>
-            <div>{location === '/' ? <Home1 /> : <Home />}</div>
-            <li>홈</li>
-          </S.MenuWrap>
-          <S.MenuWrap to='/tree'>
-            <div>{location === '/tree' ? <Register1 /> : <Register />}</div>
-            <li>트리 등록하기</li>
-          </S.MenuWrap>
-          <S.MenuWrap to='/my'>
-            {/* 저장한 트리 페이지 라우터가 없어서 임시로 마이페이지로 링크합니다 */}
-            <div>{location === '/my' ? <List1 /> : <List />}</div>
-            <li>저장한 트리</li>
-          </S.MenuWrap>
-          <S.MenuWrap to='/my'>
-            <div>{location === '/my' ? <My1 /> : <My />}</div>
-            <li>MY</li>
-          </S.MenuWrap>
-        </S.Menu>
-      </S.Wrapper>
-    </div>
+    <S.Wrapper>
+      <S.Menu>
+        <S.MenuWrap style={({ isActive }) => (isActive ? activeStyle : {})} to='/'>
+          <div>{location === '/' ? <Home1 /> : <Home />}</div>
+          <li>홈</li>
+        </S.MenuWrap>
+        <S.MenuWrap to='/map'>
+          <div>{location === '/map' ? <Register1 /> : <Register />}</div>
+          <li>트리 등록하기</li>
+        </S.MenuWrap>
+        <S.MenuWrap to='/my'>
+          {/* 저장한 트리 페이지 라우터가 없어서 임시로 마이페이지로 링크합니다 */}
+          <div>{location === '/my' ? <List1 /> : <List />}</div>
+          <li>저장한 트리</li>
+        </S.MenuWrap>
+        <S.MenuWrap to='/my'>
+          <div>{location === '/my' ? <My1 /> : <My />}</div>
+          <li>MY</li>
+        </S.MenuWrap>
+      </S.Menu>
+    </S.Wrapper>
   )
 }
