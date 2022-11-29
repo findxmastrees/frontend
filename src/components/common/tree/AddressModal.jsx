@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
 
-const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
+export const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text)
@@ -51,13 +51,13 @@ const AddressModal = ({ setIsRoadName, setAdCopiedAlert }) => {
 const Container = styled.article`
   position: absolute;
   bottom: 165px;
-  left: 38px;
+  left: 30px;
   width: 348px;
   height: 80px;
   background: #ffffff;
   border: 0.5px solid gray;
   padding: 10px;
-  z-index: 100000;
+  z-index: 200;
 `
 
 const AdBox = styled.div`

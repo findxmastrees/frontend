@@ -2,20 +2,20 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   position: fixed;
-  width: 392px;
-  height: 150px;
-  bottom: 10px;
-  right: 14px;
-  background: #fdfbfb;
+  width: 280px;
+  height: 80px;
+  bottom: 120px;
+  right: 77px;
+  background: black;
   opacity: 90%;
-  z-index: 2;
+  z-index: 555;
   border-radius: 5px;
 `
 
 export const Btn = styled.button`
   width: 100%;
-  height: 50px;
-  color: #3d3a3a;
+  height: 40px;
+  color: #c1bdbd;
   font-size: 15px;
   font-weight: 600;
   border-radius: 5px;

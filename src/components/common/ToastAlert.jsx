@@ -37,8 +37,8 @@ export default ToastAlert
 
 const Container = styled.div`
   position: absolute;
-  bottom: 17px;
-  left: 37.5px;
+  bottom: 113px;
+  left: 28.5px;
   width: 348px;
   height: 42px;
   text-align: center;

@@ -1,0 +1,47 @@
+.loginContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: #F9F9F9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer .loginBox {
+  width: 90%;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  padding: 40px 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginContainer .loginBox form {
+  width: 70%;
+}
+
+.loginContainer .loginBox .loginButton {
+  border: 1px solid #EAEAEA;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.loginContainer .loginBox .loginButton img {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+}
+
+.loginContainer .loginBox span {
+  text-align: center;
+  font-size: 13px;
+  line-height: 18px;
+}

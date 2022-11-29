@@ -8,7 +8,7 @@ import { TreeNames } from '../common/Tree/TreeNames'
 
 const arr = Array.from({ length: 3 }, (_, i) => i)
 
-const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
+export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
   const navigate = useNavigate()
   const currentUrl = window.location.href
   const [IsClickModal, setClickModal] = useState(false)
@@ -49,4 +49,3 @@ const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
     </>
   )
 }
-export default TreeInfos

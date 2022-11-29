@@ -6,4 +6,5 @@ export const Container = styled.div`
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  background-color: #fff;
 `

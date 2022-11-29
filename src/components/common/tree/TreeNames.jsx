@@ -8,6 +8,8 @@ import { SharingButton } from '../Sharing/SharingButton'
 
 export const TreeNames = ({
   email,
+  name,
+  address,
   goToTreePage, // 트리 페이지로
   setBookMarking, // 북마크
   IsBookMarking, // 북마크
@@ -20,7 +22,7 @@ export const TreeNames = ({
   return (
     <>
       <ClickBox>
-        <Title onClick={goToTreePage}>treeTitle</Title>
+        <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
           <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
             {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
@@ -32,8 +34,8 @@ export const TreeNames = ({
         </IconBox>
       </ClickBox>
       <AddressBox>
-        <Location>treeLocation</Location>
-        <Address>treeAddress</Address>
+        <Location>15m</Location>
+        <Address>{address}</Address>
         <AddressArrow onClick={() => setClickModal(!IsClickModal)}>
           {IsClickModal ? <ArrowUp /> : <ArrowBottom />}
         </AddressArrow>

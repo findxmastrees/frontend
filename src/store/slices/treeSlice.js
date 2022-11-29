@@ -15,9 +15,8 @@ const treesLatLng = [
   lng,
   reviews: [
     {
-      userName: '쿠쿠123',
-      content:
-        '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
+      userName: '복순',
+      content: '트리가 너무 이뻐요! 근데 야외라서 꼭 따숩게 입고 가셔야 해요!! 모두 메리클스마스~',
       src: '../../assets/img/image.png',
     },
     {
@@ -51,27 +50,30 @@ const initialState = {
     lng: 127.10499340309457,
     reviews: [
       {
-        userName: '쿠쿠123',
+        userName: '복순',
         content:
-          '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
+          '트리가 너무 이뻐요! 근데 야외라서 꼭 따숩게 입고 가셔야 해요!! 모두 메리클스마스~',
         src: '../../assets/img/image.png',
       },
       {
-        userName: '쿠쿠123',
-        content:
-          '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
+        userName: '쿠쿠',
+        content: '강아지랑 산책하러 가기 좋은 장소에요!',
         src: '../../assets/img/image.png',
       },
       {
-        userName: '쿠쿠123',
-        content:
-          '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
+        userName: '주스',
+        content: '친구들이랑 사진 찍으러 가기 너무 좋아요!',
         src: '../../assets/img/image.png',
       },
       {
-        userName: '쿠쿠123',
+        userName: '에린',
         content:
-          '트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다. 트리에 대한 후기 내용입니다.',
+          '트리 말고도 주변에 놀 곳이 많아서 여기서 사진 찍고 놀고 먹고 너무 좋아요!ㅎㅎ하핫!',
+        src: '../../assets/img/image.png',
+      },
+      {
+        userName: '투니',
+        content: '크리스마스 트리 맛집!! 트리 폼 미쳤다..!',
         src: '../../assets/img/image.png',
       },
     ],
@@ -83,7 +85,7 @@ const treeSlice = createSlice({
   initialState,
   reducers: {
     selectTree: (state, action) => {
-      state.tree = state.trees.filter(({ id }) => id === action.payload.id)
+      state.tree = state.trees.filter(({ id }) => id === action.payload)[0]
     },
   },
 })
@@ -94,6 +96,15 @@ export const selectAllLocation = (state) =>
   state.tree.trees.map(({ lat, lng }) => ({
     lat,
     lng,
+  }))
+
+export const selectAllTrees = (state) =>
+  state.tree.trees.map(({ id, lat, lng, name, address }) => ({
+    id,
+    lat,
+    lng,
+    name,
+    address,
   }))
 
 export default treeSlice.reducer

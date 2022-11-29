@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as BackIcon } from '../../assets/icons/location_icon.svg'
+import { ReactComponent as BackIcon } from '../../../assets/icons/location_icon.svg'
 
-export const LocationButton = () => {
+export const LocationBtn = () => {
   return (
     <Button>
       <BackIcon />
@@ -18,4 +18,6 @@ const Button = styled.button`
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  position: absolute;
+  bottom: 0;
 `
