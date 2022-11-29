@@ -6,7 +6,6 @@ import profileImg from '../../../assets/icons/profile_icon.svg'
 
 export const ReviewContent = () => {
   const { reviews } = useSelector((state) => state.tree.tree)
-  console.log(reviews)
 
   return (
     <S.ReviewItemList>

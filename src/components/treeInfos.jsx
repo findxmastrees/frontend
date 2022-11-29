@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import AddressModal from './addressModal'
-import TreeImages from './treeImages'
+import AddressModal from '../components/common/tree/AddressModal'
+// import TreeImages from '../components/common/TreeImg'
 import { ReactComponent as BookMarkerIcon } from '../assets/icons/bookmarker.svg'
 import { ReactComponent as SharingIcon } from '../assets/icons/sharing.svg'
 import { ReactComponent as ArrowBottom } from '../assets/icons/arrowBottom.svg'
@@ -48,7 +48,7 @@ const TreeInfos = (props) => {
           {/* {.map((image) => (
             <TreeImages>image={image}</TreeImages>
           ))} */}
-          <TreeImages />
+          {/* <TreeImages /> */}
         </TreeImagesBox>
       </Container>
     </>
