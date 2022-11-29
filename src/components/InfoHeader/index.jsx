@@ -6,7 +6,7 @@ const InfoHeader = () => {
   return (
     <Container>
       <BackButton />
-      <HeaderTitle>트리 싱세 정보</HeaderTitle>
+      <HeaderTitle>트리 상세 정보</HeaderTitle>
       <TreeIcon />
     </Container>
   )

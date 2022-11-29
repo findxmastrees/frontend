@@ -7,8 +7,10 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100px;
   border-top: 1px solid #bfbfbf;
-  width: 100%;
+  position: fixed;
+  bottom: 0;
 `
+
 export const Menu = styled.ul`
   /* background-color: lavenderblush; */
   display: flex;
