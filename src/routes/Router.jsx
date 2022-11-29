@@ -1,16 +1,24 @@
 import { Routes, Route } from 'react-router-dom'
+import { Layout } from '../components/Layout'
+import { RequireAuth } from '../components/RequireAuth'
 import { LandingPage, MainPage, MapPage, MyPage, SignIn, TreePage } from '../pages'
+import { SearchPage } from '../pages/SearchPage'
 
 export const Router = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/landing' element={<LandingPage />} />
-        <Route path='/map' element={<MapPage />} />
-        <Route path='/my' element={<MyPage />} />
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/tree' element={<TreePage />} />
+        <Route element={<Layout />}>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/landing' element={<LandingPage />} />
+          <Route path='/map' element={<MapPage />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/tree' element={<TreePage />} />
+          <Route element={<RequireAuth />}>
+            <Route path='/my' element={<MyPage />} />
+          </Route>
+          <Route path='/search' element={<SearchPage />} />
+        </Route>
       </Routes>
     </div>
   )

@@ -1,0 +1,88 @@
+.registerContainer {
+  height: 100%;
+}
+
+.registerContainer .top img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 15px;
+  cursor: pointer;
+}
+
+.mapContainer .registerContainer .bottom {
+  height: fit-content;
+}
+
+.mapContainer .registerContainer .bottom .keywordItem {
+  border: none;
+  cursor: default;
+}
+
+.mapContainer .registerContainer .bottom span {
+  font-size: 14px;
+  padding: 10px 0 5px 10px;
+}
+
+.bottom .detailInput {
+  height: 40px;
+  margin: 0 10px 20px 10px;
+  padding-left: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+}
+
+.registerContainer .locate .input {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 0 15px 0 15px;
+  box-sizing: border-box;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.registerContainer .locate .input.gps {
+  justify-content: flex-start;
+}
+
+.registerContainer .locate .input.gps img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.registerContainer .locate .input.gps img:last-child {
+  margin-left: auto;
+  width: 15px;
+  height: 15px;
+}
+
+.registerContainer .btnContainer {
+  width: 100%;
+}
+
+.registerContainer .button {
+  height: 45px;
+  border: 1px solid #eaeaea;
+  background-color: white;
+  border-radius: 10px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.registerContainer #map {
+  width: 100%;
+  height: 100%;
+}
+
+.registerContainer #map .button {
+  z-index: 100;
+  width: 40%;
+  position: absolute;
+  bottom: 150px;
+  right: 10px;
+}
