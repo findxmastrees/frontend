@@ -3,9 +3,10 @@ import * as S from './style'
 import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
 import ToastAlert from '../../components/common/ToastAlert'
+import { LocationBtn } from '../../components/common/LocationBtn/LocationButton'
 import TreeInfos from '../../components/treeInfos'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectAllLocation, selectTree } from '../../store/slices/treeSlice'
+import { selectAllTrees, selectTree } from '../../store/slices/treeSlice'
 import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
 
@@ -13,7 +14,10 @@ export const MainPage = () => {
   const { kakao } = window
 
   const dispatch = useDispatch()
-  const trees = useSelector(selectAllLocation)
+  const trees = useSelector(selectAllTrees)
+
+  const [isClick, setIsClick] = useState(false)
+
   const [_map, setMap] = useState()
   const container = useRef(null)
   const [IsRoadName, setIsRoadName] = useState()
@@ -44,7 +48,7 @@ export const MainPage = () => {
     const markerSize = new kakao.maps.Size(40, 50)
     const basicImage = new kakao.maps.MarkerImage(treeImage, markerSize)
 
-    trees.forEach(({ lat, lng }) => {
+    trees.forEach(({ id, lat, lng, name, address }) => {
       const markerPosition = new kakao.maps.LatLng(lat, lng)
 
       let marker = new kakao.maps.Marker({
@@ -63,6 +67,9 @@ export const MainPage = () => {
           marker.setImage(new kakao.maps.MarkerImage(treeClicked, markerSize))
         }
         selectedMarker = marker
+        setIsClick(true)
+
+        dispatch(selectTree(id))
       })
     })
 
@@ -71,9 +78,13 @@ export const MainPage = () => {
 
   return (
     <S.Container ref={container}>
-      <MainSearch onClick={() => dispatch(selectTree)} />
+      <MainSearch />
       <S.InfoSection>
-        <ZoomButton map={_map} />
+        <S.ButtonWrapper>
+          <LocationBtn />
+          <ZoomButton map={_map} />
+        </S.ButtonWrapper>
+        {isClick && <TreeInfos />}
       </S.InfoSection>
       <TreeInfos setIsRoadName={setIsRoadName} setCopiedAlert={setCopiedAlert} />
       {copiedAlert && <ToastAlert setCopiedAlert={setCopiedAlert} IsRoadName={IsRoadName} />}
