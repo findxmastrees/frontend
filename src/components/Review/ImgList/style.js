@@ -12,14 +12,10 @@ export const ImgItems = styled.ul`
   padding: 14px 24px;
 `
 
-export const ButtonWrapper = styled.div`
-  width: 100%;
-  padding: 0 24px;
-`
-
 export const MoreButton = styled.button`
-  width: 100%;
+  width: calc(100% - 48px);
   padding: 11px 0;
+  margin-bottom: 16px;
   background-color: #f4f4f4;
   border: none;
   border-radius: 5px;

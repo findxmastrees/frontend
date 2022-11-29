@@ -1,10 +1,8 @@
 import React, { useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
 import * as S from './style.js'
 import markerImg from '../../assets/icons/redmarker.svg'
 
-export const MapImage = () => {
-  const { lat, lng } = useSelector((state) => state.tree.tree)
+export const MapImage = ({ lat, lng }) => {
   const container = useRef(null)
 
   useEffect(() => {
