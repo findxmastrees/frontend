@@ -78,7 +78,7 @@ export const MainPage = () => {
 
   return (
     <S.Container ref={container}>
-      <MainSearch />
+      <MainSearch onClick={() => dispatch(selectTree)} />
       <S.InfoSection>
         <S.ButtonWrapper>
           <LocationBtn />
