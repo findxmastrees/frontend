@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import * as S from './style'
 
-export const SharingModal = ({ setIsClicked, currentUrl }) => {
-  const url = `${currentUrl}${'어쩌고저쩌고'}`
+export const SharingModal = ({ setIsClicked }) => {
+  const currentUrl = window.location.href
 
   useEffect(() => {
     createKakaoButton()
@@ -67,13 +67,12 @@ export const SharingModal = ({ setIsClicked, currentUrl }) => {
   //   const sharedLink = encodeURIComponent(url)
   //   window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`)
   // }
-
   return (
     <S.Container>
       {/* <S.Btn id='kakao-link-btn'>카카오톡으로 공유하기</S.Btn> */}
       {/* <S.Btn onClick={handleShareToFb}>페이스북으로 공유하기</S.Btn>
       <S.Btn onClick={handleShareToTwitter}>트위터로 공유하기</S.Btn> */}
-      <CopyToClipboard text={url}>
+      <CopyToClipboard text={currentUrl}>
         <S.Btn>URL 복사하기</S.Btn>
       </CopyToClipboard>
       <S.CancelBtn onClick={() => setIsClicked(false)}>취소</S.CancelBtn>
