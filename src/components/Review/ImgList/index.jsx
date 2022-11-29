@@ -14,9 +14,8 @@ export const ImgList = () => {
           <ReviewImg key={i} />
         ))}
       </S.ImgItems>
-      <S.ButtonWrapper>
-        <S.MoreButton>방문자 사진 더보기</S.MoreButton>
-      </S.ButtonWrapper>
+
+      <S.MoreButton>방문자 사진 더보기</S.MoreButton>
     </S.ImgSection>
   )
 }
