@@ -27,7 +27,6 @@ export const TreeNames = ({
   return (
     <>
       {' '}
-      {IsModalClick && <AddressModal address={address} lotNumber={lotNumber} />}
       <ClickBox>
         <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
@@ -47,6 +46,7 @@ export const TreeNames = ({
         <Location>15m</Location>
         <Address>{address}</Address>
         <AddressArrow onClick={onModal}>{IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}</AddressArrow>
+        {IsModalClick && <AddressModal address={address} lotNumber={lotNumber} />}
       </AddressBox>
     </>
   )
@@ -92,6 +92,7 @@ export const IconTitle = styled.span`
 `
 
 export const AddressBox = styled.article`
+  position: relative;
   margin: 0 0 0 22px;
   padding-bottom: 13px;
 `

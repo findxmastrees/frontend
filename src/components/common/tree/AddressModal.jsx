@@ -60,9 +60,7 @@ export const AddressModal = ({ address, lotNumber }) => {
 
 const Container = styled.article`
   position: absolute;
-  top: 90px;
-  left: 24.5px;
-  width: 328.99px;
+  width: 330px;
   height: 90px;
   background: #ffffff;
   border: 0.5px solid gray;
