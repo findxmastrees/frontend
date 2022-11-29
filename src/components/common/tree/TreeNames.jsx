@@ -86,6 +86,7 @@ export const IconTitle = styled.span`
 
 export const AddressBox = styled.article`
   margin: 0 0 0 22px;
+  padding-bottom: 13px;
 `
 
 export const Location = styled.span`
