@@ -31,13 +31,17 @@ export const TreeNames = ({
       <ClickBox>
         <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
-          <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
-            {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
-          </Bookmark>
-          <IconTitle>저장됨</IconTitle>
-        </IconBox>
-        <IconBox>
-          <SharingButton currentUrl={currentUrl} />
+          <BookmarkBox>
+            <Bookmark
+              onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}
+            >
+              {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
+            </Bookmark>
+            <IconTitle>저장됨</IconTitle>
+          </BookmarkBox>
+          <SharingBox>
+            <SharingButton currentUrl={currentUrl} />
+          </SharingBox>
         </IconBox>
       </ClickBox>
       <AddressBox>
@@ -68,6 +72,11 @@ export const Title = styled.div`
 // 저장됨, 공유
 export const IconBox = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 72px;
+`
+export const BookmarkBox = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 18px;
@@ -87,6 +96,13 @@ export const IconTitle = styled.span`
   font-weight: 300;
   font-size: 10px;
   margin-top: 5px;
+`
+
+export const SharingBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
 `
 
 export const AddressBox = styled.article`

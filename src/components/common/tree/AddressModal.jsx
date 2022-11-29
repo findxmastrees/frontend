@@ -69,11 +69,10 @@ const Container = styled.article`
   font-size: 12px;
   line-height: 20px;
 `
-
 const AdBox = styled.div`
   display: flex;
   align-items: flex-start;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 `
 const RoadNameBtn = styled.button`
   height: 21px;
