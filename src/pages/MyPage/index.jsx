@@ -5,7 +5,9 @@ import { useSelector } from 'react-redux'
 
 export const MyPage = () => {
   const { email, displayName } = useSelector((store) => store.auth)
-
+  const betaAlert = () => {
+    alert('트리에 불을 밝히는 중이에요! 조금만 기다려주세요!')
+  }
   return (
     <div>
       <S.Wrapper>
@@ -35,11 +37,11 @@ export const MyPage = () => {
           </S.MyWrapper>
         </S.User>
         <S.Menu>
-          <li>문의하기 / 신고하기</li>
-          <li>이용약관</li>
-          <li>개인정보처리방침</li>
-          <li>로그아웃</li>
-          <li>탈퇴하기</li>
+          <li onClick={betaAlert}>문의하기 / 신고하기</li>
+          <li onClick={betaAlert}>이용약관</li>
+          <li onClick={betaAlert}>개인정보처리방침</li>
+          <li onClick={betaAlert}>로그아웃</li>
+          <li onClick={betaAlert}>탈퇴하기</li>
         </S.Menu>
       </S.Wrapper>
       {/* <NavBar /> */}
