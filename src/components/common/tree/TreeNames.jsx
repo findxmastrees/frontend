@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
 import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom.svg'
@@ -8,8 +9,6 @@ import { SharingButton } from '../Sharing/SharingButton'
 
 export const TreeNames = ({
   email,
-  name,
-  address,
   goToTreePage, // 트리 페이지로
   setBookMarking, // 북마크
   IsBookMarking, // 북마크
@@ -18,6 +17,8 @@ export const TreeNames = ({
   currentUrl,
 }) => {
   const navigate = useNavigate()
+
+  const { name, address } = useSelector((store) => store.tree.tree)
 
   return (
     <>
