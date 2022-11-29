@@ -121,6 +121,7 @@ export const Menu = styled.ul`
     display: flex;
     align-items: center;
     padding-left: 40px;
+    cursor: pointer;
     :nth-child(4) {
       color: #9c9c9c;
     }

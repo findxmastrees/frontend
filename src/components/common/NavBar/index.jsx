@@ -14,16 +14,15 @@ import { ReactComponent as List1 } from '../../../assets/icons/nav_treelist01.sv
 import { ReactComponent as My1 } from '../../../assets/icons/nav_my01.svg'
 
 export const NavBar = () => {
-  const activeStyle = {
-    color: 'red',
-    backgroundColor: 'blue',
-  }
   const location = useLocation().pathname
+  const betaAlert = () => {
+    alert('트리에 불을 밝히고 있어요! 불이 켜지길 기다려주세요!')
+  }
 
   return (
     <S.Wrapper>
       <S.Menu>
-        <S.MenuWrap style={({ isActive }) => (isActive ? activeStyle : {})} to='/'>
+        <S.MenuWrap to='/'>
           <div>{location === '/' ? <Home1 /> : <Home />}</div>
           <li>홈</li>
         </S.MenuWrap>
@@ -31,9 +30,12 @@ export const NavBar = () => {
           <div>{location === '/map' ? <Register1 /> : <Register />}</div>
           <li>트리 등록하기</li>
         </S.MenuWrap>
-        <S.MenuWrap to='/my'>
-          {/* 저장한 트리 페이지 라우터가 없어서 임시로 마이페이지로 링크합니다 */}
-          <div>{location === '/my' ? <List1 /> : <List />}</div>
+        <S.MenuWrap>
+          {/* 저장한 트리 페이지 라우터가 없어서 임시로 마이페이지로 링크합니다
+          <div>{location === '/my' ? <List1 /> : <List />}</div> */}
+          <div>
+            <List onClick={betaAlert} />
+          </div>
           <li>저장한 트리</li>
         </S.MenuWrap>
         <S.MenuWrap to='/my'>

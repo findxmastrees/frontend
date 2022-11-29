@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
@@ -73,7 +74,7 @@ const Container = styled.article`
 const AdBox = styled.div`
   display: flex;
   align-items: flex-start;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 `
 const RoadNameBtn = styled.button`
   height: 21px;
@@ -98,10 +99,6 @@ const LotNumberBtn = styled.button`
   background: transparent;
   border: 1px solid #e1e1e1;
 `
-
-const RoadName = styled.div``
-
-const LotNumber = styled.div``
 
 const AddressIcon = styled(AddressCopy)`
   cursor: pointer;

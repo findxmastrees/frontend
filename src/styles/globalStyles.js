@@ -26,6 +26,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ddd;
+  background-image: url('https://user-images.githubusercontent.com/91241596/204526640-4b898487-af4b-4304-ab6f-e24ba0f0ba7a.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 li {
@@ -38,5 +43,18 @@ a {
 
 button {
   cursor: pointer;
+}
+
+@media screen and (max-width: 1250px) {
+  body {
+    background-image: url('https://user-images.githubusercontent.com/91241596/204527149-b54074f2-7553-4afa-9685-308569a3ebad.png');
+  }
+}
+
+@media screen and (max-width: 850px) {
+  body {
+    background-image: unset;
+    background-color: #dddfe2;
+  }
 }
 `
