@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
+import useKakaoSharing from '../../hooks/useKakaoSharing'
 import { Container } from './style'
 
 export const Layout = () => {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+    script.async = true
+
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
+  useKakaoSharing('https://developers.kakao.com/sdk/js/kakao.js')
+
   return (
     <Container>
       <Outlet />

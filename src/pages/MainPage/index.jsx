@@ -7,12 +7,13 @@ import TreeInfos from '../../components/TreeInfos/index'
 import ToastAlert from '../../components/common/ToastAlert'
 
 export const MainPage = () => {
-  const { uid } = useSelector((store) => store.auth)
+  const { email } = useSelector((store) => store.auth)
 
   const [_map, setMap] = useState()
   const container = useRef(null)
   const [IsRoadName, setIsRoadName] = useState()
-  let [copiedAlert, setCopiedAlert] = useState(false)
+  const [adcopiedAlert, setAdCopiedAlert] = useState(false)
+  const [urlcopiedAlert, setUrlCopiedAlert] = useState(false)
 
   // const [latLng, setLatLng] = useState({
   //   lat: 33.450701,
@@ -33,8 +34,11 @@ export const MainPage = () => {
       <S.InfoSection>
         <ZoomButton map={_map} />
       </S.InfoSection>
-      <TreeInfos uid={uid} setIsRoadName={setIsRoadName} setCopiedAlert={setCopiedAlert} />
-      {copiedAlert && <ToastAlert setCopiedAlert={setCopiedAlert} IsRoadName={IsRoadName} />}
+      <TreeInfos email={email} setIsRoadName={setIsRoadName} setAdCopiedAlert={setAdCopiedAlert} />
+      {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
+      {urlcopiedAlert && (
+        <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
+      )}
     </S.Container>
   )
 }
