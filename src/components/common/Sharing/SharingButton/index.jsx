@@ -9,7 +9,8 @@ export const SharingButton = ({ currentUrl }) => {
   return (
     <>
       {IsClicked && <SharingModal currentUrl={currentUrl} setIsClicked={setIsClicked} />}
-      <S.Share onClick={() => setIsClicked(true)}>
+      {/* <S.Share onClick={() => setIsClicked(true)}> */}
+      <S.Share>
         <SharingIcon />
       </S.Share>
       <S.IconTitle>공유</S.IconTitle>

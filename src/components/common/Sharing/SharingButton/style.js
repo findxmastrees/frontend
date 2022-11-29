@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-// export const Container = styled.section`
-//   position: fixed;
-//   width: 392px;
-//   height: 250px;
-//   background: #fffff;
-// `
 export const Share = styled.button`
   width: 25px;
   height: 24px;
