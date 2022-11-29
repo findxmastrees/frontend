@@ -4,12 +4,9 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Wrapper = styled.div`
   background-color: #fff;
-  max-width: 420px;
+  width: 100%;
   height: 100px;
   border-top: 1px solid #bfbfbf;
-  margin: 0 auto;
-  position: relative;
-  bottom: 100px;
   width: 100%;
 `
 export const Menu = styled.ul`
