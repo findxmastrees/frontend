@@ -8,7 +8,6 @@ const arr = Array.from({ length: 3 }, (_, i) => i)
 
 export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
   const navigate = useNavigate()
-  const currentUrl = window.location.href
 
   const goToTreePage = () => {
     navigate('/tree')
@@ -22,7 +21,6 @@ export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
           goToTreePage={goToTreePage}
           setIsRoadName={setIsRoadName}
           setAdCopiedAlert={setAdCopiedAlert}
-          currentUrl={currentUrl}
         />
         <S.ImgSection goToTreePage={goToTreePage}>
           {/* {.map((image) => (

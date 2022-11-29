@@ -4,8 +4,8 @@ export const Container = styled.section`
   position: absolute;
   width: 280px;
   height: 80px;
-  bottom: 40px;
-  right: 50px;
+  right: 10px;
+  margin-top: 45px;
   background: black;
   opacity: 90%;
   z-index: 555;
