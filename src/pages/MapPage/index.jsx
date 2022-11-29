@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import InfoHeader from '../../components/InfoHeader'
+// import InfoHeader from '../../components/InfoHeader'
 
 // Component
 import { RegisterLocation } from './Component/RegisterLocation'
@@ -50,7 +50,7 @@ export const MapPage = () => {
 
   return (
     <>
-      <InfoHeader />
+      {/*<InfoHeader />*/}
       <div className={'mapContainer'}>
         {page === 'main' ? (
           <>
