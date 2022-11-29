@@ -55,7 +55,7 @@ export const MainPage = () => {
     const markerSize = new kakao.maps.Size(40, 50)
     const basicImage = new kakao.maps.MarkerImage(treeImage, markerSize)
 
-    trees.forEach(({ id, lat, lng, name, address }) => {
+    trees.forEach(({ id, lat, lng }) => {
       const markerPosition = new kakao.maps.LatLng(lat, lng)
 
       let marker = new kakao.maps.Marker({

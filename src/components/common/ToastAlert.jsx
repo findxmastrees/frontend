@@ -21,7 +21,7 @@ const ToastAlert = ({ setUrlCopiedAlert, setAdCopiedAlert, IsRoadName }) => {
   //     clearTimeout(urlTimer)
   //   }
   // }, [])
-  console.log(setUrlCopiedAlert)
+  // console.log(setUrlCopiedAlert)
 
   return (
     <>

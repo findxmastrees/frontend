@@ -100,7 +100,11 @@ export const MapPage = () => {
           <RegisterLocation location={selectLocation} setPage={setPage} />
         ) : null}
         {page === 'map' ? (
-          <Map location={selectLocation} setSelectedLocation={setSelectedLocation} setPage={setPage} />
+          <Map
+            location={selectLocation}
+            setSelectedLocation={setSelectedLocation}
+            setPage={setPage}
+          />
         ) : null}
       </div>
     </>
