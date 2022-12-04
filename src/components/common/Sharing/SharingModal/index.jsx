@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import * as S from './style'
+import { showShareModal } from '../../../../store/slices/modalSlice'
 
-export const SharingModal = ({ setIsClicked }) => {
+export const SharingModal = () => {
   const currentUrl = window.location.href
+  const dispatch = useDispatch()
 
   useEffect(() => {
     createKakaoButton()
@@ -75,7 +78,7 @@ export const SharingModal = ({ setIsClicked }) => {
       <CopyToClipboard text={currentUrl}>
         <S.Btn>URL 복사하기</S.Btn>
       </CopyToClipboard>
-      <S.CancelBtn onClick={() => setIsClicked(false)}>취소</S.CancelBtn>
+      <S.CancelBtn onClick={() => dispatch(showShareModal())}>취소</S.CancelBtn>
     </S.Container>
   )
 }

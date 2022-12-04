@@ -22,7 +22,7 @@ export const AddressModal = ({ address, lotNumber }) => {
       <Container>
         <AdBox>
           <RoadNameBtn>도로명</RoadNameBtn>
-          <RoadName>
+          <div>
             {address}
             <AddressIcon
               onClick={() =>
@@ -33,11 +33,11 @@ export const AddressModal = ({ address, lotNumber }) => {
                 )
               }
             />
-          </RoadName>
+          </div>
         </AdBox>
         <AdBox>
           <LotNumberBtn>지번</LotNumberBtn>
-          <LotNumber>
+          <div>
             {lotNumber}
             <AddressIcon
               onClick={() =>
@@ -48,7 +48,7 @@ export const AddressModal = ({ address, lotNumber }) => {
                 )
               }
             />
-          </LotNumber>
+          </div>
         </AdBox>
       </Container>
       {/* {adCopiedAlert && (
@@ -65,10 +65,11 @@ const Container = styled.article`
   background: #ffffff;
   border: 1px solid #e1e1e1;
   padding: 10px;
-  z-index: 200;
+  z-index: 10;
   font-size: 12px;
   line-height: 20px;
 `
+
 const AdBox = styled.div`
   display: flex;
   align-items: flex-start;
@@ -97,10 +98,6 @@ const LotNumberBtn = styled.button`
   background: transparent;
   border: 1px solid #e1e1e1;
 `
-
-const RoadName = styled.div``
-
-const LotNumber = styled.div``
 
 const AddressIcon = styled(AddressCopy)`
   cursor: pointer;

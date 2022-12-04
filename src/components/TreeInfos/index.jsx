@@ -6,7 +6,7 @@ import { TreeNames } from '../common/Tree/TreeNames'
 
 const arr = Array.from({ length: 3 }, (_, i) => i)
 
-export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
+export const TreeInfos = () => {
   const navigate = useNavigate()
 
   const goToTreePage = () => {
@@ -16,12 +16,7 @@ export const TreeInfos = ({ email, setIsRoadName, setAdCopiedAlert }) => {
   return (
     <>
       <S.Container>
-        <TreeNames
-          email={email}
-          goToTreePage={goToTreePage}
-          setIsRoadName={setIsRoadName}
-          setAdCopiedAlert={setAdCopiedAlert}
-        />
+        <TreeNames goToTreePage={goToTreePage} />
         <S.ImgSection goToTreePage={goToTreePage}>
           {/* {.map((image) => (
             <TreeImages>image={image}</TreeImages>

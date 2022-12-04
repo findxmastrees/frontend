@@ -1,55 +1,64 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
 import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom.svg'
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
 import { SharingButton } from '../Sharing/SharingButton'
 import { AddressModal } from '../Tree/AddressModal'
+import { showAddressModal } from '../../../store/slices/modalSlice'
 
 export const TreeNames = ({
   goToTreePage, // 트리 페이지로
-  currentUrl,
 }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
+
   const { email } = useSelector((store) => store.auth)
+  const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
+  const adModal = useSelector((state) => state.modal.addressShow)
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
-  const [IsModalClick, setModalClick] = useState(false)
   const [IsBookMarking, setBookMarking] = useState(false)
 
   const onModal = () => {
-    setModalClick(!IsModalClick)
     setArrowBtn(!IsArrowBtn)
+    if (!adModal) {
+      dispatch(showAddressModal())
+    } else {
+      dispatch(showAddressModal())
+    }
   }
 
   return (
     <>
-      {' '}
-      <ClickBox>
-        <Title onClick={goToTreePage}>{name}</Title>
-        <IconBox>
-          <BookmarkBox>
-            <Bookmark
-              onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}
-            >
-              {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
-            </Bookmark>
-            <IconTitle>저장됨</IconTitle>
-          </BookmarkBox>
-          <SharingBox>
-            <SharingButton currentUrl={currentUrl} />
-          </SharingBox>
-        </IconBox>
-      </ClickBox>
-      <AddressBox>
-        <Location>15m</Location>
-        <Address>{address}</Address>
-        <AddressArrow onClick={onModal}>{IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}</AddressArrow>
-        {IsModalClick && <AddressModal address={address} lotNumber={lotNumber} />}
-      </AddressBox>
+      <div>
+        <ClickBox>
+          <Title onClick={goToTreePage}>{name}</Title>
+          <IconBox>
+            <BookmarkBox>
+              <Bookmark
+                onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}
+              >
+                {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
+              </Bookmark>
+              <IconTitle>저장됨</IconTitle>
+            </BookmarkBox>
+            <SharingBox>
+              <SharingButton />
+            </SharingBox>
+          </IconBox>
+        </ClickBox>
+        <AddressBox>
+          <Location>15m</Location>
+          <Address>{address}</Address>
+          <AddressArrow onClick={onModal}>
+            {IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}
+          </AddressArrow>
+          {adModal && <AddressModal address={address} lotNumber={lotNumber} />}
+        </AddressBox>
+      </div>
     </>
   )
 }
