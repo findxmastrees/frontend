@@ -51,6 +51,7 @@ export const AddressModal = ({ address, lotNumber }) => {
           </div>
         </AdBox>
       </Container>
+
       {/* {adCopiedAlert && (
         <ToastAlert adCopiedAlert={adCopiedAlert} setWhichAd={setWhichAd} whichAd={whichAd} />
       )} */}
@@ -65,7 +66,7 @@ const Container = styled.article`
   background: #ffffff;
   border: 1px solid #e1e1e1;
   padding: 10px;
-  z-index: 10;
+  z-index: 100;
   font-size: 12px;
   line-height: 20px;
 `
@@ -85,6 +86,7 @@ const RoadNameBtn = styled.button`
   margin-right: 7px;
   background: transparent;
   border: 1px solid #e1e1e1;
+  cursor: initial;
 `
 
 const LotNumberBtn = styled.button`
@@ -97,10 +99,12 @@ const LotNumberBtn = styled.button`
   font-size: 12px;
   background: transparent;
   border: 1px solid #e1e1e1;
+  cursor: initial;
 `
 
 const AddressIcon = styled(AddressCopy)`
   cursor: pointer;
   margin-left: 3px;
 `
+
 export default AddressModal

@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { SharingModal } from '../SharingModal'
 import * as S from './style'
 import { ReactComponent as SharingIcon } from '../../../../assets/icons/sharing.svg'
 import { showShareModal } from '../../../../store/slices/modalSlice'
 
-export const SharingButton = () => {
+export const SharingButton = ({ shareModal }) => {
   const dispatch = useDispatch()
-  const shareModal = useSelector((state) => state.modal.shareShow)
 
   const onModal = () => {
     if (!shareModal) {

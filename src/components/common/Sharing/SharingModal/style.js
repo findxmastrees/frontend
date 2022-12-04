@@ -8,7 +8,7 @@ export const Container = styled.section`
   margin-top: 45px;
   background: #ffffff;
   opacity: 90%;
-  z-index: 555;
+  z-index: 100;
   border-radius: 5px;
   border: 1px solid #e1e1e1;
   cursor: pointer;

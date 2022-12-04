@@ -7,7 +7,7 @@ import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom
 import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
 import { SharingButton } from '../Sharing/SharingButton'
 import { AddressModal } from '../Tree/AddressModal'
-import { showAddressModal } from '../../../store/slices/modalSlice'
+import { showAddressModal, showShareModal } from '../../../store/slices/modalSlice'
 
 export const TreeNames = ({
   goToTreePage, // 트리 페이지로
@@ -18,6 +18,7 @@ export const TreeNames = ({
   const { email } = useSelector((store) => store.auth)
   const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
   const adModal = useSelector((state) => state.modal.addressShow)
+  const shareModal = useSelector((state) => state.modal.shareShow)
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
   const [IsBookMarking, setBookMarking] = useState(false)
@@ -46,7 +47,7 @@ export const TreeNames = ({
               <IconTitle>저장됨</IconTitle>
             </BookmarkBox>
             <SharingBox>
-              <SharingButton />
+              <SharingButton shareModal={shareModal} />
             </SharingBox>
           </IconBox>
         </ClickBox>
@@ -59,6 +60,8 @@ export const TreeNames = ({
           {adModal && <AddressModal address={address} lotNumber={lotNumber} />}
         </AddressBox>
       </div>
+      {adModal && <Overlay onClick={() => dispatch(showAddressModal())} />}
+      {shareModal && <Overlay onClick={() => dispatch(showShareModal())} />}
     </>
   )
 }
@@ -148,4 +151,14 @@ export const AddressArrow = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
+`
+export const Overlay = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  z-index: 5;
 `

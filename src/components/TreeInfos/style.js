@@ -6,7 +6,7 @@ export const Container = styled.article`
   background: #ffffff;
   box-shadow: 0px -4px 4px rgb(0 0 0 / 5%);
   border-radius: 10px;
-  z-index: 100;
+  z-index: 3;
 `
 
 export const ImgSection = styled.section`
