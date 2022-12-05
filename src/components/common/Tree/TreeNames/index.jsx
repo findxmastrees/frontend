@@ -1,27 +1,23 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { showAddressModal, showShareModal } from '../../../../store/slices/modalSlice'
+import { AddressModal } from '../AddressModal/index'
+import { SharingButton } from '../../Sharing/SharingButton'
+import { BookmarkButton } from '../../BookMark'
 import styled from 'styled-components'
-import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
-import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom.svg'
-import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
-import { SharingButton } from '../Sharing/SharingButton'
-import { AddressModal } from '../Tree/AddressModal'
-import { showAddressModal, showShareModal } from '../../../store/slices/modalSlice'
+import { ReactComponent as ArrowBottom } from '../../../../assets/icons/arrowBottom.svg'
+import { ReactComponent as ArrowUp } from '../../../../assets/icons/arrowUp.svg'
 
 export const TreeNames = ({
   goToTreePage, // 트리 페이지로
 }) => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
-  const { email } = useSelector((store) => store.auth)
   const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
   const adModal = useSelector((state) => state.modal.addressShow)
   const shareModal = useSelector((state) => state.modal.shareShow)
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
-  const [IsBookMarking, setBookMarking] = useState(false)
 
   const onModal = () => {
     setArrowBtn(!IsArrowBtn)
@@ -39,12 +35,7 @@ export const TreeNames = ({
           <Title onClick={goToTreePage}>{name}</Title>
           <IconBox>
             <BookmarkBox>
-              <Bookmark
-                onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}
-              >
-                {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
-              </Bookmark>
-              <IconTitle>저장됨</IconTitle>
+              <BookmarkButton />
             </BookmarkBox>
             <SharingBox>
               <SharingButton shareModal={shareModal} />
@@ -92,22 +83,6 @@ export const BookmarkBox = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 18px;
-`
-
-export const Bookmark = styled.button`
-  width: 25px;
-  height: 24px;
-  background: #ffffff;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`
-
-export const IconTitle = styled.span`
-  font-size: #2c2c2c;
-  font-weight: 300;
-  font-size: 10px;
-  margin-top: 5px;
 `
 
 export const SharingBox = styled.div`

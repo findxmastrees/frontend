@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
+import { ReactComponent as AddressCopy } from '../../../../assets/icons/addressCopy.svg'
 // import ToastAlert from '../ToastAlert'
 
 export const AddressModal = ({ address, lotNumber }) => {
@@ -61,7 +61,7 @@ export const AddressModal = ({ address, lotNumber }) => {
 
 const Container = styled.article`
   position: absolute;
-  width: 330px;
+  width: 332px;
   height: 90px;
   background: #ffffff;
   border: 1px solid #e1e1e1;
