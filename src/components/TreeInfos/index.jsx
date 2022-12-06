@@ -17,11 +17,11 @@ export const TreeInfos = () => {
     <>
       <S.Container>
         <TreeNames goToTreePage={goToTreePage} />
-        <S.ImgSection goToTreePage={goToTreePage}>
+        <S.ImgSection>
           {/* {.map((image) => (
             <TreeImages>image={image}</TreeImages>
           ))} */}
-          <S.ImgItems>
+          <S.ImgItems onClick={goToTreePage}>
             {arr.map((_, i) => (
               <ReviewImg key={i} />
             ))}

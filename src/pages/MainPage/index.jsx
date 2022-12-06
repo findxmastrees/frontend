@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import * as S from './style'
 import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
-// import ToastAlert from '../../components/common/ToastAlert'
 import { LocationBtn } from '../../components/common/LocationBtn/LocationButton'
 import { TreeInfos } from '../../components/TreeInfos/index'
 import { selectAllTrees, selectTree } from '../../store/slices/treeSlice'
@@ -20,9 +19,6 @@ export const MainPage = () => {
 
   const [_map, setMap] = useState()
   const container = useRef(null)
-  // const [IsRoadName, setIsRoadName] = useState()
-  // const [adcopiedAlert, setAdCopiedAlert] = useState(false)
-  // const [urlcopiedAlert, setUrlCopiedAlert] = useState(false)
 
   // const [latLng, setLatLng] = useState({
   //   lat: 33.450701,
@@ -92,11 +88,6 @@ export const MainPage = () => {
         </S.ButtonWrapper>
         {isClick && <TreeInfos />}
       </S.InfoSection>
-
-      {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
-      {urlcopiedAlert && (
-        <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
-      )} */}
     </S.Container>
   )
 }

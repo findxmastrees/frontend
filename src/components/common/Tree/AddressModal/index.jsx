@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as AddressCopy } from '../../../../assets/icons/addressCopy.svg'
-// import ToastAlert from '../ToastAlert'
+import ToastAlert from '../../../common/ToastAlert/index'
 
 export const AddressModal = ({ address, lotNumber }) => {
   const handleCopyClipBoard = async (text) => {
@@ -13,9 +13,7 @@ export const AddressModal = ({ address, lotNumber }) => {
     }
   }
 
-  // toast alert
-  // const [whichAd, setWhichAd] = useState('')
-  // const [adCopiedAlert, setAdCopiedAlert] = useState(false)
+  const [adCopiedAlert, setAdCopiedAlert] = useState(false)
 
   return (
     <>
@@ -26,11 +24,7 @@ export const AddressModal = ({ address, lotNumber }) => {
             {address}
             <AddressIcon
               onClick={() =>
-                handleCopyClipBoard(
-                  Object.values({ address })[0],
-                  // setWhichAd('RoadName'),
-                  // setAdCopiedAlert(true),
-                )
+                handleCopyClipBoard(Object.values({ address })[0], setAdCopiedAlert(true))
               }
             />
           </div>
@@ -41,27 +35,21 @@ export const AddressModal = ({ address, lotNumber }) => {
             {lotNumber}
             <AddressIcon
               onClick={() =>
-                handleCopyClipBoard(
-                  Object.values({ lotNumber })[0],
-                  // setWhichAd('lotNumber'),
-                  // setAdCopiedAlert(true),
-                )
+                handleCopyClipBoard(Object.values({ lotNumber })[0], setAdCopiedAlert(true))
               }
             />
           </div>
         </AdBox>
       </Container>
 
-      {/* {adCopiedAlert && (
-        <ToastAlert adCopiedAlert={adCopiedAlert} setWhichAd={setWhichAd} whichAd={whichAd} />
-      )} */}
+      {adCopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} />}
     </>
   )
 }
 
 const Container = styled.article`
   position: absolute;
-  width: 332px;
+  width: calc(100% - 22px);
   height: 90px;
   background: #ffffff;
   border: 1px solid #e1e1e1;
