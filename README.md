@@ -30,4 +30,4 @@
 ![PRETTIER](https://img.shields.io/badge/Prettier-ededed?style=for-the-badge&logo=Prettier&logoColor=F7B93E)
 ![ESLINT](https://img.shields.io/badge/ESLint-ededed?style=for-the-badge&logo=ESLint&logoColor=4B32C3)
 ![NETLIFY](https://img.shields.io/badge/Netlify-ededed?style=for-the-badge&logo=Netlify&logoColor=00C7B7)
-
+++ RTK QUERY 
