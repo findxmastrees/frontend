@@ -5,6 +5,7 @@ export const ImgWrapper = styled.li`
   padding-top: 100%;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 `
 
 export const Image = styled.img`

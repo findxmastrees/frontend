@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { showAddressModal, showShareModal } from '../../../../store/slices/modalSlice'
+import { useSelector } from 'react-redux'
 import { AddressModal } from '../AddressModal/index'
 import { SharingButton } from '../../Sharing/SharingButton'
 import { BookmarkButton } from '../../BookMark'
@@ -11,21 +10,15 @@ import { ReactComponent as ArrowUp } from '../../../../assets/icons/arrowUp.svg'
 export const TreeNames = ({
   goToTreePage, // 트리 페이지로
 }) => {
-  const dispatch = useDispatch()
-
   const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
-  const adModal = useSelector((state) => state.modal.addressShow)
-  const shareModal = useSelector((state) => state.modal.shareShow)
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
+  const [IsOpenShareModal, setOpenShareModal] = useState(false)
+  const [IsOpenAdModal, setOpenAdModal] = useState(false)
 
-  const onModal = () => {
+  const onAdModal = () => {
     setArrowBtn(!IsArrowBtn)
-    if (!adModal) {
-      dispatch(showAddressModal())
-    } else {
-      dispatch(showAddressModal())
-    }
+    setOpenAdModal(!IsOpenAdModal)
   }
 
   return (
@@ -38,21 +31,24 @@ export const TreeNames = ({
               <BookmarkButton />
             </BookmarkBox>
             <SharingBox>
-              <SharingButton shareModal={shareModal} />
+              <SharingButton
+                IsOpenShareModal={IsOpenShareModal}
+                setOpenShareModal={setOpenShareModal}
+              />
             </SharingBox>
           </IconBox>
         </ClickBox>
         <AddressBox>
           <Location>15m</Location>
           <Address>{address}</Address>
-          <AddressArrow onClick={onModal}>
+          <AddressArrow onClick={onAdModal}>
             {IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}
           </AddressArrow>
-          {adModal && <AddressModal address={address} lotNumber={lotNumber} />}
+          {IsOpenAdModal && <AddressModal address={address} lotNumber={lotNumber} />}
         </AddressBox>
       </div>
-      {adModal && <Overlay onClick={() => dispatch(showAddressModal())} />}
-      {shareModal && <Overlay onClick={() => dispatch(showShareModal())} />}
+      {IsOpenAdModal && <Overlay onClick={onAdModal} />}
+      {IsOpenShareModal && <Overlay onClick={() => setOpenShareModal(false)} />}
     </>
   )
 }

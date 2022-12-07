@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react'
 import { SharingModal } from '../SharingModal'
 import ToastAlert from '../../../common/ToastAlert/index'
 import * as S from './style'
 import { ReactComponent as SharingIcon } from '../../../../assets/icons/sharing.svg'
-import { showShareModal } from '../../../../store/slices/modalSlice'
 
-export const SharingButton = ({ shareModal }) => {
-  const dispatch = useDispatch()
-
-  const onModal = () => {
-    if (!shareModal) {
-      dispatch(showShareModal())
-    } else {
-      dispatch(showShareModal())
-    }
-  }
-
-  useEffect(() => {}, [shareModal])
-
+export const SharingButton = ({ IsOpenShareModal, setOpenShareModal }) => {
   const [urlCopiedAlert, setUrlCopiedAlert] = useState(false)
-  console.log(urlCopiedAlert)
+
   return (
     <>
-      <S.Share onClick={onModal}>
+      <S.Share onClick={() => setOpenShareModal(true)}>
         <SharingIcon />
       </S.Share>
-      {shareModal && <SharingModal setUrlCopiedAlert={setUrlCopiedAlert} />}
+      {IsOpenShareModal && (
+        <SharingModal setOpenShareModal={setOpenShareModal} setUrlCopiedAlert={setUrlCopiedAlert} />
+      )}
       <S.IconTitle>공유</S.IconTitle>
 
       {urlCopiedAlert && (

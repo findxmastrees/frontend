@@ -20,5 +20,4 @@ export const ImgItems = styled.ul`
   gap: 5px;
   padding: 14px 24px;
   padding-top: 0px;
-  cursor: pointer;
 `
