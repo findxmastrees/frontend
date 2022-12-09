@@ -1,5 +1,5 @@
 import React from 'react'
-import InfoHeader from '../../components/InfoHeader'
+import InfoHeader from '../../components/Header'
 
 export const BookmarkPage = () => {
   return (
