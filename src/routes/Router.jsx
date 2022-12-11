@@ -9,8 +9,8 @@ export const Router = () => {
     <div>
       <Routes>
         <Route element={<Layout />}>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/landing' element={<LandingPage />} />
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/home' element={<MainPage />} />
           <Route path='/map' element={<MapPage />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/tree' element={<TreePage />} />
