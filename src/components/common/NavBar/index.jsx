@@ -30,12 +30,8 @@ export const NavBar = () => {
           <div>{location === '/map' ? <Register1 /> : <Register />}</div>
           <li>트리 등록하기</li>
         </S.MenuWrap>
-        <S.MenuWrap>
-          {/* 저장한 트리 페이지 라우터가 없어서 임시로 마이페이지로 링크합니다
-          <div>{location === '/my' ? <List1 /> : <List />}</div> */}
-          <div>
-            <List onClick={betaAlert} />
-          </div>
+        <S.MenuWrap to='/bookmark'>
+          <div>{location === '/bookmark' ? <List1 /> : <List />}</div>
           <li>저장한 트리</li>
         </S.MenuWrap>
         <S.MenuWrap to='/my'>
