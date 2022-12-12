@@ -22,8 +22,8 @@ export const NavBar = () => {
   return (
     <S.Wrapper>
       <S.Menu>
-        <S.MenuWrap to='/'>
-          <div>{location === '/' ? <Home1 /> : <Home />}</div>
+        <S.MenuWrap to='/home'>
+          <div>{location === '/home' ? <Home1 /> : <Home />}</div>
           <li>홈</li>
         </S.MenuWrap>
         <S.MenuWrap to='/map'>
