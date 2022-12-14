@@ -8,6 +8,7 @@ import { Map } from './Component/Map'
 
 // CSS
 import '../MapPage/index.css'
+import Header from '../../components/Header'
 
 export const MapPage = () => {
   const [keyword, setKeyword] = useState('')
@@ -51,6 +52,7 @@ export const MapPage = () => {
   return (
     <>
       {/*<InfoHeader />*/}
+      <Header />
       <div className={'mapContainer'}>
         {page === 'main' ? (
           <>

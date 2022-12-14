@@ -2,6 +2,8 @@
 import { Container, HeaderTitle } from './style'
 import { ReactComponent as TreeIcon } from '../../assets/icons/header_tree.svg'
 import { ReactComponent as Bookmark } from '../../assets/icons/nav_treelist01.svg'
+import { ReactComponent as Register } from '../../assets/icons/nav_register01.svg'
+import { ReactComponent as My } from '../../assets/icons/nav_my01.svg'
 import { BackButton } from '../common/BackButton'
 import { useLocation } from 'react-router-dom'
 
@@ -17,6 +19,26 @@ const Header = () => {
             <BackButton />
             <HeaderTitle>트리</HeaderTitle>
             <Bookmark />
+          </Container>
+        </div>
+      )
+    case '/map':
+      return (
+        <div>
+          <Container>
+            <BackButton />
+            <HeaderTitle>트리</HeaderTitle>
+            <Register />
+          </Container>
+        </div>
+      )
+    case '/my':
+      return (
+        <div>
+          <Container>
+            <BackButton />
+            <HeaderTitle>트리</HeaderTitle>
+            <My />
           </Container>
         </div>
       )
