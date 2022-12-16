@@ -11,6 +11,7 @@ export const RegisterLocation = ({ ...props }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [name, setName] = useState('')
+  console.log(props);
 
   const handleClick = () => {
     dispatch(
@@ -61,6 +62,9 @@ export const RegisterLocation = ({ ...props }) => {
           <span>현재 위치로 설정</span>
           <img src={'/icon/ico-right-arrow.png'} alt={'right-arrow icon'} />
         </div>
+      </div>
+      <div>
+        aknd
       </div>
       {/*<div className={'btnContainer'}>*/}
       <div className={'button'} onClick={handleClick}>
