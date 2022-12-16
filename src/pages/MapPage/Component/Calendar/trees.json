@@ -1,0 +1,72 @@
+[
+  {
+    "tree_name" : "석촌호수 트리",
+    "tree_addr" : "서울 송파구 잠실동 47",
+    "tree_detail_addr" : "",
+    "tree_x" : 127.1029126348244,
+    "tree_y" : 37.50903619165893,
+    "outdoor_yn" : "Y",
+    "pet_yn" : "N",
+    "able_days" : "월,화,수,목,금,토,일",
+    "start_date" : "2022.12.20",
+    "end_date" : "2022.12.29", 
+    "etc" : "롯데월드랑 같이 찍을 수 있어 뷰가 좋아요.",
+    "user_id" : "admin"
+  },
+  {
+    "tree_name" : "롯데호텔월드 트리",
+    "tree_addr" : "서울 송파구 잠실동 40-1",
+    "tree_detail_addr" : "롯데호텔월드",
+    "tree_x" : 127.10034052818551,
+    "tree_y" : 37.51146661087409,
+    "outdoor_yn" : "N",
+    "pet_yn" : "Y",
+    "able_days" : "월,화,수",
+    "start_date" : "2022.12.01",
+    "end_date" : "2022.12.30", 
+    "etc" : "실내 3층에 있습니다",
+    "user_id" : "admin"
+  },
+  {
+    "tree_name" : "스타벅스 트리",
+    "tree_addr" : "서울 송파구 송파동 7-5",
+    "tree_detail_addr" : "스타벅스 앞",
+    "tree_x" : 127.105340515353,
+    "tree_y" : 37.5095241977995,
+    "outdoor_yn" : "Y",
+    "pet_yn" : "Y",
+    "able_days" : "월,화,수,목,금,토,일",
+    "start_date" : "2022.12.15",
+    "end_date" : "2022.12.31", 
+    "etc" : "스타벅스 앞에 있어요!",
+    "user_id" : "admin"
+  },
+  {
+    "tree_name" : "롯데월드몰 앞 트리",
+    "tree_addr" : "서울특별시 송파구 올림픽로 300",
+    "tree_detail_addr" : "롯데월드몰 앞",
+    "tree_x" : 37.513144340431175,
+    "tree_y" : 127.10340464580794,
+    "outdoor_yn" : "Y",
+    "pet_yn" : "Y",
+    "able_days" : "월,화,수,목,금,토,일",
+    "start_date" : "2022.11.25",
+    "end_date" : "2022.12.31", 
+    "etc" : "트리가 엄청 크고 예뻐요~",
+    "user_id" : "admin"
+  },
+  {
+    "tree_name" : "일일향 트리",
+    "tree_addr" : "서울 송파구 송파동 58-18",
+    "tree_detail_addr" : "일일향 앞",
+    "tree_x" : 127.10746246811355,
+    "tree_y" : 37.51118779253101,
+    "outdoor_yn" : "Y",
+    "pet_yn" : "Y",
+    "able_days" : "월,화,수",
+    "start_date" : "2022.12.24",
+    "end_date" : "2022.12.25", 
+    "etc" : "일일향 앞에 있어요",
+    "user_id" : "admin"
+  }
+]
