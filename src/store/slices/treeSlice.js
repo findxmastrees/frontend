@@ -92,7 +92,7 @@ const treeSlice = createSlice({
       state.trees = [...action.payload];
     },
     selectTree: (state, action) => {
-      state.tree = state.trees.filter(({ id }) => id === action.payload)[0]
+      state.tree = state.trees.find(({ tree_id }) => tree_id === action.payload);
     },
     // addTree: (state, action) => {
     //   state.trees = [
@@ -115,14 +115,6 @@ export const selectAllLocation = (state) =>
     lng,
   }))
 
-export const selectAllTrees = (state) =>
-  state.tree.trees.map(({ id, lat, lng, name, address, lotNumber }) => ({
-    id,
-    lat,
-    lng,
-    name,
-    address,
-    lotNumber,
-  }))
+export const selectAllTrees = (state) => state.tree.trees;
 
 export default treeSlice.reducer
