@@ -1,10 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as BackIcon } from '../../../assets/icons/location_icon.svg'
+import myLocationIcon from '../../../assets/icons/myLocation_icon.svg'
 
-export const LocationBtn = () => {
+export const LocationBtn = ({ map, myLocation, setMyLocation }) => {
+  const handleClick = () => {
+    const { kakao } = window
+    const { geolocation } = navigator
+
+    if (geolocation) {
+      const markerSize = new kakao.maps.Size(22, 22)
+      const locImage = new kakao.maps.MarkerImage(myLocationIcon, markerSize)
+
+      let locPosition
+      geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords
+          setMyLocation({ lat: latitude, lon: longitude })
+          locPosition = new kakao.maps.LatLng(latitude, longitude)
+
+          new kakao.maps.Marker({
+            map: map,
+            position: locPosition,
+            image: locImage,
+          })
+          map.setCenter(locPosition)
+        },
+        (err) => {
+          locPosition = new kakao.maps.LatLng(myLocation.lat, myLocation.lon)
+          // new kakao.maps.Marker({
+          //   map: map,
+          //   position: locPosition,
+          //   image: locImage,
+          // })
+          map.setCenter(locPosition)
+        },
+      )
+    } else {
+      alert('GPS를 지원하지 않습니다')
+    }
+  }
   return (
-    <Button>
+    <Button onClick={handleClick}>
       <BackIcon />
     </Button>
   )
