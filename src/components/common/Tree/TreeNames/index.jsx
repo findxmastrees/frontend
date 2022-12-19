@@ -6,11 +6,14 @@ import { BookmarkButton } from '../../BookMark'
 import styled from 'styled-components'
 import { ReactComponent as ArrowBottom } from '../../../../assets/icons/arrowBottom.svg'
 import { ReactComponent as ArrowUp } from '../../../../assets/icons/arrowUp.svg'
+import { useNavigate } from 'react-router-dom'
 
-export const TreeNames = ({
-  goToTreePage, // 트리 페이지로
-}) => {
-  const { tree_name, tree_addr, tree_detail_addr } = useSelector((store) => store.tree.tree)
+export const TreeNames = () => {
+  const navigate = useNavigate()
+
+  const { tree_id, tree_name, tree_addr, tree_detail_addr } = useSelector(
+    (store) => store.tree.tree,
+  )
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
   const [IsOpenShareModal, setOpenShareModal] = useState(false)
@@ -25,7 +28,7 @@ export const TreeNames = ({
     <>
       <div>
         <ClickBox>
-          <Title onClick={goToTreePage}>{tree_name}</Title>
+          <Title onClick={() => navigate(`/tree/${tree_id}`)}>{tree_name}</Title>
           <IconBox>
             <BookmarkBox>
               <BookmarkButton />
