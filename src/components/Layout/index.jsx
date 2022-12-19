@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { NavBar } from '../common/NavBar'
