@@ -10,6 +10,7 @@ import { selectTree } from '../../store/slices/treeSlice'
 import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
 import { useLazyGetTreesQuery } from '../../store/api/treeApiSlice'
+import { NavBar } from '../../components/common/NavBar'
 
 export const MainPage = () => {
   const { kakao } = window
@@ -35,7 +36,7 @@ export const MainPage = () => {
       // 트리들의 중심 좌표
       const {
         data: { data: trees },
-      } = await getTrees('arg', { preferCacheValue: true });
+      } = await getTrees('arg', { preferCacheValue: true })
       // 트리들의 중심좌표로 지도 생성
       const treesLat = trees.map((tree) => tree.tree_x)
       const treesLng = trees.map((tree) => tree.tree_y)
@@ -93,20 +94,23 @@ export const MainPage = () => {
   if (isLoading) return <p>Loading...</p>
 
   return (
-    <S.Container ref={container}>
-      <MainSearch onClick={() => dispatch(selectTree)} />
-      <S.InfoSection>
-        <S.ButtonWrapper>
-          <LocationBtn />
-          <ZoomButton map={_map} />
-        </S.ButtonWrapper>
-        {isClick && <TreeInfos />}
-      </S.InfoSection>
+    <>
+      <S.Container ref={container}>
+        <MainSearch onClick={() => dispatch(selectTree)} />
+        <S.InfoSection>
+          <S.ButtonWrapper>
+            <LocationBtn />
+            <ZoomButton map={_map} />
+          </S.ButtonWrapper>
+          {isClick && <TreeInfos />}
+        </S.InfoSection>
 
-      {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
-      {urlcopiedAlert && (
-        <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
-      )} */}
-    </S.Container>
+        {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
+        {urlcopiedAlert && (
+          <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
+        )} */}
+      </S.Container>
+      <NavBar />
+    </>
   )
 }

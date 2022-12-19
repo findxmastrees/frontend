@@ -1,15 +1,12 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  max-width: 420px;
+  width: min(420px, 100%);
   min-height: 100vh;
-  position: relative;
-  left: 65%;
-  transform: translateX(-50%);
+  margin-left: 50%;
   background-color: #fff;
 
   @media screen and (max-width: 1100px) {
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
   }
 `
