@@ -10,7 +10,7 @@ import { ReactComponent as ArrowUp } from '../../../../assets/icons/arrowUp.svg'
 export const TreeNames = ({
   goToTreePage, // 트리 페이지로
 }) => {
-  const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
+  const { tree_name, tree_addr, tree_detail_addr } = useSelector((store) => store.tree.tree)
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
   const [IsOpenShareModal, setOpenShareModal] = useState(false)
@@ -25,7 +25,7 @@ export const TreeNames = ({
     <>
       <div>
         <ClickBox>
-          <Title onClick={goToTreePage}>{name}</Title>
+          <Title onClick={goToTreePage}>{tree_name}</Title>
           <IconBox>
             <BookmarkBox>
               <BookmarkButton />
@@ -39,12 +39,12 @@ export const TreeNames = ({
           </IconBox>
         </ClickBox>
         <AddressBox>
-          <Location>15m</Location>
-          <Address>{address}</Address>
+          <Location></Location>
+          <Address>{tree_addr}</Address>
           <AddressArrow onClick={onAdModal}>
             {IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}
           </AddressArrow>
-          {IsOpenAdModal && <AddressModal address={address} lotNumber={lotNumber} />}
+          {IsOpenAdModal && <AddressModal address={tree_addr} lotNumber={tree_detail_addr} />}
         </AddressBox>
       </div>
       {IsOpenAdModal && <Overlay onClick={onAdModal} />}
