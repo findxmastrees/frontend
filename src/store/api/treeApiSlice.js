@@ -12,7 +12,6 @@ export const treeApiSlice = apiSlice.injectEndpoints({
         method: 'GET',
       }),
       transformErrorResponse: (responseData) => {
-        console.log(responseData)
         // return responseData.map((data) => {
         //   // 거리 계산
         // })
@@ -35,7 +34,18 @@ export const treeApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    starTree: builder.mutation({
+      query: ({ tree_id, user_id }) => ({
+        url: '/star',
+        method: 'POST',
+        body: {
+          tree_id,
+          user_id,
+        },
+      }),
+      invalidatesTags: [{ type: 'StarTree', id: 'star' }],
+    }),
   }),
 })
 
-export const { useLazyGetTreesQuery } = treeApiSlice
+export const { useLazyGetTreesQuery, useStarTreeMutation } = treeApiSlice

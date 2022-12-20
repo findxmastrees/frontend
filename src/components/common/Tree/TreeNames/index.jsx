@@ -31,7 +31,7 @@ export const TreeNames = () => {
           <Title onClick={() => navigate(`/tree/${tree_id}`)}>{tree_name}</Title>
           <IconBox>
             <BookmarkBox>
-              <BookmarkButton />
+              <BookmarkButton tree_id={tree_id} />
             </BookmarkBox>
             <SharingBox>
               <SharingButton

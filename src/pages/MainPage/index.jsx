@@ -30,13 +30,10 @@ export const MainPage = () => {
   const container = useRef(null)
 
   useEffect(() => {
-    console.log(myLocation)
-
     if (geolocation) {
       geolocation.getCurrentPosition(
         (pos) => {
           const { latitude, longitude } = pos.coords
-          console.log(latitude, longitude)
 
           setMyLocation({ lat: latitude, lon: longitude, isLocLoading: false })
         },

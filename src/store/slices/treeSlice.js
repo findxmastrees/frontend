@@ -86,13 +86,16 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const treeSlice = createSlice({
   name: 'tree',
-  initialState: { trees: [], tree: null },
+  initialState: { trees: [], tree: null, likeTree: false },
   reducers: {
     setTrees: (state, action) => {
-      state.trees = [...action.payload];
+      state.trees = [...action.payload]
     },
     selectTree: (state, action) => {
-      state.tree = state.trees.find(({ tree_id }) => tree_id === action.payload);
+      state.tree = state.trees.find(({ tree_id }) => tree_id === action.payload)
+    },
+    likeTree: (state, action) => {
+      state.likeTree = !state.likeTree
     },
     // addTree: (state, action) => {
     //   state.trees = [
@@ -115,6 +118,6 @@ export const selectAllLocation = (state) =>
     lng,
   }))
 
-export const selectAllTrees = (state) => state.tree.trees;
+export const selectAllTrees = (state) => state.tree.trees
 
 export default treeSlice.reducer

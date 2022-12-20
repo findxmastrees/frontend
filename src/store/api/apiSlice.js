@@ -5,6 +5,6 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://whatevertree.herokuapp.com',
   }),
-  tagTypes: ['Tree'],
+  tagTypes: ['Tree', 'StarTree'],
   endpoints: (builder) => ({}),
 })
