@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as AddressCopy } from '../../../assets/icons/addressCopy.svg'
+import { AddressCopyIcon } from '../../Icons'
 // import ToastAlert from '../ToastAlert'
 
 export const AddressModal = ({ address, lotNumber }) => {
@@ -100,7 +100,7 @@ const LotNumberBtn = styled.button`
   border: 1px solid #e1e1e1;
 `
 
-const AddressIcon = styled(AddressCopy)`
+const AddressIcon = styled(AddressCopyIcon)`
   cursor: pointer;
   margin-left: 3px;
 `

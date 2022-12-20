@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
-import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom.svg'
-import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
+import { BookmarkerIcon, ArrowBottomIcon, ArrowUpIcon } from '../../Icons'
 import { SharingButton } from '../Sharing/SharingButton'
 import { AddressModal } from '../Tree/AddressModal'
 
@@ -32,7 +30,7 @@ export const TreeNames = ({
         <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
           <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
-            {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
+            {<BookmarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
           </Bookmark>
           <IconTitle>저장됨</IconTitle>
         </IconBox>
@@ -43,7 +41,9 @@ export const TreeNames = ({
       <AddressBox>
         <Location>15m</Location>
         <Address>{address}</Address>
-        <AddressArrow onClick={onModal}>{IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}</AddressArrow>
+        <AddressArrow onClick={onModal}>
+          {IsArrowBtn ? <ArrowUpIcon /> : <ArrowBottomIcon />}
+        </AddressArrow>
         {IsModalClick && <AddressModal address={address} lotNumber={lotNumber} />}
       </AddressBox>
     </>

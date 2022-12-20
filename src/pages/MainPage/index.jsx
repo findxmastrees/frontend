@@ -11,6 +11,7 @@ import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
 import myLocationIcon from '../../assets/icons/myLocation_icon.svg'
 import { useLazyGetTreesQuery } from '../../store/api/treeApiSlice'
+import { NavBar } from '../../components/common/NavBar'
 
 export const MainPage = () => {
   const { kakao } = window
@@ -137,17 +138,12 @@ export const MainPage = () => {
       <MainSearch onClick={() => dispatch(selectTree)} />
       <S.InfoSection>
         <S.ButtonWrapper>
-          <LocationBtn
-            map={_map}
-            setMap={setMap}
-            myLocation={myLocation}
-            setMyLocation={setMyLocation}
-          />
+          <LocationBtn map={_map} />
           <ZoomButton map={_map} />
         </S.ButtonWrapper>
         {isClick && <TreeInfos />}
       </S.InfoSection>
-
+      <NavBar />
       {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
       {urlcopiedAlert && (
         <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
