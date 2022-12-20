@@ -4,7 +4,7 @@
   padding: 10px 10px 100px 10px;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #fafafa;
+  background-color: white;
 }
 
 .mapContainer .top,
@@ -15,12 +15,13 @@
 }
 
 .mapContainer .top {
-  justify-content: center;
-  margin: 10px 0;
+  /*justify-content: center;*/
+  margin: 10px;
+  padding-bottom: 10px;
 }
 
 .mapContainer .top .title {
-  font-size: 17px;
+  font-size: 14px;
   cursor: default;
 }
 
@@ -59,6 +60,7 @@
 
 .mapContainer .middle .input.gps {
   justify-content: flex-start;
+  background-color: white;
 }
 
 .mapContainer .middle .input.gps img {
@@ -106,7 +108,7 @@
 }
 
 .mapContainer .bottom .keywordItem .placeName {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .mapContainer .bottom .keywordItem .addressName {
