@@ -3,41 +3,29 @@ import styled from 'styled-components'
 import { ReactComponent as BackIcon } from '../../../assets/icons/location_icon.svg'
 import myLocationIcon from '../../../assets/icons/myLocation_icon.svg'
 
-export const LocationBtn = ({ map, myLocation, setMyLocation }) => {
+export const LocationBtn = ({ map }) => {
   const handleClick = () => {
     const { kakao } = window
     const { geolocation } = navigator
 
     if (geolocation) {
-      const markerSize = new kakao.maps.Size(22, 22)
-      const locImage = new kakao.maps.MarkerImage(myLocationIcon, markerSize)
+      geolocation.getCurrentPosition((pos) => {
+        // 현위치 동의시 현위치 마커 추가
+        const { latitude, longitude } = pos.coords
+        console.log(latitude, longitude)
+        const markerSize = new kakao.maps.Size(22, 22)
+        const locImage = new kakao.maps.MarkerImage(myLocationIcon, markerSize)
+        const locPosition = new kakao.maps.LatLng(latitude, longitude)
 
-      let locPosition
-      geolocation.getCurrentPosition(
-        (pos) => {
-          const { latitude, longitude } = pos.coords
-          setMyLocation({ lat: latitude, lon: longitude })
-          locPosition = new kakao.maps.LatLng(latitude, longitude)
+        const marker = new kakao.maps.Marker({
+          map: map,
+          position: locPosition,
+          image: locImage,
+        })
 
-          new kakao.maps.Marker({
-            map: map,
-            position: locPosition,
-            image: locImage,
-          })
-          map.setCenter(locPosition)
-        },
-        (err) => {
-          locPosition = new kakao.maps.LatLng(myLocation.lat, myLocation.lon)
-          // new kakao.maps.Marker({
-          //   map: map,
-          //   position: locPosition,
-          //   image: locImage,
-          // })
-          map.setCenter(locPosition)
-        },
-      )
-    } else {
-      alert('GPS를 지원하지 않습니다')
+        marker.setMap(null)
+        map.setCenter(locPosition)
+      })
     }
   }
   return (
