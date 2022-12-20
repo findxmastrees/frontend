@@ -10,6 +10,10 @@ export const Container = styled.article`
   z-index: 100;
   font-size: 12px;
   line-height: 20px;
+
+  @media screen and (max-width: 300px) {
+    width: 220px;
+  }
 `
 
 export const AdBox = styled.div`
@@ -17,7 +21,14 @@ export const AdBox = styled.div`
   align-items: flex-start;
   padding-bottom: 10px;
 `
-export const RoadNameBtn = styled.button`
+
+export const Address = styled.div`
+  @media screen and (max-width: 300px) {
+    font-size: 11px;
+  }
+`
+
+export const RoadName = styled.button`
   height: 21px;
   width: 47px;
   line-height: 0;
@@ -28,9 +39,13 @@ export const RoadNameBtn = styled.button`
   background: transparent;
   border: 1px solid #e1e1e1;
   cursor: initial;
+
+  @media screen and (max-width: 300px) {
+    font-size: 9px;
+  }
 `
 
-export const LotNumberBtn = styled.button`
+export const LotNumber = styled.button`
   height: 21px;
   width: 29px;
   line-height: 0;
@@ -41,9 +56,13 @@ export const LotNumberBtn = styled.button`
   background: transparent;
   border: 1px solid #e1e1e1;
   cursor: initial;
+
+  @media screen and (max-width: 300px) {
+    font-size: 9px;
+  }
 `
 
-export const IconBox = styled.div`
+export const IconBox = styled.span`
   margin-left: 5px;
   cursor: pointer;
 `

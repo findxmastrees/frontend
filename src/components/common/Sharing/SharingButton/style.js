@@ -15,3 +15,9 @@ export const IconTitle = styled.span`
   font-size: 10px;
   margin-top: 5px;
 `
+
+export const SmallShare = styled.div`
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+`

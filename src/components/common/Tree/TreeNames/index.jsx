@@ -17,6 +17,7 @@ export const TreeNames = () => {
   const [IsArrowBtn, setArrowBtn] = useState(false)
   const [IsOpenShareModal, setOpenShareModal] = useState(false)
   const [IsOpenAdModal, setOpenAdModal] = useState(false)
+  const [IsOpenSmallStarModal, setIsOpenSmallStarModal] = useState(false)
 
   const onAdModal = () => {
     setArrowBtn(!IsArrowBtn)
@@ -39,6 +40,14 @@ export const TreeNames = () => {
               />
             </S.SharingBox>
           </S.IconBox>
+          <S.SmallDropBtn onClick={() => setIsOpenSmallStarModal(true)}>
+            {IsOpenSmallStarModal && (
+              <S.SmallModalBox>
+                <BookmarkButton responsive>저장하기</BookmarkButton>
+                <SharingButton responsive>공유하기</SharingButton>
+              </S.SmallModalBox>
+            )}
+          </S.SmallDropBtn>
         </S.ClickBox>
         <S.AddressBox>
           {distance && <S.Location>{distance}m</S.Location>}
@@ -49,6 +58,7 @@ export const TreeNames = () => {
           {IsOpenAdModal && <AddressModal address={tree_addr} lotNumber={tree_detail_addr} />}
         </S.AddressBox>
       </div>
+      {IsOpenSmallStarModal && <S.Overlay onClick={() => setIsOpenSmallStarModal(false)} />}
       {IsOpenAdModal && <S.Overlay onClick={onAdModal} />}
       {IsOpenShareModal && <S.Overlay onClick={() => setOpenShareModal(false)} />}
     </>

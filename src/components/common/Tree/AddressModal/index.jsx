@@ -20,18 +20,22 @@ export const AddressModal = ({ address, lotNumber }) => {
     <>
       <S.Container>
         <S.AdBox>
-          <S.RoadNameBtn>도로명</S.RoadNameBtn>
-          {address}
-          <S.IconBox onClick={() => handleCopyClipBoard(address)}>
-            <AddressCopyIcon />
-          </S.IconBox>
+          <S.RoadName>도로명</S.RoadName>
+          <S.Address>
+            {address}
+            <S.IconBox onClick={() => handleCopyClipBoard(address)}>
+              <AddressCopyIcon />
+            </S.IconBox>
+          </S.Address>
         </S.AdBox>
         <S.AdBox>
-          <S.LotNumberBtn>지번</S.LotNumberBtn>
-          {lotNumber}
-          <S.IconBox onClick={() => handleCopyClipBoard(lotNumber)}>
-            <AddressCopyIcon />
-          </S.IconBox>
+          <S.LotNumber>지번</S.LotNumber>
+          <S.Address>
+            {lotNumber}
+            <S.IconBox onClick={() => handleCopyClipBoard(lotNumber)}>
+              <AddressCopyIcon />
+            </S.IconBox>
+          </S.Address>
         </S.AdBox>
       </S.Container>
 

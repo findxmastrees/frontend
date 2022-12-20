@@ -11,16 +11,34 @@ export const Title = styled.div`
   height: 38px;
   font-weight: 800;
   font-size: 25px;
-  text-overflow: ellipsis;
   margin-top: 18px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
+
+  @media screen and (max-width: 300px) {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+  }
 `
 
 export const IconBox = styled.div`
   display: flex;
   justify-content: space-between;
   width: 72px;
+
+  @media screen and (max-width: 300px) {
+    display: none;
+  }
 `
+
 export const BookmarkBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,6 +75,10 @@ export const Location = styled.span`
     top: 3px;
     height: 12px;
   }
+
+  @media screen and (max-width: 300px) {
+    font-size: 11px;
+  }
 `
 
 export const Address = styled.span`
@@ -67,6 +89,10 @@ export const Address = styled.span`
   font-weight: 300;
   font-size: 12px;
   margin: 0 4px 0 12px;
+
+  @media screen and (max-width: 300px) {
+    font-size: 11px;
+  }
 `
 
 export const AddressArrow = styled.button`
@@ -74,6 +100,37 @@ export const AddressArrow = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
+`
+
+export const SmallDropBtn = styled.button`
+  display: none;
+  @media screen and (max-width: 300px) {
+    display: block;
+    position: relative;
+    top: 16px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+  }
+`
+
+export const SmallModalBox = styled.div`
+  display: none;
+  @media screen and (max-width: 300px) {
+    display: block;
+    position: absolute;
+    top: 33px;
+    right: -1px;
+    width: 63px;
+    height: 50px;
+    background: #ffffff;
+    padding: 6px 12px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    z-index: 10;
+  }
 `
 
 export const Overlay = styled.div`
