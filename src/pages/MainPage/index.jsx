@@ -66,9 +66,7 @@ export const MainPage = () => {
       const swLatLng = bounds.getSouthWest()
       const neLatLng = bounds.getNorthEast()
 
-      const {
-        data: { data: trees },
-      } = await getTrees(
+      const { data: trees } = await getTrees(
         {
           map_x: myLocation.lat,
           map_y: myLocation.lon,
