@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import styled from 'styled-components'
-import { ReactComponent as AddressCopy } from '../../../../assets/icons/addressCopy.svg'
 import ToastAlert from '../../../common/ToastAlert/index'
+import { AddressCopyIcon } from '../../../Icons'
 
 export const AddressModal = ({ address, lotNumber }) => {
   const handleCopyClipBoard = async (text) => {
@@ -90,7 +90,7 @@ const LotNumberBtn = styled.button`
   cursor: initial;
 `
 
-const AddressIcon = styled(AddressCopy)`
+const AddressIcon = styled(AddressCopyIcon)`
   cursor: pointer;
   margin-left: 3px;
 `

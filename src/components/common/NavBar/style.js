@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Wrapper = styled.div`
   background-color: #fff;
-  width: 100%;
+  width: inherit;
   height: 100px;
   border-top: 1px solid #bfbfbf;
   position: fixed;

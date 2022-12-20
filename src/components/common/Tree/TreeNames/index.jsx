@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 export const TreeNames = () => {
   const navigate = useNavigate()
 
-  const { tree_id, tree_name, tree_addr, tree_detail_addr } = useSelector(
+  const { tree_id, tree_name, distance, tree_addr, tree_detail_addr } = useSelector(
     (store) => store.tree.tree,
   )
 
@@ -42,7 +42,7 @@ export const TreeNames = () => {
           </IconBox>
         </ClickBox>
         <AddressBox>
-          <Location></Location>
+          {distance && <Location>{distance}m</Location>}
           <Address>{tree_addr}</Address>
           <AddressArrow onClick={onAdModal}>
             {IsArrowBtn ? <ArrowUp /> : <ArrowBottom />}
@@ -102,6 +102,7 @@ export const Location = styled.span`
   font-weight: 700;
   font-size: 12px;
   margin-right: 12px;
+  margin-left: 2px;
 
   &::after {
     content: '';
@@ -133,6 +134,5 @@ export const Overlay = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   z-index: 5;
 `

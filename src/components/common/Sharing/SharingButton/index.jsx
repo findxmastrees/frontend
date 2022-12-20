@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { SharingModal } from '../SharingModal'
 import ToastAlert from '../../../common/ToastAlert/index'
 import * as S from './style'
-import { ReactComponent as SharingIcon } from '../../../../assets/icons/sharing.svg'
+import { SharingIcon } from '../../../Icons'
 
 export const SharingButton = ({ IsOpenShareModal, setOpenShareModal }) => {
   const [urlCopiedAlert, setUrlCopiedAlert] = useState(false)
