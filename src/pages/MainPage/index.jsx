@@ -134,20 +134,23 @@ export const MainPage = () => {
   if (isLoading) return <p>Loading...</p>
 
   return (
-    <S.Container ref={container}>
-      <MainSearch onClick={() => dispatch(selectTree)} />
-      <S.InfoSection>
-        <S.ButtonWrapper>
-          <LocationBtn map={_map} />
-          <ZoomButton map={_map} />
-        </S.ButtonWrapper>
-        {isClick && <TreeInfos />}
-      </S.InfoSection>
-      <NavBar />
-      {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
+    <>
+      <S.Container ref={container}>
+        <MainSearch onClick={() => dispatch(selectTree)} />
+        <S.InfoSection>
+          <S.ButtonWrapper>
+            <LocationBtn map={_map} />
+            <ZoomButton map={_map} />
+          </S.ButtonWrapper>
+          {isClick && <TreeInfos />}
+        </S.InfoSection>
+
+        {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
       {urlcopiedAlert && (
         <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
       )} */}
-    </S.Container>
+      </S.Container>
+      <NavBar />
+    </>
   )
 }
