@@ -1,15 +1,9 @@
 import React from 'react'
-import { useGetTreesRecommendQuery } from '../../store/api/treeApiSlice'
 import { SearchAddressIcon } from '../Icons'
 import * as S from './style'
 import { SearchCard } from '../SearchCard'
 
-export const SearchRecommend = ({ myLocation }) => {
-  const { data, isLoading, isSuccess, isError, error } = useGetTreesRecommendQuery({
-    map_x: myLocation.lat,
-    map_y: myLocation.lon,
-  })
-  console.log(data)
+export const SearchRecommend = ({ myLocation, data }) => {
   return (
     <S.Container>
       <S.SubTitle>

@@ -48,5 +48,5 @@ export const Address = styled.p`
 `
 
 export const CardsContainer = styled.div`
-  width: calc(100% - 50px);
+  width: min(370px, 100%);
 `
