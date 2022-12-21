@@ -1,16 +1,17 @@
 import React from 'react'
+import { useMemo } from 'react'
 import { ReviewImg } from '../../common/TreeImg'
 import { ReviewTitle } from '../ReviewTitle'
 import * as S from './style'
 
 export const ImgList = ({ reviewImgs }) => {
-  console.log(reviewImgs);
+  const filteredReviewImgs = useMemo(() => reviewImgs.filter((_, i) => i < 6), [reviewImgs])
+
   const imgList = reviewImgs.length ? (
     <>
-      {reviewImgs.map((img, i) => (
+      {filteredReviewImgs.map((img, i) => (
         <ReviewImg key={i} img={img} />
       ))}
-      
     </>
   ) : (
     <>
@@ -23,7 +24,7 @@ export const ImgList = ({ reviewImgs }) => {
       <ReviewTitle title='방문자 사진' total={reviewImgs.length} />
       <S.ImgItems>{imgList}</S.ImgItems>
 
-      <S.MoreButton>방문자 사진 더보기</S.MoreButton>
+      <S.MoreLink>방문자 사진 더보기</S.MoreLink>
     </S.ImgSection>
   )
 }

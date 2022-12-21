@@ -4,11 +4,12 @@ import { ImgList } from '../../components/Review/ImgList'
 import Header from '../../components/Header'
 // //infoHeader > Header로 이름 변경
 import { TreeNames } from '../../components/common/Tree/TreeNames'
-// import { ReviewList } from '../../components/Review/ReviewList'
-// import { ReviewButton } from '../../components/Review/ReviewButton'
+import { ReviewList } from '../../components/Review/ReviewList'
+import { ReviewButton } from '../../components/Review/ReviewButton'
 import * as S from './style'
 import { useParams } from 'react-router-dom'
 import { useGetTreeQuery } from '../../store/api/treeApiSlice'
+import { TreeInfo } from '../../components/Review/TreeInfo'
 
 export const TreePage = () => {
   const { tree_id } = useParams();
@@ -25,9 +26,10 @@ export const TreePage = () => {
         <Header />
         <MapImage lat={tree.tree_x} lng={tree.tree_y} />
         <TreeNames />
+        <TreeInfo {...tree} />
         <ImgList reviewImgs={tree.tree_images}  />
-        {/* <ReviewList /> */}
-        {/* <ReviewButton /> */}
+        <ReviewList reviewList={tree.review_list} />
+        <ReviewButton />
       </S.MainContainer>
     </>
   )

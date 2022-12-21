@@ -1,18 +1,18 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Image, ImgWrapper } from './style'
-// import ExImage from '../../../assets/img/reviewImg.png'
+import ExImage from '../../../assets/img/reviewImg.png'
 
-export const ReviewImg = ({ tree_id, reviewImg, img }) => {
+export const ReviewImg = ({ tree_id, img }) => {
   const navigate = useNavigate()
   console.log(img);
 
   return (
     <ImgWrapper>
-      {reviewImg ? (
+      {img ? (
         <Image onClick={() => navigate(`/tree/${tree_id}`)} src={img} alt='Image' />
       ) : (
-        <Image IsImage src={img} alt='' />
+        <Image IsImage src={ExImage} alt='' />
       )}
     </ImgWrapper>
   )
