@@ -12,7 +12,6 @@ export const LocationBtn = ({ map }) => {
       geolocation.getCurrentPosition((pos) => {
         // 현위치 동의시 현위치 마커 추가
         const { latitude, longitude } = pos.coords
-        console.log(latitude, longitude)
         const markerSize = new kakao.maps.Size(22, 22)
         const locImage = new kakao.maps.MarkerImage(myLocationIcon, markerSize)
         const locPosition = new kakao.maps.LatLng(latitude, longitude)

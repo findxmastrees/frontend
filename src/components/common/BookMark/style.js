@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Share = styled.button`
+export const Bookmark = styled.button`
   width: 25px;
   height: 24px;
   background: #ffffff;
@@ -15,9 +15,9 @@ export const IconTitle = styled.span`
   font-size: 10px;
   margin-top: 5px;
 `
-
-export const SmallShare = styled.div`
+export const SmallBookmark = styled.div`
   cursor: pointer;
   font-size: 10px;
   font-weight: 500;
+  margin-bottom: 8px;
 `

@@ -1,36 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { BookmarkerIcon, ArrowBottomIcon, ArrowUpIcon } from '../../Icons'
+import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
+import { ReactComponent as ArrowBottom } from '../../../assets/icons/arrowBottom.svg'
+import { ReactComponent as ArrowUp } from '../../../assets/icons/arrowUp.svg'
 import { SharingButton } from '../Sharing/SharingButton'
-import { AddressModal } from '../Tree/AddressModal'
 
 export const TreeNames = ({
+  email,
   goToTreePage, // 트리 페이지로
+  setBookMarking, // 북마크
+  IsBookMarking, // 북마크
+  setClickModal, // 주소 모달
+  IsClickModal, // 주소 모달
   currentUrl,
 }) => {
   const navigate = useNavigate()
-  const { name, address, lotNumber } = useSelector((store) => store.tree.tree)
-  const { email } = useSelector((store) => store.auth)
 
-  const [IsArrowBtn, setArrowBtn] = useState(false)
-  const [IsModalClick, setModalClick] = useState(false)
-  const [IsBookMarking, setBookMarking] = useState(false)
-
-  const onModal = () => {
-    setModalClick(!IsModalClick)
-    setArrowBtn(!IsArrowBtn)
-  }
+  const { name, address } = useSelector((store) => store.tree.tree)
 
   return (
     <>
-      {' '}
       <ClickBox>
         <Title onClick={goToTreePage}>{name}</Title>
         <IconBox>
           <Bookmark onClick={() => (email ? setBookMarking(!IsBookMarking) : navigate('/sign-in'))}>
-            {<BookmarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
+            {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
           </Bookmark>
           <IconTitle>저장됨</IconTitle>
         </IconBox>
@@ -41,10 +37,9 @@ export const TreeNames = ({
       <AddressBox>
         <Location>15m</Location>
         <Address>{address}</Address>
-        <AddressArrow onClick={onModal}>
-          {IsArrowBtn ? <ArrowUpIcon /> : <ArrowBottomIcon />}
+        <AddressArrow onClick={() => setClickModal(!IsClickModal)}>
+          {IsClickModal ? <ArrowUp /> : <ArrowBottom />}
         </AddressArrow>
-        {IsModalClick && <AddressModal address={address} lotNumber={lotNumber} />}
       </AddressBox>
     </>
   )
@@ -90,9 +85,7 @@ export const IconTitle = styled.span`
 `
 
 export const AddressBox = styled.article`
-  position: relative;
   margin: 0 0 0 22px;
-  padding-bottom: 13px;
 `
 
 export const Location = styled.span`
