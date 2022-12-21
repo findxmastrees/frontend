@@ -12,10 +12,10 @@ export const Containter = styled.div`
 export const Title = styled.h3`
   font-size: 14px;
   font-weight: 700;
-`
+  `
 
 export const Total = styled.p`
   font-size: 14px;
   font-weight: 700;
-  color: #60b257;
+  color: #1F7158;
 `

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as S from './style'
 import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
@@ -15,36 +15,17 @@ import { NavBar } from '../../components/common/NavBar'
 export const MainPage = () => {
   const { kakao } = window
   const { geolocation } = navigator
-
+  const myLocation = useSelector((store) => store.auth.myLocation)
   const dispatch = useDispatch()
   const [getTrees, { isLoading }] = useLazyGetTreesQuery()
 
   const [isClick, setIsClick] = useState(false)
-  const [myLocation, setMyLocation] = useState({
-    lat: 37.5100003045053,
-    lon: 127.10286871659851,
-    isLocLoading: true,
-  })
+  
 
   const [_map, setMap] = useState()
   const container = useRef(null)
 
-  useEffect(() => {
-    if (geolocation) {
-      geolocation.getCurrentPosition(
-        (pos) => {
-          const { latitude, longitude } = pos.coords
-
-          setMyLocation({ lat: latitude, lon: longitude, isLocLoading: false })
-        },
-        (err) => {
-          setMyLocation((prev) => ({ ...prev, isLocLoading: false }))
-        },
-      )
-    } else {
-      alert('GPS를 지원하지 않습니다')
-    }
-  }, [])
+  
 
   useEffect(() => {
     if (myLocation.isLocLoading) return
