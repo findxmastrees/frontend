@@ -31,8 +31,12 @@ export const treeApiSlice = apiSlice.injectEndpoints({
       },
     }),
     getTree: builder.query({
-      query: (id) => ({
-        url: `/trees/${id}`,
+      query: ({ tree_id, map_x, map_y }) => ({
+        url: `/trees/${tree_id}`,
+        params: {
+          map_x,
+          map_y
+        }
       }),
       transformResponse: (responseData) => {
         return responseData.data

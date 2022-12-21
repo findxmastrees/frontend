@@ -25,7 +25,6 @@ const authSlice = createSlice({
       state.user = null
     },
     setMyLocation: (state, action) => {
-      console.log('kdkdkdkkdkdkdk')
       state.myLocation = { ...state.myLocation, ...action.payload }
     }
   },
