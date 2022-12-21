@@ -19,8 +19,10 @@ export const MapPage = () => {
   // const {kakao} = window;
 
   useEffect(() => {
-    searchLocation().then((r) => console.log(r))
-  }, [])
+    if(keyword){
+      searchLocation().then((r) => console.log(r))
+    }
+  }, [keyword])
 
   const searchLocation = async () => {
     const url =
@@ -56,9 +58,9 @@ export const MapPage = () => {
       <div className={'mapContainer'}>
         {page === 'main' ? (
           <>
-            <div className={'top'}>
-              <div className={'title'}>주소 설정</div>
-            </div>
+            {/*<div className={'top'}>*/}
+            {/*  <div className={'title'}>주소 설정</div>*/}
+            {/*</div>*/}
             <div className={'middle'}>
               <div className={'input search'}>
                 <img src={'/icon/ico-search.png'} alt={'search icon'} />
@@ -87,7 +89,7 @@ export const MapPage = () => {
                       setSelectedLocation(item)
                     }}
                   >
-                    <div className={'placeName'}>{item['place_name']}</div>
+                    <div className={'placeName'} style={{'fontSize': '14px'}}>{item['place_name']}</div>
                     <div className={'addressName'}>
                       <div className={'tagName'}>도로명</div>
                       <div className={'detailAddress'}>{item['address_name']}</div>

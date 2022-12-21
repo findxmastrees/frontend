@@ -1,5 +1,6 @@
 .registerContainer {
   height: 100%;
+  /*overflow: hidden;*/
 }
 
 .registerContainer .top img {
@@ -12,6 +13,7 @@
 
 .mapContainer .registerContainer .bottom {
   height: fit-content;
+  /*background-color: white;*/
 }
 
 .mapContainer .registerContainer .bottom .keywordItem {
@@ -30,6 +32,21 @@
   padding-left: 10px;
   border: 1px solid #eaeaea;
   border-radius: 5px;
+}
+
+.bottom.detail {
+  /*background-color: red;*/
+}
+
+.bottom.detail span {
+  font-weight: 600;
+  font-size: 12px !important;
+  margin-bottom: 7px;
+}
+
+.bottom.detail .detailInput {
+  font-size: 12px !important;
+  margin-bottom: 8px;
 }
 
 .registerContainer .locate .input {
@@ -65,13 +82,16 @@
 }
 
 .registerContainer .button {
-  height: 45px;
+  height: 52px;
   border: 1px solid #eaeaea;
-  background-color: white;
+  background-color: #1F7158;
   border-radius: 10px;
   line-height: 45px;
   text-align: center;
+  color: white;
   cursor: pointer;
+  font-size: 17px;
+  font-weight: 900;
 }
 
 .registerContainer #map {
@@ -81,8 +101,8 @@
 
 .registerContainer #map .button {
   z-index: 100;
-  width: 40%;
+  width: 50%;
   position: absolute;
-  bottom: 150px;
+  bottom: 100px;
   right: 10px;
 }
