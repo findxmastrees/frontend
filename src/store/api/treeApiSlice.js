@@ -56,7 +56,7 @@ export const treeApiSlice = apiSlice.injectEndpoints({
           user_id,
         },
       }),
-      invalidatesTags: [{ type: 'StarTree', id: 'star' }],
+      invalidatesTags: (result, err, arg) => [{ type: 'Tree', id: arg.tree_id }],
     }),
   }),
 })
