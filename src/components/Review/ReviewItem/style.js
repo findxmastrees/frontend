@@ -1,19 +1,18 @@
 import styled from 'styled-components'
-
-export const ReviewItemList = styled.ul`
-  width: 100%;
-`
+import profileCircle from '../../../assets/icons/tree-circle.svg'
 
 export const ReviewItem = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 20px 24px;
   border-bottom: 1px solid #f0f0f0;
+  gap: 43px;
 `
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1 1 214px;
 `
 
 export const UserInfo = styled.div`
@@ -23,12 +22,28 @@ export const UserInfo = styled.div`
   margin-bottom: 15px;
 `
 
-export const Profile = styled.img`
-  width: 40px;
-  height: 40px;
+export const ProfileBox = styled.div`
+  position: relative;
 `
 
-export const Wrapper = styled.div``
+export const Profile = styled.img.attrs({
+  alt: '프로필 이미지'
+})`
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  &::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(${profileCircle})
+  }
+`
 
 export const Name = styled.strong`
   font-weight: 700;
@@ -48,7 +63,7 @@ export const ReviewContent = styled.div`
   font-size: 12px;
   line-height: 150%;
   letter-spacing: -0.022em;
-  max-width: 214px;
+  width: 100%;
 `
 
 export const ImgWrapper = styled.div`
@@ -59,6 +74,6 @@ export const ImgWrapper = styled.div`
 `
 
 export const Image = styled.img`
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
 `

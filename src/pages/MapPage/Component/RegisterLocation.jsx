@@ -16,6 +16,7 @@ export const RegisterLocation = ({ ...props }) => {
     detailAddress: '',
   });
   console.log(props);
+  console.log(detail, location);
 
   const handleClick = async () => {
     const url =
