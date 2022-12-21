@@ -31,7 +31,7 @@ export const Bookmark = ({ tree_id, responsive }) => {
           <S.Bookmark onClick={() => (uid ? handleStarTree() : navigate('/sign-in'))}>
             {<BookMarkerIcon fill={IsBookMarking === 1 ? 'yellow' : 'white'} />}
           </S.Bookmark>
-          <S.IconTitle>저장</S.IconTitle>
+          <S.IconTitle>{IsBookMarking ? '저장됨' : '저장'}</S.IconTitle>
         </>
       )}
     </>
