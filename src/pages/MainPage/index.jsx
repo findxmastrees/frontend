@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import * as S from './style'
 import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
-// import ToastAlert from '../../components/common/ToastAlert'
 import { LocationBtn } from '../../components/common/LocationBtn/LocationButton'
 import { TreeInfos } from '../../components/TreeInfos/index'
 import { selectTree } from '../../store/slices/treeSlice'
@@ -29,18 +28,12 @@ export const MainPage = () => {
 
   const [_map, setMap] = useState()
   const container = useRef(null)
-  // const [IsRoadName, setIsRoadName] = useState()
-  // const [adcopiedAlert, setAdCopiedAlert] = useState(false)
-  // const [urlcopiedAlert, setUrlCopiedAlert] = useState(false)
 
   useEffect(() => {
-    console.log(myLocation)
-
     if (geolocation) {
       geolocation.getCurrentPosition(
         (pos) => {
           const { latitude, longitude } = pos.coords
-          console.log(latitude, longitude)
 
           setMyLocation({ lat: latitude, lon: longitude, isLocLoading: false })
         },
@@ -142,11 +135,6 @@ export const MainPage = () => {
           </S.ButtonWrapper>
           {isClick && <TreeInfos />}
         </S.InfoSection>
-
-        {/* {adcopiedAlert && <ToastAlert setAdCopiedAlert={setAdCopiedAlert} IsRoadName={IsRoadName} />}
-      {urlcopiedAlert && (
-        <ToastAlert setUrlCopiedAlert={setUrlCopiedAlert} IsRoadName={IsRoadName} />
-      )} */}
       </S.Container>
       <NavBar />
     </>

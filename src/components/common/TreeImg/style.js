@@ -5,6 +5,7 @@ export const ImgWrapper = styled.li`
   padding-top: 100%;
   position: relative;
   overflow: hidden;
+  cursor: ${(props) => (props.IsImage ? 'pointer' : 'initial')};
 `
 
 export const Image = styled.img`

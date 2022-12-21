@@ -125,7 +125,6 @@ export const RegisterLocation = ({ ...props }) => {
       {/*    <img src={'/icon/ico-right-arrow.png'} alt={'right-arrow icon'} />*/}
       {/*  </div>*/}
       {/*</div>*/}
-
       {/*<div className={'btnContainer'}>*/}
       <div className={'button'} onClick={() => handleClick()}>
         트리 등록하기

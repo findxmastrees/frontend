@@ -47,7 +47,18 @@ export const treeApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    starTree: builder.mutation({
+      query: ({ tree_id, user_id }) => ({
+        url: '/star',
+        method: 'POST',
+        body: {
+          tree_id,
+          user_id,
+        },
+      }),
+      invalidatesTags: [{ type: 'StarTree', id: 'star' }],
+    }),
   }),
 })
 
-export const { useLazyGetTreesQuery, useGetTreeQuery } = treeApiSlice
+export const { useLazyGetTreesQuery, useGetTreeQuery, useStarTreeMutation } = treeApiSlice
