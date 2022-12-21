@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import * as S from './style'
 import { ReviewImg } from '../common/TreeImg/index'
-import { TreeNames } from '../common/Tree/TreeNames'
+import { TreeNames } from '../common/tree/TreeNames'
 
 const arr = Array.from({ length: 3 }, (_, i) => i)
 

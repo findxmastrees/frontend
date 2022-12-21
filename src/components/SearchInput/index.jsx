@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import * as S from './style'
 import { BackButton } from '../common/BackButton'
 
-export const SearchInput = () => {
+export const SearchInput = ({ input, setInput }) => {
   const [change, setChange] = useState(false)
-  const [input, setInput] = useState('')
 
   useEffect(() => {
     !input && setChange(false)
