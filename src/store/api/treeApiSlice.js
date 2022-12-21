@@ -9,7 +9,6 @@ export const treeApiSlice = apiSlice.injectEndpoints({
         params: {
           ...arg,
         },
-        method: 'GET',
       }),
       transformResponse: (responseData) => {
         return responseData.data
@@ -47,7 +46,19 @@ export const treeApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    getTreesRecommend: builder.query({
+      query: (arg) => ({
+        url: `/trees/recommend`,
+        params: {
+          ...arg,
+        },
+      }),
+      transformResponse: (responseData) => responseData.data,
+      providesTags: (result = [], error, arg) => [
+        ...result.map(({ tree_id }) => ({ type: 'Tree', id: tree_id })),
+      ],
+    }),
   }),
 })
 
-export const { useLazyGetTreesQuery, useGetTreeQuery } = treeApiSlice
+export const { useLazyGetTreesQuery, useGetTreeQuery, useGetTreesRecommendQuery } = treeApiSlice
