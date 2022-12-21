@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   position: absolute;
-  width: 280px;
-  height: 80px;
+  width: 150px;
   right: 10px;
   margin-top: 45px;
   background: #ffffff;
@@ -16,9 +15,9 @@ export const Container = styled.section`
 
 export const Btn = styled.button`
   width: 100%;
-  height: 40px;
+  height: 30px;
   color: #454040;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   border-radius: 5px;
   border: none;
@@ -33,7 +32,7 @@ export const CancelBtn = styled.button`
   width: 100%;
   height: 40px;
   color: #c94c4c;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   border: none;
   background: transparent;

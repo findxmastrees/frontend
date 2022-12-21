@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { AddressModal } from '../AddressModal/index'
-import { SharingButton } from '../../Sharing/SharingButton'
-import { BookmarkButton } from '../../BookMark'
+import { Sharing } from '../../Sharing/Sharing'
+import { Bookmark } from '../../BookMark'
 import * as S from './style'
 import { ArrowBottomIcon, ArrowUpIcon } from '../../../Icons'
 
@@ -31,20 +31,17 @@ export const TreeNames = () => {
           <S.Title onClick={() => navigate(`/tree/${tree_id}`)}>{tree_name}</S.Title>
           <S.IconBox>
             <S.BookmarkBox>
-              <BookmarkButton tree_id={tree_id} />
+              <Bookmark tree_id={tree_id} />
             </S.BookmarkBox>
             <S.SharingBox>
-              <SharingButton
-                IsOpenShareModal={IsOpenShareModal}
-                setOpenShareModal={setOpenShareModal}
-              />
+              <Sharing IsOpenShareModal={IsOpenShareModal} setOpenShareModal={setOpenShareModal} />
             </S.SharingBox>
           </S.IconBox>
           <S.SmallDropBtn onClick={() => setIsOpenSmallStarModal(true)}>
             {IsOpenSmallStarModal && (
               <S.SmallModalBox>
-                <BookmarkButton responsive>저장하기</BookmarkButton>
-                <SharingButton responsive>공유하기</SharingButton>
+                <Bookmark responsive>저장하기</Bookmark>
+                <Sharing responsive>공유하기</Sharing>
               </S.SmallModalBox>
             )}
           </S.SmallDropBtn>

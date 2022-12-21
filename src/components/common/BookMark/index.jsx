@@ -5,16 +5,17 @@ import { useStarTreeMutation } from '../../../store/api/treeApiSlice'
 import * as S from './style'
 import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
 
-export const BookmarkButton = ({ tree_id, responsive }) => {
+export const Bookmark = ({ tree_id, responsive }) => {
   const navigate = useNavigate()
 
   const { uid } = useSelector((store) => store.auth)
-  const [IsBookMarking, setBookMarking] = useState(false)
+  const [IsBookMarking, setIsBookMarking] = useState(false)
+
   const [updateStarTree] = useStarTreeMutation()
 
   const handleStarTree = () => {
-    setBookMarking(true)
-    updateStarTree({ tree_id, user_id: uid })
+    setIsBookMarking(!IsBookMarking)
+    updateStarTree({ tree_id })
   }
 
   return (
@@ -28,7 +29,7 @@ export const BookmarkButton = ({ tree_id, responsive }) => {
       ) : (
         <>
           <S.Bookmark onClick={() => (uid ? handleStarTree() : navigate('/sign-in'))}>
-            {<BookMarkerIcon fill={IsBookMarking ? 'yellow' : 'white'} />}
+            {<BookMarkerIcon fill={IsBookMarking === 1 ? 'yellow' : 'white'} />}
           </S.Bookmark>
           <S.IconTitle>저장</S.IconTitle>
         </>

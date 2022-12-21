@@ -77,7 +77,11 @@ export const Location = styled.span`
   }
 
   @media screen and (max-width: 300px) {
-    font-size: 11px;
+    margin-right: 0px;
+
+    &::after {
+      right: -7px;
+    }
   }
 `
 
@@ -91,7 +95,11 @@ export const Address = styled.span`
   margin: 0 4px 0 12px;
 
   @media screen and (max-width: 300px) {
-    font-size: 11px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 138px;
   }
 `
 
