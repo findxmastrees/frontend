@@ -2,24 +2,32 @@ import React from 'react'
 import { MapImage } from '../../components/MapImage'
 import { ImgList } from '../../components/Review/ImgList'
 import Header from '../../components/Header'
-//infoHeader > Header로 이름 변경
+// //infoHeader > Header로 이름 변경
 import { TreeNames } from '../../components/common/Tree/TreeNames'
-import { useSelector } from 'react-redux'
-import { ReviewList } from '../../components/Review/ReviewList'
-import { ReviewButton } from '../../components/Review/ReviewButton'
+// import { ReviewList } from '../../components/Review/ReviewList'
+// import { ReviewButton } from '../../components/Review/ReviewButton'
 import * as S from './style'
+import { useParams } from 'react-router-dom'
+import { useGetTreeQuery } from '../../store/api/treeApiSlice'
 
 export const TreePage = () => {
-  const { lat, lng } = useSelector((state) => state.tree.tree)
+  const { tree_id } = useParams();
+  const { data: tree, isLoading, isError, error } = useGetTreeQuery(tree_id);
+  
+  if (isLoading) return <p>Loaindg...</p>;
+  
+  if (isError) return <p>{error}</p>
+  console.log(tree);
+  
   return (
     <>
       <S.MainContainer>
         <Header />
-        <MapImage lat={lat} lng={lng} />
+        <MapImage lat={tree.tree_x} lng={tree.tree_y} />
         <TreeNames />
-        <ImgList />
-        <ReviewList />
-        <ReviewButton />
+        <ImgList reviewImgs={tree.tree_images}  />
+        {/* <ReviewList /> */}
+        {/* <ReviewButton /> */}
       </S.MainContainer>
     </>
   )

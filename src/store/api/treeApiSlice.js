@@ -1,5 +1,5 @@
 import { apiSlice } from './apiSlice'
-import { setTrees } from '../slices/treeSlice'
+import { setTrees, setTree } from '../slices/treeSlice'
 
 export const treeApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -41,7 +41,7 @@ export const treeApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled
-          console.log(data)
+          dispatch(setTree(data))
         } catch (err) {
           console.log(err)
         }
