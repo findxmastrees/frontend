@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.main`
-  position: relative;
+  padding-top: 75px;
 `
 
 export const TreeTitle = styled.div`
@@ -71,16 +71,3 @@ export const ReviewTitle = styled.div`
   font-size: 16px;
   margin: 26px 0 14px 0;
 `
-
-// export const ReviewBtn = styled.button`
-//   width: 372px;
-//   height: 52px;
-//   position: absolute;
-//   bottom: 30px;
-//   background: #1f7158;
-//   border-radius: 10px;
-//   font-weight: 800;
-//   font-size: 20px;
-//   color: #ffffff;
-//   border: none;
-// `

@@ -43,8 +43,8 @@ export const WriteReviewPage = () => {
 
   return (
     <>
+      <Header />
       <S.Container>
-        <Header />
         <S.TreeTitle>
           <S.MainAddress>더현대 서울 트리</S.MainAddress>
           <S.DetailAddess>서울특별시 어쩌구 무슨동 101 1.2층</S.DetailAddess>
@@ -73,7 +73,7 @@ export const WriteReviewPage = () => {
               <UploadPhoto />
               <LeaveReview />
             </S.ReviewBox>
-            <ReviewButton />
+            <ReviewButton write />
           </form>
         </S.Section>
       </S.Container>
