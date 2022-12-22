@@ -15,7 +15,7 @@ export const MapPage = () => {
   const [keywordList, setKeywordList] = useState([])
   const [page, setPage] = useState('main')
   const [selectLocation, setSelectedLocation] = useState([])
-
+  
   // const {kakao} = window;
 
   useEffect(() => {

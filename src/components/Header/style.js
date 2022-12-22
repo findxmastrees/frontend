@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  width: 100%;
+  width: inherit;
   height: 76px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
   border-bottom: 1px solid #bfbfbf;
+  background-color: #fff;
+  z-index: 100;
 `
 
 export const HeaderTitle = styled.h1`
