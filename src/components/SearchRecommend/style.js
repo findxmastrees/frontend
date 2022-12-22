@@ -4,6 +4,7 @@ export const Container = styled.section`
   width: calc(100% - 50px);
   margin: 26px auto 0;
   overflow: hidden;
+  position: relative;
 `
 
 export const SubTitle = styled.p`
