@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux'
 
 export const TreePage = () => {
   const { tree_id } = useParams()
+
   const myLocation = useSelector((store) => store.auth.myLocation)
   const {
     data: tree,
@@ -36,7 +37,7 @@ export const TreePage = () => {
         <TreeInfo {...tree} />
         <ImgList reviewImgs={tree.tree_images} />
         <ReviewList reviewList={tree.review_list} />
-        <ReviewButton />
+        <ReviewButton handleToWrite tree_id={tree_id} />
       </S.MainContainer>
     </>
   )

@@ -1,9 +1,10 @@
 import React from 'react'
 import * as S from './style'
 
-export const ReviewComments = ({ comment, onSelectComment }) => {
+export const SelectComments = ({ comment, onSelectComment }) => {
   return (
     <>
+      <div></div>
       {comment.isClick ? (
         <S.Container green onClick={() => onSelectComment(comment.id, comment)}>
           <S.CommentsImg src={comment.img} alt='comments' />

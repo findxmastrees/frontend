@@ -5,7 +5,6 @@ import ExImage from '../../../assets/img/reviewImg.png'
 
 export const ReviewImg = ({ tree_id, img }) => {
   const navigate = useNavigate()
-  console.log(img);
 
   return (
     <ImgWrapper>

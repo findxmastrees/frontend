@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import * as S from './style'
 import { Review_uploadIcon } from '../../Icons'
 
-export const UploadPhoto = () => {
+export const UploadPhotoAndReview = () => {
   const [image, setImage] = useState({
     image_file: '',
     preview_URL: '',
@@ -26,6 +26,7 @@ export const UploadPhoto = () => {
 
   return (
     <>
+      <S.ReviewTitle>리뷰를 남겨주세요</S.ReviewTitle>
       {image.preview_URL ? (
         <S.PhotoPreview src={image.preview_URL} alt='' />
       ) : (
@@ -42,6 +43,11 @@ export const UploadPhoto = () => {
           accept='image/*'
         />
       </S.PhotoUploadBox>
+      <S.ReviewArea
+        required
+        maxLength={400}
+        placeholder='트리를 구경한 소감이 어땠는지 알려주세요.'
+      ></S.ReviewArea>
     </>
   )
 }

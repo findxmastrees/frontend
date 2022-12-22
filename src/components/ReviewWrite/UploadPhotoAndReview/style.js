@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const ReviewTitle = styled.div`
+  font-weight: 800;
+  font-size: 16px;
+  margin: 26px 0 14px 0;
+`
+
 export const PhotoPreview = styled.img`
   display: ${(props) => (props.none ? 'none' : 'block')};
   margin-bottom: ${(props) => (props.none ? 'none' : '14px')};
@@ -27,4 +33,15 @@ export const PhotoUpload = styled.div`
 `
 export const PhotoUploadInput = styled.input`
   display: none;
+`
+
+export const ReviewArea = styled.textarea`
+  width: 372px;
+  height: 136px;
+  font-size: 12px;
+  margin: 16px 0 25px 0;
+  padding: 13px 18px 25px 18px;
+  outline: none;
+  resize: none;
+  cursor: pointer;
 `

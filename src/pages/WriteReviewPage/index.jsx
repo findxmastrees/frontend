@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header'
+import { useParams } from 'react-router-dom'
+import { SelectComments } from '../../components/ReviewWrite/SelectComments'
+import { ReviewButton } from '../../components/Review/ReviewButton'
+import { ReviewWriteTitle } from '../../components/ReviewWrite/ReviewWriteTitle'
+import { UploadPhotoAndReview } from '../../components/ReviewWrite/UploadPhotoAndReview'
+import * as S from './style'
 import Review_heart from '../../assets/img/review_heart.png'
 import Review_baby from '../../assets/img/review_baby.png'
 import Review_cafe from '../../assets/img/review_cafe.png'
 import Review_coldoutside from '../../assets/img/review_coldoutside.png'
 import Review_camera from '../../assets/img/review_camera.png'
-import { ReviewComments } from '../../components/Review/SelectComments'
-import * as S from './style'
-import { UploadPhoto } from '../../components/Review/UploadPhoto'
-import { ReviewButton } from '../../components/Review/ReviewButton'
-import { LeaveReview } from '../../components/Review/LeaveReview'
 
 const COMMENTS = [
   { id: 1, img: Review_coldoutside, comment_id_list: '추우니까 따뜻하게 입어요', isClick: false },
@@ -20,6 +21,8 @@ const COMMENTS = [
 ]
 
 export const WriteReviewPage = () => {
+  const { tree_id } = useParams()
+
   const [selectComments, setSelectComments] = useState([])
   const [commentsList, setCommentsList] = useState(COMMENTS)
 
@@ -45,22 +48,17 @@ export const WriteReviewPage = () => {
     <>
       <Header />
       <S.Container>
-        <S.TreeTitle>
-          <S.MainAddress>더현대 서울 트리</S.MainAddress>
-          <S.DetailAddess>서울특별시 어쩌구 무슨동 101 1.2층</S.DetailAddess>
-        </S.TreeTitle>
+        <ReviewWriteTitle tree_id={tree_id} />
         <S.Section>
-          <div>
-            <S.CommentsTitle>
-              코멘트 리뷰
-              {/* <S.CommentsSmallTitle>(1개 ~ 3개)</S.CommentsSmallTitle> */}
-            </S.CommentsTitle>
-            <S.CommentsDesc>이 트리에 어울리는 코멘트를 골라주세요.</S.CommentsDesc>
-          </div>
+          <S.CommentsTitle>
+            코멘트 리뷰
+            {/* <S.CommentsSmallTitle>(1개 ~ 3개)</S.CommentsSmallTitle> */}
+          </S.CommentsTitle>
+          <S.CommentsDesc>이 트리에 어울리는 코멘트를 골라주세요.</S.CommentsDesc>
           <form>
             <S.CommentsBox>
               {commentsList.map((comment, i) => (
-                <ReviewComments
+                <SelectComments
                   key={i}
                   comment={comment}
                   commentsList={commentsList}
@@ -69,12 +67,10 @@ export const WriteReviewPage = () => {
               ))}
             </S.CommentsBox>
             <S.ReviewBox>
-              <S.ReviewTitle>리뷰를 남겨주세요</S.ReviewTitle>
-              <UploadPhoto />
-              <LeaveReview />
+              <UploadPhotoAndReview />
             </S.ReviewBox>
-            <ReviewButton write />
           </form>
+          <ReviewButton write />
         </S.Section>
       </S.Container>
     </>
