@@ -1,5 +1,5 @@
 import { apiSlice } from './apiSlice'
-import { setTrees, setTree } from '../slices/treeSlice'
+import { setTrees } from '../slices/treeSlice'
 
 export const treeApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -34,21 +34,13 @@ export const treeApiSlice = apiSlice.injectEndpoints({
         url: `/trees/${tree_id}`,
         params: {
           map_x,
-          map_y
-        }
+          map_y,
+        },
       }),
       transformResponse: (responseData) => {
         return responseData.data
       },
       providesTags: (result, err, id) => [{ type: 'Tree', id }],
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled
-          dispatch(setTree(data))
-        } catch (err) {
-          console.log(err)
-        }
-      },
     }),
     getTreesRecommend: builder.query({
       query: (arg) => ({
@@ -73,6 +65,18 @@ export const treeApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: (result, err, arg) => [{ type: 'Tree', id: arg.tree_id }],
     }),
+    getTreesSearch: builder.query({
+      query: (arg) => ({
+        url: `/trees/search`,
+        params: {
+          ...arg,
+        },
+      }),
+      transformResponse: (responseData) => responseData.data,
+      providesTags: (result = []) => {
+        return [...result.map(({ tree_id }) => ({ type: 'Tree', id: tree_id }))]
+      },
+    }),
   }),
 })
 
@@ -81,4 +85,5 @@ export const {
   useGetTreeQuery,
   useGetTreesRecommendQuery,
   useStarTreeMutation,
+  useLazyGetTreesSearchQuery,
 } = treeApiSlice
