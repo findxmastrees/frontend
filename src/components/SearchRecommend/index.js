@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { SearchAddressIcon } from '../Icons'
 import * as S from './style'
 import { SearchCard } from '../SearchCard'
@@ -24,7 +24,9 @@ export const SearchRecommend = ({ myLocation, data }) => {
     })
   }
 
-  if (data && data.length) getAddr(myLocation.lat, myLocation.lon)
+  useEffect(() => {
+    if (data && data.length) getAddr(myLocation.lat, myLocation.lon)
+  }, [])
 
   return data && data.length ? (
     <S.Container>

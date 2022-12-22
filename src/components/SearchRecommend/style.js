@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   width: calc(100% - 50px);
-  margin: 26px auto 0;
+  margin: 26px auto;
   overflow: hidden;
   position: relative;
 `
