@@ -8,7 +8,7 @@ export const Container = styled.header`
   align-items: center;
   position: fixed;
   top: 0;
-  border-bottom: 1px solid #bfbfbf;
+  border-bottom: 1px solid #b9b9b9;
   background-color: #fff;
   z-index: 100;
 `

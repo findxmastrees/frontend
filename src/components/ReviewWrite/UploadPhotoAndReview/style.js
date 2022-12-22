@@ -41,7 +41,13 @@ export const ReviewArea = styled.textarea`
   font-size: 12px;
   margin: 16px 0 25px 0;
   padding: 13px 18px 25px 18px;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
   outline: none;
   resize: none;
   cursor: pointer;
+
+  &::placeholder {
+    color: #b9b9b9;
+  }
 `
