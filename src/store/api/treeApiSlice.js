@@ -85,5 +85,6 @@ export const {
   useGetTreeQuery,
   useGetTreesRecommendQuery,
   useStarTreeMutation,
+  useLazyGetTreesRecommendQuery,
   useLazyGetTreesSearchQuery,
 } = treeApiSlice

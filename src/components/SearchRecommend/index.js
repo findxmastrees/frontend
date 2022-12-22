@@ -5,7 +5,6 @@ import { SearchCard } from '../SearchCard'
 
 export const SearchRecommend = ({ myLocation, data }) => {
   const { kakao } = window
-  // eslint-disable-next-line no-unused-vars
   const [district, setDistrict] = useState('')
 
   // 주소 내 구,읍,면 추출
@@ -25,7 +24,7 @@ export const SearchRecommend = ({ myLocation, data }) => {
   }
 
   useEffect(() => {
-    if (data && data.length) getAddr(myLocation.lat, myLocation.lon)
+    if (data) getAddr(myLocation.lat, myLocation.lon)
   }, [])
 
   return data && data.length ? (

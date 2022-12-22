@@ -7,7 +7,6 @@ export const SearchInput = ({ input, setInput, setResult, debouncedSearchQuery }
   const [change, setChange] = useState(false)
   const [getTreesSearch] = useLazyGetTreesSearchQuery()
 
-  console.log(debouncedSearchQuery)
   useEffect(() => {
     !input && setChange(false)
   }, [input])
@@ -18,8 +17,7 @@ export const SearchInput = ({ input, setInput, setResult, debouncedSearchQuery }
   }
 
   useEffect(() => {
-    if (!input.length) return
-    // eslint-disable-next-line no-extra-semi
+    if (!input.length) return // eslint-disable-next-line no-extra-semi
     ;(async function () {
       const { data } = await getTreesSearch({ search_param: debouncedSearchQuery })
       setResult(data)
