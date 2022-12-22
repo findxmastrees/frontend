@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import { CloseIcon } from '../../Icons'
 
 export const ReviewTitle = styled.div`
   font-weight: 800;
@@ -17,7 +16,7 @@ export const PhotoPreview = styled.img`
 
 export const CloseBtn = styled.div`
   left: 264px;
-  top: 302px;
+  top: 77px;
   position: absolute;
   width: 22px;
   height: 22px;

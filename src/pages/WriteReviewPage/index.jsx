@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
 import { useGetCommentsListQuery } from '../../store/api/reviewApiSlice'
@@ -13,7 +13,7 @@ import * as S from './style'
 // import Review_coldoutside from '../../assets/img/review_coldoutside.png'
 // import Review_camera from '../../assets/img/review_camera.png'
 
-// const COMMENTS = [
+// const IMG_DATA = [
 //   { id: 1, img: Review_coldoutside, isClick: false },
 //   { id: 2, img: Review_camera, isClick: false },
 //   { id: 3, img: Review_heart, isClick: false },
@@ -22,12 +22,12 @@ import * as S from './style'
 // ]
 
 export const WriteReviewPage = () => {
-  const { data: comments } = useGetCommentsListQuery()
+  const { data: comments, isLoading } = useGetCommentsListQuery()
   const { tree_id } = useParams()
+  // const [ImgDataList, setImgDataList] = useState(IMG_DATA)
 
-  const [commentsList, setCommentsList] = useState(comments)
   // active 추가해서 comment color state 변화
-  console.log(setCommentsList)
+  // console.log(setCommentsList)
 
   // const handleSubmit = (id, comment) => {
   //   setIsSelected(
@@ -49,6 +49,10 @@ export const WriteReviewPage = () => {
   //   return removeDuple
   // }
 
+  if (isLoading) {
+    return <p>...loading</p>
+  }
+
   return (
     <>
       <Header />
@@ -62,7 +66,7 @@ export const WriteReviewPage = () => {
           <S.CommentsDesc>이 트리에 어울리는 코멘트를 골라주세요.</S.CommentsDesc>
           <form style={{ position: 'relative' }}>
             <S.CommentsBox>
-              {commentsList?.map((comment) => (
+              {comments?.map((comment) => (
                 <SelectComments key={comment.comment_id} comment={comment} />
               ))}
             </S.CommentsBox>

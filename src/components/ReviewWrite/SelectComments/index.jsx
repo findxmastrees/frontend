@@ -3,6 +3,7 @@ import * as S from './style'
 
 export const SelectComments = ({ comment }) => {
   console.log(comment)
+
   return (
     <>
       {/* {IsSelected ? (
