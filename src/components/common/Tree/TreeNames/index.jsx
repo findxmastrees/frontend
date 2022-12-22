@@ -5,7 +5,7 @@ import { AddressModal } from '../AddressModal/index'
 import { Sharing } from '../../Sharing/Sharing'
 import { Bookmark } from '../../BookMark'
 import * as S from './style'
-import { ArrowBottomIcon, ArrowUpIcon } from '../../../Icons'
+import { ArrowBottomIcon, ArrowUpIcon, Sharing_smallIcon } from '../../../Icons'
 
 export const TreeNames = () => {
   const navigate = useNavigate()
@@ -38,6 +38,7 @@ export const TreeNames = () => {
             </S.SharingBox>
           </S.IconBox>
           <S.SmallDropBtn onClick={() => setIsOpenSmallStarModal(true)}>
+            <Sharing_smallIcon />
             {IsOpenSmallStarModal && (
               <S.SmallModalBox>
                 <Bookmark responsive>저장하기</Bookmark>
@@ -47,7 +48,7 @@ export const TreeNames = () => {
           </S.SmallDropBtn>
         </S.ClickBox>
         <S.AddressBox>
-          {distance && <S.Location>{distance}m</S.Location>}
+          {distance && <S.Location>{parseInt(distance)}m</S.Location>}
           <S.Address>{tree_addr}</S.Address>
           <S.AddressArrow onClick={onAdModal}>
             {IsArrowBtn ? <ArrowUpIcon /> : <ArrowBottomIcon />}

@@ -10,7 +10,7 @@ export const Container = styled.article`
 
   @media screen and (max-width: 300px) {
     width: 256px;
-    height: 216px;
+    height: 190px;
   }
 `
 

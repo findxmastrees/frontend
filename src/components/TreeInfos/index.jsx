@@ -15,9 +15,15 @@ export const TreeInfos = () => {
         <TreeNames />
         <S.ImgSection>
           <S.ImgItems>
-            {arr.map((_, i) => (
-              <ReviewImg key={i} id={tree_id} reviewImg={tree_img_limit3} />
-            ))}
+            {tree_img_limit3 ? (
+              <>
+                {arr.map((_, i) => (
+                  <ReviewImg key={i} tree_id={tree_id} reviewImg={tree_img_limit3} />
+                ))}
+              </>
+            ) : (
+              <ReviewImg tree_id={tree_id} reviewImg={tree_img_limit3} />
+            )}
           </S.ImgItems>
         </S.ImgSection>
       </S.Container>
