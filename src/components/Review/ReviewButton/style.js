@@ -15,8 +15,8 @@ export const ReviewLink = styled(Link)`
 `
 
 export const BtnWrapper = styled.div`
-  position: fixed;
   width: ${(props) => (props.write ? '372px' : 'inherit')};
+  position: ${(props) => (props.write ? 'initial' : 'fixed')};
   bottom: 0;
   padding: 24px 0;
   text-align: center;

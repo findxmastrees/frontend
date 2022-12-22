@@ -6,7 +6,7 @@ export const SelectComments = ({ comment, onSelectComment }) => {
     <>
       <div></div>
       {comment.isClick ? (
-        <S.Container green onClick={() => onSelectComment(comment.id, comment)}>
+        <S.Container selected onClick={() => onSelectComment(comment.id, comment)}>
           <S.CommentsImg src={comment.img} alt='comments' />
           <S.CommentsBtn>{comment.comment_id_list}</S.CommentsBtn>
         </S.Container>

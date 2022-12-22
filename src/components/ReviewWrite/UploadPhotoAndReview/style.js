@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// import { CloseIcon } from '../../Icons'
 
 export const ReviewTitle = styled.div`
   font-weight: 800;
@@ -9,10 +10,25 @@ export const ReviewTitle = styled.div`
 export const PhotoPreview = styled.img`
   display: ${(props) => (props.none ? 'none' : 'block')};
   margin-bottom: ${(props) => (props.none ? 'none' : '14px')};
-  width: 372px;
-  height: 270px;
-  object-fit: none;
+  width: 200px;
+  object-fit: cover;
   border-radius: 5px;
+`
+
+export const CloseBtn = styled.div`
+  left: 264px;
+  top: 302px;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #1f7158;
+`
+
+export const CloseBtnIcon = styled.div`
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  cursor: pointer;
 `
 
 export const PhotoUploadBox = styled.label`

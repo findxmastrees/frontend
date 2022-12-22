@@ -55,7 +55,7 @@ export const WriteReviewPage = () => {
             {/* <S.CommentsSmallTitle>(1개 ~ 3개)</S.CommentsSmallTitle> */}
           </S.CommentsTitle>
           <S.CommentsDesc>이 트리에 어울리는 코멘트를 골라주세요.</S.CommentsDesc>
-          <form>
+          <form style={{ position: 'relative' }}>
             <S.CommentsBox>
               {commentsList.map((comment, i) => (
                 <SelectComments
