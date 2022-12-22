@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useStarTreeMutation } from '../../../store/api/treeApiSlice'
 import * as S from './style'
-import { ReactComponent as BookMarkerIcon } from '../../../assets/icons/bookmarker.svg'
+import { BookmarkerIcon } from '../../Icons'
 
 export const Bookmark = ({ tree_id, responsive }) => {
   const navigate = useNavigate()
@@ -29,7 +29,7 @@ export const Bookmark = ({ tree_id, responsive }) => {
       ) : (
         <>
           <S.Bookmark onClick={() => (uid ? handleStarTree() : navigate('/sign-in'))}>
-            {<BookMarkerIcon fill={IsBookMarking === 1 ? 'yellow' : 'white'} />}
+            {<BookmarkerIcon fill={IsBookMarking === 1 ? 'yellow' : 'white'} />}
           </S.Bookmark>
           <S.IconTitle>{IsBookMarking ? '저장됨' : '저장'}</S.IconTitle>
         </>
