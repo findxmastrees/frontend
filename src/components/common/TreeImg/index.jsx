@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import ExImage from '../../../assets/img/reviewImg.png'
 import { Image, ImgWrapper } from './style'
 
-export const ReviewImg = ({ img, review  }) => {
+export const ReviewImg = ({ img, review }) => {
   return (
     <ImgWrapper>
       {img ? (

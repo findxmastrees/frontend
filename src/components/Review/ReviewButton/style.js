@@ -10,15 +10,15 @@ export const ReviewLink = styled(Link)`
   font-size: 20px;
   line-height: 150%;
   color: #fff;
-  background: #1F7158;
+  background-color: #1f7158;
   border-radius: 10px;
 `
 
 export const BtnWrapper = styled.div`
   position: fixed;
+  width: ${(props) => (props.write ? '372px' : 'inherit')};
   bottom: 0;
-  width: inherit;
   padding: 24px 0;
   text-align: center;
-  background-color: #fff;
+  background: ${(props) => (props.write ? 'transparent' : '#fff')};
 `
