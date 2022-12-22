@@ -1,21 +1,25 @@
 import React from 'react'
 import * as S from './style'
 
-export const SelectComments = ({ comment, onSelectComment }) => {
+export const SelectComments = ({ comment }) => {
+  console.log(comment)
   return (
     <>
-      <div></div>
-      {comment.isClick ? (
-        <S.Container selected onClick={() => onSelectComment(comment.id, comment)}>
-          <S.CommentsImg src={comment.img} alt='comments' />
-          <S.CommentsBtn>{comment.comment_id_list}</S.CommentsBtn>
+      {/* {IsSelected ? (
+        <S.Container selected onClick={() => onSelectComment(comment.comment_id)}>
+          <S.CommentsImg src={''} alt='comments' />
+          <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
         </S.Container>
       ) : (
-        <S.Container onClick={() => onSelectComment(comment.id, comment)}>
-          <S.CommentsImg src={comment.img} alt='comments' />
-          <S.CommentsBtn>{comment.comment_id_list}</S.CommentsBtn>
+        <S.Container onClick={() => onSelectComment(comment.id)}>
+          <S.CommentsImg src={''} alt='comments' />
+          <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
         </S.Container>
-      )}
+      )} */}
+      <S.Container selected>
+        <S.CommentsImg src={''} alt='comments' />
+        <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
+      </S.Container>
     </>
   )
 }
