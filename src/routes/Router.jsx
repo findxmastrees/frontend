@@ -1,7 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from '../components/Layout'
 import { RequireAuth } from '../components/RequireAuth'
-import { BookmarkPage, LandingPage, MainPage, MapPage, MyPage, SignIn, TreePage } from '../pages'
+import {
+  BookmarkPage,
+  LandingPage,
+  MainPage,
+  MapPage,
+  MyPage,
+  SignIn,
+  TreePage,
+  WriteReviewPage,
+} from '../pages'
 import { SearchPage } from '../pages/SearchPage'
 
 export const Router = () => {
@@ -19,6 +28,7 @@ export const Router = () => {
           <Route element={<RequireAuth />}>
             <Route path='/my' element={<MyPage />} />
           </Route>
+          <Route path='/review-write' element={<WriteReviewPage />} />
           <Route path='/search' element={<SearchPage />} />
         </Route>
       </Routes>
