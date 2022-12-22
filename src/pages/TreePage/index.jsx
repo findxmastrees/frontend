@@ -35,7 +35,7 @@ export const TreePage = () => {
         <MapImage lat={tree.tree_x} lng={tree.tree_y} />
         <TreeNames />
         <TreeInfo {...tree} />
-        <ImgList reviewImgs={tree.tree_images} />
+        <ImgList reviewImgs={tree.tree_images} reviewList={tree.review_list} />
         <ReviewList reviewList={tree.review_list} />
         <ReviewButton handleToWrite tree_id={tree_id} />
       </S.MainContainer>

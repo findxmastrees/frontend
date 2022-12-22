@@ -1,17 +1,17 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Image, ImgWrapper } from './style'
+import { Link } from 'react-router-dom'
 import ExImage from '../../../assets/img/reviewImg.png'
+import { Image, ImgWrapper } from './style'
 
-export const ReviewImg = ({ tree_id, img }) => {
-  const navigate = useNavigate()
-
+export const ReviewImg = ({ img, review }) => {
   return (
     <ImgWrapper>
       {img ? (
-        <Image onClick={() => navigate(`/tree/${tree_id}`)} src={img} alt='Image' />
+        <Link to='/review' state={{ review }}>
+          <Image src={img} alt='Image' />
+        </Link>
       ) : (
-        <Image IsImage src={ExImage} alt='' />
+        <Image src={ExImage} alt='' />
       )}
     </ImgWrapper>
   )

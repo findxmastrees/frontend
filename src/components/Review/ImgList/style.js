@@ -11,6 +11,10 @@ export const ImgItems = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
   padding: 14px 24px;
+
+  @media screen and (max-width: 280px){
+    grid-template-columns: repeat(2, 1fr);  
+  }
 `
 
 export const MoreLink = styled(Link)`

@@ -4,13 +4,16 @@ import { ReviewImg } from '../../common/TreeImg'
 import { ReviewTitle } from '../ReviewTitle'
 import * as S from './style'
 
-export const ImgList = ({ reviewImgs }) => {
-  const filteredReviewImgs = useMemo(() => reviewImgs.filter((_, i) => i < 6), [reviewImgs])
+export const ImgList = ({ reviewImgs, reviewList  }) => {
+  const filteredReviewImgs = useMemo(() => reviewList.reduce((arr, obj, idx) => (
+    (arr.length < 6 && obj.review_img) ? [...arr, obj] : [...arr]
+  ), []), [reviewList])
+  console.log(filteredReviewImgs)
 
   const imgList = reviewImgs.length ? (
     <>
-      {filteredReviewImgs.map((img, i) => (
-        <ReviewImg key={i} img={img} />
+      {filteredReviewImgs.map((review, i) => (
+        <ReviewImg key={i} img={review.review_img} review={review} />
       ))}
     </>
   ) : (
