@@ -11,6 +11,10 @@ const Header = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
+  const handleTohome = () => {
+    navigate('/home')
+  }
+
   // 피그마상에서는 트리정보페이지, 즐겨찾기 부분에서만 쓰이지만 추후 수정될 수 있는 디자인임을 감안해 switch문으로 작성합니다
   switch (location.pathname) {
     case '/bookmark':
@@ -19,7 +23,7 @@ const Header = () => {
           <Container>
             <BackButton />
             <HeaderTitle>트리</HeaderTitle>
-            <div style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>
+            <div style={{ cursor: 'pointer' }} onClick={handleTohome}>
               <Bookmark />
             </div>
           </Container>
@@ -31,7 +35,7 @@ const Header = () => {
           <Container>
             <BackButton />
             <HeaderTitle>트리</HeaderTitle>
-            <div style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>
+            <div style={{ cursor: 'pointer' }} onClick={handleTohome}>
               <Register />
             </div>
           </Container>
@@ -52,7 +56,7 @@ const Header = () => {
     <Container>
       <BackButton />
       <HeaderTitle>트리 상세 정보</HeaderTitle>
-      <div style={{ cursor: 'pointer' }} onClick={() => navigate('/home')}>
+      <div style={{ cursor: 'pointer' }} onClick={handleTohome}>
         <TreeIcon />
       </div>
     </Container>
