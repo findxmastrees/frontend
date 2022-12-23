@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/common/Layout'
 import { RequireAuth } from '../components/RequireAuth'
 import {
   BookmarkPage,

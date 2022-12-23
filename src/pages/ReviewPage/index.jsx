@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import Header from '../../components/Header'
+import { Header } from '../../components'
 import { ProfileTreeIcon } from '../../components/Icons'
 
 import * as S from './style'
