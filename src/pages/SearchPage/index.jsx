@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { SearchInput } from '../../components/SearchInput'
 import { SearchRecommend } from '../../components/SearchRecommend'
 import { SearchResult } from '../../components/SearchResult'
 import { useLazyGetTreesRecommendQuery } from '../../store/api/treeApiSlice'
 import { useDebounce } from '../../hooks/useDebounce'
-import { useEffect } from 'react'
 
 export const SearchPage = () => {
   const [input, setInput] = useState('')
