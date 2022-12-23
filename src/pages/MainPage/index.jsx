@@ -1,17 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import * as S from './style'
-import { MainSearch } from '../../components/MainSearch'
-import { ZoomButton } from '../../components/MainZoom/index'
-import { LocationBtn } from '../../components/common/LocationBtn/LocationButton'
-import { TreeInfos } from '../../components/TreeInfos/index'
-import { ResearchButton } from '../../components/ResearchButton'
-import { selectTree } from '../../store/slices/treeSlice'
+import myLocationIcon from '../../assets/icons/myLocation_icon.svg'
 import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
-import myLocationIcon from '../../assets/icons/myLocation_icon.svg'
+import {
+  LocationBtn,
+  MainSearch,
+  NavBar,
+  ResearchButton,
+  TreeInfos,
+  ZoomButton,
+} from '../../components'
 import { useLazyGetTreesQuery } from '../../store/api/treeApiSlice'
-import { NavBar } from '../../components/common/NavBar'
+import { selectTree } from '../../store/slices/treeSlice'
+import * as S from './style'
 
 export const MainPage = () => {
   const { kakao } = window

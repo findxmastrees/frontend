@@ -1,10 +1,10 @@
 import React from 'react'
-import InfoHeader from '../../components/Header'
+import { Header } from '../../components'
 
 export const BookmarkPage = () => {
   return (
     <div>
-      <InfoHeader />
+      <Header />
       BookmarkPage
     </div>
   )
