@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { AddressModal } from '../AddressModal/index'
 import { Sharing } from '../../Sharing/Sharing'
@@ -7,12 +7,8 @@ import { Bookmark } from '../../BookMark'
 import * as S from './style'
 import { ArrowBottomIcon, ArrowUpIcon, Sharing_smallIcon } from '../../../Icons'
 
-export const TreeNames = () => {
+export const TreeNames = ({ tree_id, tree_name, distance, tree_addr, tree_detail_addr }) => {
   const navigate = useNavigate()
-
-  const { tree_id, tree_name, distance, tree_addr, tree_detail_addr } = useSelector(
-    (store) => store.tree.tree,
-  )
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
   const [IsOpenShareModal, setOpenShareModal] = useState(false)
@@ -23,7 +19,7 @@ export const TreeNames = () => {
     setArrowBtn(!IsArrowBtn)
     setOpenAdModal(!IsOpenAdModal)
   }
-
+  console.log(tree_id)
   return (
     <>
       <div>
