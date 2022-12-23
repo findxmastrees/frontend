@@ -22,9 +22,59 @@ export const MainPage = () => {
 
   const [isClick, setIsClick] = useState(false)
   const [isShown, setIsShown] = useState(false)
+  const [markers, setMarkers] = useState([])
 
   const [_map, setMap] = useState()
   const container = useRef(null)
+
+  // 마커 렌더링 함수
+  const renderMarkers = (trees, map) => {
+    const tempMarkers = []
+    let selectedMarker = null
+    const basicImage = new kakao.maps.MarkerImage(treeImage, new kakao.maps.Size(40, 50))
+
+    // 커스텀 마커 생성 및 클릭 이벤트 추가
+    const addMarker = (pos, treeId) => {
+      let marker = new kakao.maps.Marker({
+        position: pos,
+        image: basicImage,
+        clickable: true,
+      })
+
+      marker.normalImage = basicImage
+
+      kakao.maps.event.addListener(marker, 'click', () => {
+        if (!selectedMarker || selectedMarker !== marker) {
+          !!selectedMarker &&
+            selectedMarker.setImage(selectedMarker.normalImage, new kakao.maps.Size(40, 50))
+          marker.setImage(new kakao.maps.MarkerImage(treeClicked, new kakao.maps.Size(40, 50)))
+        }
+        selectedMarker = marker
+        setIsClick(true)
+
+        dispatch(selectTree(treeId))
+      })
+
+      tempMarkers.push(marker)
+    }
+
+    // 각 마커 지도에 표시
+    const renderMarker = (map) => {
+      tempMarkers.forEach((marker) => {
+        marker.setMap(map)
+      })
+    }
+
+    // 마커 추가
+    trees.forEach(({ tree_id, tree_x, tree_y }) => {
+      const markerPosition = new kakao.maps.LatLng(tree_x, tree_y)
+
+      addMarker(markerPosition, tree_id)
+    })
+
+    renderMarker(map)
+    setMarkers(tempMarkers)
+  }
 
   const handleResearch = async () => {
     setIsShown(false)
@@ -42,38 +92,12 @@ export const MainPage = () => {
       { preferCacheValue: true },
     )
 
-    // 각 트리 마커 추가
-    let selectedMarker = null
-
-    const basicImage = new kakao.maps.MarkerImage(treeImage, new kakao.maps.Size(40, 50))
-
-    trees.forEach(({ tree_id, tree_x, tree_y }) => {
-      const markerPosition = new kakao.maps.LatLng(tree_x, tree_y)
-
-      let marker = new kakao.maps.Marker({
-        map: _map,
-        position: markerPosition,
-        image: basicImage,
-        clickable: true,
-      })
-
-      marker.normalImage = basicImage
-
-      // 지도 클릭 이벤트 추가
-      kakao.maps.event.addListener(marker, 'click', () => {
-        if (!selectedMarker || selectedMarker !== marker) {
-          !!selectedMarker &&
-            selectedMarker.setImage(selectedMarker.normalImage, new kakao.maps.Size(40, 50))
-          marker.setImage(new kakao.maps.MarkerImage(treeClicked, new kakao.maps.Size(40, 50)))
-        }
-        selectedMarker = marker
-        setIsClick(true)
-
-        dispatch(selectTree(tree_id))
-      })
-
-      setMap(marker.getMap())
+    markers.forEach((marker) => {
+      marker.setMap(null)
     })
+    setMarkers([])
+
+    renderMarkers(trees, _map)
   }
 
   useEffect(() => {
@@ -101,36 +125,7 @@ export const MainPage = () => {
         { preferCacheValue: true },
       )
 
-      // 각 트리 마커 추가
-      let selectedMarker = null
-
-      const basicImage = new kakao.maps.MarkerImage(treeImage, new kakao.maps.Size(40, 50))
-
-      trees.forEach(({ tree_id, tree_x, tree_y }) => {
-        const markerPosition = new kakao.maps.LatLng(tree_x, tree_y)
-
-        let marker = new kakao.maps.Marker({
-          map: map,
-          position: markerPosition,
-          image: basicImage,
-          clickable: true,
-        })
-
-        marker.normalImage = basicImage
-
-        // 지도 클릭 이벤트 추가
-        kakao.maps.event.addListener(marker, 'click', () => {
-          if (!selectedMarker || selectedMarker !== marker) {
-            !!selectedMarker &&
-              selectedMarker.setImage(selectedMarker.normalImage, new kakao.maps.Size(40, 50))
-            marker.setImage(new kakao.maps.MarkerImage(treeClicked, new kakao.maps.Size(40, 50)))
-          }
-          selectedMarker = marker
-          setIsClick(true)
-
-          dispatch(selectTree(tree_id))
-        })
-      })
+      renderMarkers(trees, map)
 
       if (geolocation) {
         geolocation.getCurrentPosition((pos) => {
