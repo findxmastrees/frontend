@@ -24,9 +24,15 @@ const ToastAlert = ({ setAdCopiedAlert, urlCopiedAlert, setUrlCopiedAlert }) => 
 
   return (
     <>
-      <S.Container share={urlCopiedAlert}>
-        <S.Content>복사 되었습니다.</S.Content>
-      </S.Container>
+      {urlCopiedAlert ? (
+        <S.Container url>
+          <S.Content>URL 복사됨</S.Content>
+        </S.Container>
+      ) : (
+        <S.Container>
+          <S.Content>주소 복사됨</S.Content>
+        </S.Container>
+      )}
     </>
   )
 }

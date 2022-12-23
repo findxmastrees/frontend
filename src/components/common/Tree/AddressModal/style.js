@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const Container = styled.article`
   position: absolute;
-  width: calc(100% - 22px);
+  width: 333px;
+  top: 25px;
   height: 90px;
   background: #ffffff;
   border: 1px solid #e1e1e1;
@@ -13,6 +14,7 @@ export const Container = styled.article`
 
   @media screen and (max-width: 300px) {
     width: 220px;
+    top: 25px;
   }
 `
 

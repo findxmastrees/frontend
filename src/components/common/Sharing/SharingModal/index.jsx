@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useSelector } from 'react-redux'
-import { shareToTwitter, shareToFacebook } from '../ShareLinks'
+// import { shareToTwitter, shareToFacebook } from '../ShareLinks'
 import { SharingInfo } from './SharingInfo'
+import { Sharing_kakaoIcon, Sharing_urlIcon } from '../../../Icons'
 import * as S from './style'
 
-export const SharingModal = ({ setUrlCopiedAlert, setOpenShareModal }) => {
+export const SharingModal = ({ setUrlCopiedAlert }) => {
   const { tree_id } = useSelector((store) => store.tree.tree)
 
   useEffect(() => {
@@ -54,13 +55,20 @@ export const SharingModal = ({ setUrlCopiedAlert, setOpenShareModal }) => {
 
   return (
     <S.Container>
-      <S.Btn onClick={shareToKakaoTalk()}>KaKao</S.Btn>
-      <S.Btn onClick={() => shareToTwitter(SharingInfo)}>Twitter</S.Btn>
-      <S.Btn onClick={() => shareToFacebook(SharingInfo)}>Facebook</S.Btn>
-      <CopyToClipboard text={SharingInfo.baseUrl + '/trees/' + tree_id}>
-        <S.Btn onClick={() => setUrlCopiedAlert(true)}>URL 복사하기</S.Btn>
-      </CopyToClipboard>
-      <S.CancelBtn onClick={() => setOpenShareModal(false)}>취소</S.CancelBtn>
+      <S.Modal>
+        <CopyToClipboard text={SharingInfo.baseUrl + '/trees/' + tree_id}>
+          <S.BtnBox onClick={() => setUrlCopiedAlert(true)}>
+            <Sharing_urlIcon />
+            <S.BtnTitle>URL 복사</S.BtnTitle>
+          </S.BtnBox>
+        </CopyToClipboard>
+        <S.BtnBox onClick={() => shareToKakaoTalk()}>
+          <Sharing_kakaoIcon />
+          <S.BtnTitle>카카오톡</S.BtnTitle>
+        </S.BtnBox>
+      </S.Modal>
+      {/* <S.Btn onClick={() => shareToTwitter(SharingInfo)}>Twitter</S.Btn> */}
+      {/* <S.Btn onClick={() => shareToFacebook(SharingInfo)}>Facebook</S.Btn> */}
     </S.Container>
   )
 }

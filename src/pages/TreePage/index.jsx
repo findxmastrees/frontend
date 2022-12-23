@@ -3,7 +3,7 @@ import { MapImage } from '../../components/MapImage'
 import { ImgList } from '../../components/Review/ImgList'
 import Header from '../../components/Header'
 //infoHeader > Header로 이름 변경
-import { TreeNames } from '../../components/common/tree/TreeNames'
+import { TreeNames } from '../../components/common/Tree/TreeNames'
 import { useSelector } from 'react-redux'
 import { ReviewList } from '../../components/Review/ReviewList'
 import { ReviewButton } from '../../components/Review/ReviewButton'
@@ -37,7 +37,7 @@ export const TreePage = () => {
           tree_name={tree.tree_name}
           distance={tree.distance}
           tree_addr={tree.tree_addr}
-          tree_detail_addr={tree.tree_detail_addr}
+          tree_load_addr={tree.tree_load_addr}
         />
         <TreeInfo {...tree} />
         <ImgList reviewImgs={tree.tree_images} reviewList={tree.review_list} />
