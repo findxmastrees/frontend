@@ -21,9 +21,60 @@ export const MainPage = () => {
   const [getTrees, { isLoading }] = useLazyGetTreesQuery()
 
   const [isClick, setIsClick] = useState(false)
+  const [isShown, setIsShown] = useState(false)
 
   const [_map, setMap] = useState()
   const container = useRef(null)
+
+  const handleResearch = async () => {
+    setIsShown(false)
+    const bounds = _map.getBounds()
+    const swLatLng = bounds.getSouthWest()
+    const neLatLng = bounds.getNorthEast()
+
+    const { data: trees } = await getTrees(
+      {
+        southwest_x: swLatLng.getLat(),
+        southwest_y: swLatLng.getLng(),
+        northeast_x: neLatLng.getLat(),
+        northeast_y: neLatLng.getLng(),
+      },
+      { preferCacheValue: true },
+    )
+
+    // 각 트리 마커 추가
+    let selectedMarker = null
+
+    const basicImage = new kakao.maps.MarkerImage(treeImage, new kakao.maps.Size(40, 50))
+
+    trees.forEach(({ tree_id, tree_x, tree_y }) => {
+      const markerPosition = new kakao.maps.LatLng(tree_x, tree_y)
+
+      let marker = new kakao.maps.Marker({
+        map: _map,
+        position: markerPosition,
+        image: basicImage,
+        clickable: true,
+      })
+
+      marker.normalImage = basicImage
+
+      // 지도 클릭 이벤트 추가
+      kakao.maps.event.addListener(marker, 'click', () => {
+        if (!selectedMarker || selectedMarker !== marker) {
+          !!selectedMarker &&
+            selectedMarker.setImage(selectedMarker.normalImage, new kakao.maps.Size(40, 50))
+          marker.setImage(new kakao.maps.MarkerImage(treeClicked, new kakao.maps.Size(40, 50)))
+        }
+        selectedMarker = marker
+        setIsClick(true)
+
+        dispatch(selectTree(tree_id))
+      })
+
+      setMap(marker.getMap())
+    })
+  }
 
   useEffect(() => {
     if (myLocation.isLocLoading) return
@@ -101,6 +152,19 @@ export const MainPage = () => {
     getTreesMarker()
   }, [myLocation.lat, myLocation.lon, myLocation.isLocLoading, container.current])
 
+  useEffect(() => {
+    if (!kakao) return
+    if (!_map) return
+
+    kakao.maps.event.addListener(_map, 'zoom_changed', () => {
+      setIsShown(true)
+    })
+
+    kakao.maps.event.addListener(_map, 'dragend', () => {
+      setIsShown(true)
+    })
+  }, [kakao, _map])
+
   if (isLoading) return <p>Loading...</p>
 
   return (
@@ -108,7 +172,11 @@ export const MainPage = () => {
       <S.Container ref={container}>
         <S.TopWrapper>
           <MainSearch onClick={() => dispatch(selectTree)} myLocation={myLocation} />
-          <ResearchButton />
+          <ResearchButton
+            isShown={isShown}
+            setIsShown={setIsShown}
+            handleResearch={handleResearch}
+          />
         </S.TopWrapper>
         <S.InfoSection>
           <S.ButtonWrapper>

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  display: block;
+  display: ${({ isShown }) => (isShown ? 'block' : 'none')};
   width: 229px;
   padding: 7px 0;
   background-color: #1f7158;
