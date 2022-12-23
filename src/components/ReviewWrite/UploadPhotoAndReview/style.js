@@ -15,8 +15,8 @@ export const PhotoPreview = styled.img`
 `
 
 export const CloseBtn = styled.div`
-  left: 264px;
-  top: 77px;
+  left: 263.5px;
+  top: 56.5px;
   position: absolute;
   width: 22px;
   height: 22px;
@@ -51,6 +51,7 @@ export const PhotoUploadInput = styled.input`
 `
 
 export const ReviewArea = styled.textarea`
+  position: relative;
   width: 372px;
   height: 136px;
   font-size: 12px;
@@ -65,4 +66,16 @@ export const ReviewArea = styled.textarea`
   &::placeholder {
     color: #b9b9b9;
   }
+`
+
+export const LimitCharBox = styled.div`
+  position: absolute;
+  font-size: 6px;
+  bottom: 37px;
+  right: 13px;
+  color: #b9b9b9;
+`
+export const LimitChar = styled.span`
+  font-weight: 600;
+  color: #1a1a1a;
 `

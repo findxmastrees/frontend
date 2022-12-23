@@ -3,6 +3,7 @@ import * as S from './style'
 import { Review_uploadIcon, CloseIcon } from '../../Icons'
 
 export const UploadPhotoAndReview = () => {
+  const [char, setChar] = useState(0)
   const [image, setImage] = useState({
     image_file: '',
     preview_URL: '',
@@ -22,6 +23,11 @@ export const UploadPhotoAndReview = () => {
         preview_URL: fileReader.result,
       })
     }
+  }
+
+  const showLimitChar = (e) => {
+    const char = e.target.value
+    setChar(char.length)
   }
 
   return (
@@ -55,9 +61,13 @@ export const UploadPhotoAndReview = () => {
 
       <S.ReviewArea
         required
-        maxLength={400}
+        maxLength={150}
         placeholder='트리를 구경한 소감이 어땠는지 알려주세요.'
-      ></S.ReviewArea>
+        onChange={showLimitChar}
+      />
+      <S.LimitCharBox>
+        <S.LimitChar>{char}</S.LimitChar> / 150
+      </S.LimitCharBox>
     </>
   )
 }

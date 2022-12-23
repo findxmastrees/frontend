@@ -37,6 +37,7 @@ export const CommentsBox = styled.ul`
   margin-bottom: 20px;
 `
 export const ReviewBox = styled.article`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
