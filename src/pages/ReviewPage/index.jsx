@@ -25,7 +25,7 @@ export const ReviewPage = () => {
           <S.AuthorSection>
             <S.ProfileImgBox>
               <S.AuthorImg src={review.user_img} alt='' />
-              <ProfileTreeIcon width='51' height='48' />
+              <ProfileTreeIcon width='51' height='48' top='-3px' left='-3px' />
             </S.ProfileImgBox>
             <S.AuthorInfo>
               <S.AuthorName>{review.reg_id}</S.AuthorName>

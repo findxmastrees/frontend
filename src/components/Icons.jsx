@@ -501,15 +501,8 @@ export const PencilIcon = () => (
   </svg>
 )
 
-export const ProfileTreeIcon = ({ width, height }) => (
-  <svg
-    width={width}
-    height={height}
-    style={{ position: 'absolute', top: '-3px', left: '-3px' }}
-    viewBox='0 0 41 44'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
-  >
+export const ProfileTreeIcon = ({ width, height, top, left }) => (
+<svg width={width} height={height} style={{ position: 'absolute', top, left }} viewBox='0 0 41 44' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <path
       fillRule='evenodd'
       clipRule='evenodd'

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './style'
-import { ProfileIcon } from '../../Icons'
+import { ProfileIcon, ProfileTreeIcon } from '../../Icons'
 
 export const ReviewItem = ({ comment_list, reg_id, contents, user_img, review_img }) => {
   return (
@@ -8,7 +8,14 @@ export const ReviewItem = ({ comment_list, reg_id, contents, user_img, review_im
       <S.Content>
         <S.UserInfo>
           <div>
-            {user_img ? <S.Profile src={user_img} /> : <ProfileIcon />}
+            {user_img ? (
+              <S.ProfileBox>
+                <S.Profile src={user_img} />
+                <ProfileTreeIcon width='52px' height='47px' top='-5px' left='-5px' />
+              </S.ProfileBox>
+            ) : (
+              <ProfileIcon />
+            )}
           </div>
           <div>
             <S.Name>{reg_id}</S.Name>

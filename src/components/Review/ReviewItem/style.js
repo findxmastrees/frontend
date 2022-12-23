@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import profileCircle from '../../../assets/icons/tree-circle.svg'
 
 export const ReviewItem = styled.li`
   display: flex;
@@ -33,16 +32,6 @@ export const Profile = styled.img.attrs({
   height: 40px;
   overflow: hidden;
   border-radius: 50%;
-
-  &::after {
-    content: '';
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url(${profileCircle})
-  }
 `
 
 export const Name = styled.strong`

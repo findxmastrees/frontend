@@ -15,7 +15,7 @@ import * as S from './style'
 
 export const TreePage = () => {
   const { tree_id } = useParams()
-
+  console.log(tree_id)
   const myLocation = useSelector((store) => store.auth.myLocation)
   const {
     data: tree,
