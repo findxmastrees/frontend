@@ -18,7 +18,7 @@ export const SelectComments = ({ comment }) => {
         </S.Container>
       )} */}
       <S.Container selected>
-        <S.CommentsImg src={''} alt='comments' />
+        <S.CommentsImg src={comment.icon_img} alt='comments' />
         <S.CommentsBtn>{comment.comment}</S.CommentsBtn>
       </S.Container>
     </>
