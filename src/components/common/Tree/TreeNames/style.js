@@ -31,6 +31,7 @@ export const Title = styled.div`
 
 export const IconBox = styled.div`
   display: flex;
+  position: relative;
   justify-content: space-between;
   width: 72px;
 
@@ -55,8 +56,11 @@ export const SharingBox = styled.div`
 
 export const AddressBox = styled.article`
   position: relative;
+  display: flex;
+  width: 210px;
   margin: 0 0 0 22px;
   padding-bottom: 13px;
+  align-items: center;
 `
 
 export const Location = styled.span`
@@ -72,7 +76,7 @@ export const Location = styled.span`
     right: -12px;
     background-color: #e8e8e8;
     width: 1px;
-    top: 3px;
+    top: 1px;
     height: 12px;
   }
 
@@ -99,7 +103,6 @@ export const Address = styled.span`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 138px;
   }
 `
 
@@ -110,24 +113,25 @@ export const AddressArrow = styled.button`
   cursor: pointer;
 `
 
-export const SmallDropBtn = styled.button`
+export const SmallDropBtn = styled.div`
   display: none;
   @media screen and (max-width: 300px) {
     display: block;
     position: relative;
-    top: 16px;
+    top: 20px;
     right: 5px;
-    width: 30px;
-    height: 30px;
     border-radius: 50%;
     border: none;
+    cursor: pointer;
   }
 `
 
 export const SmallModalBox = styled.div`
   display: none;
   @media screen and (max-width: 300px) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
     top: 33px;
     right: -1px;

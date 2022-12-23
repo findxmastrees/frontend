@@ -12,7 +12,6 @@ export const reviewApiSlice = apiSlice.injectEndpoints({
         method: 'GET',
       }),
       transformResponse: (responseData) => {
-        console.log(responseData.data)
         return responseData.data
       },
       providesTags: (result, err, id) => [{ type: 'comment', id }],

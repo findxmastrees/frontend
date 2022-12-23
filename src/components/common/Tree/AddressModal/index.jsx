@@ -5,6 +5,7 @@ import { AddressCopyIcon } from '../../../Icons'
 
 export const AddressModal = ({ address, lotNumber }) => {
   const handleCopyClipBoard = async (text) => {
+    if (!text) return false
     try {
       await navigator.clipboard.writeText(text)
       setAdCopiedAlert(true)
@@ -24,7 +25,7 @@ export const AddressModal = ({ address, lotNumber }) => {
           <S.Address>
             {address}
             <S.IconBox onClick={() => handleCopyClipBoard(address)}>
-              <AddressCopyIcon />
+              {address && <AddressCopyIcon />}
             </S.IconBox>
           </S.Address>
         </S.AdBox>
@@ -33,7 +34,7 @@ export const AddressModal = ({ address, lotNumber }) => {
           <S.Address>
             {lotNumber}
             <S.IconBox onClick={() => handleCopyClipBoard(lotNumber)}>
-              <AddressCopyIcon />
+              {lotNumber && <AddressCopyIcon />}
             </S.IconBox>
           </S.Address>
         </S.AdBox>

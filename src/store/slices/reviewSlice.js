@@ -5,7 +5,6 @@ const reviewSlice = createSlice({
   initialState: { comments: [] },
   reducers: {
     getComments: (state, action) => {
-      console.log(action.payload)
       state.comments = [...action.payload]
     },
   },

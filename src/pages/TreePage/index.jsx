@@ -37,7 +37,7 @@ export const TreePage = () => {
           tree_name={tree.tree_name}
           distance={tree.distance}
           tree_addr={tree.tree_addr}
-          tree_detail_addr={tree.tree_detail_addr}
+          tree_load_addr={tree.tree_load_addr}
         />
         <TreeInfo {...tree} />
         <ImgList reviewImgs={tree.tree_images} reviewList={tree.review_list} />
