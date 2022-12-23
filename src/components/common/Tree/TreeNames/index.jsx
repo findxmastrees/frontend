@@ -7,7 +7,7 @@ import { Bookmark } from '../../BookMark'
 import * as S from './style'
 import { ArrowBottomIcon, ArrowUpIcon, Sharing_smallIcon } from '../../../Icons'
 
-export const TreeNames = ({ tree_id, tree_name, distance, tree_addr, tree_detail_addr }) => {
+export const TreeNames = ({ tree_id, tree_name, distance, tree_addr, tree_load_addr }) => {
   const navigate = useNavigate()
 
   const [IsArrowBtn, setArrowBtn] = useState(false)
@@ -19,7 +19,6 @@ export const TreeNames = ({ tree_id, tree_name, distance, tree_addr, tree_detail
     setArrowBtn(!IsArrowBtn)
     setOpenAdModal(!IsOpenAdModal)
   }
-  console.log(tree_id)
   return (
     <>
       <div>
@@ -49,7 +48,7 @@ export const TreeNames = ({ tree_id, tree_name, distance, tree_addr, tree_detail
           <S.AddressArrow onClick={onAdModal}>
             {IsArrowBtn ? <ArrowUpIcon /> : <ArrowBottomIcon />}
           </S.AddressArrow>
-          {IsOpenAdModal && <AddressModal address={tree_addr} lotNumber={tree_detail_addr} />}
+          {IsOpenAdModal && <AddressModal address={tree_addr} lotNumber={tree_load_addr} />}
         </S.AddressBox>
       </div>
       {IsOpenSmallStarModal && <S.Overlay onClick={() => setIsOpenSmallStarModal(false)} />}

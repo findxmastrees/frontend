@@ -7,8 +7,9 @@ import { TreeNames } from '../common/Tree/TreeNames'
 const arr = Array.from({ length: 3 }, (_, i) => i)
 
 export const TreeInfos = () => {
-  const { tree_id, tree_name, distance, tree_addr, tree_detail_addr, tree_img_limit3 } =
-    useSelector((store) => store.tree.tree)
+  const { tree_id, tree_name, distance, tree_addr, tree_load_addr, tree_img_limit3 } = useSelector(
+    (store) => store.tree.tree,
+  )
 
   return (
     <>
@@ -18,7 +19,7 @@ export const TreeInfos = () => {
           tree_name={tree_name}
           distance={distance}
           tree_addr={tree_addr}
-          tree_detail_addr={tree_detail_addr}
+          tree_load_addr={tree_load_addr}
         />
         <S.ImgSection>
           <S.ImgItems>
