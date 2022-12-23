@@ -5,10 +5,10 @@ const initialState = {
   uid: null,
   email: null,
   myLocation: {
-    lat: 37.5100003045053,
-    lon: 127.10286871659851,
+    lat: 37.560274328462704,
+    lon: 126.98080456021914,
     isLocLoading: true,
-  }
+  },
 }
 
 const authSlice = createSlice({
@@ -26,7 +26,7 @@ const authSlice = createSlice({
     },
     setMyLocation: (state, action) => {
       state.myLocation = { ...state.myLocation, ...action.payload }
-    }
+    },
   },
 })
 
