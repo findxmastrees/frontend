@@ -8,6 +8,13 @@ export const Container = styled.main`
   position: relative;
 `
 
+export const TopWrapper = styled.div`
+  width: calc(100% - 28px);
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+`
+
 export const InfoSection = styled.section`
   position: absolute;
   width: 90%;

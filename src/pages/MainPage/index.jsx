@@ -5,6 +5,7 @@ import { MainSearch } from '../../components/MainSearch'
 import { ZoomButton } from '../../components/MainZoom/index'
 import { LocationBtn } from '../../components/common/LocationBtn/LocationButton'
 import { TreeInfos } from '../../components/TreeInfos/index'
+import { ResearchButton } from '../../components/ResearchButton'
 import { selectTree } from '../../store/slices/treeSlice'
 import treeImage from '../../assets/icons/tree.svg'
 import treeClicked from '../../assets/icons/tree_clicked.svg'
@@ -20,12 +21,9 @@ export const MainPage = () => {
   const [getTrees, { isLoading }] = useLazyGetTreesQuery()
 
   const [isClick, setIsClick] = useState(false)
-  
 
   const [_map, setMap] = useState()
   const container = useRef(null)
-
-  
 
   useEffect(() => {
     if (myLocation.isLocLoading) return
@@ -108,7 +106,10 @@ export const MainPage = () => {
   return (
     <>
       <S.Container ref={container}>
-        <MainSearch onClick={() => dispatch(selectTree)} myLocation={myLocation} />
+        <S.TopWrapper>
+          <MainSearch onClick={() => dispatch(selectTree)} myLocation={myLocation} />
+          <ResearchButton />
+        </S.TopWrapper>
         <S.InfoSection>
           <S.ButtonWrapper>
             <LocationBtn map={_map} />
