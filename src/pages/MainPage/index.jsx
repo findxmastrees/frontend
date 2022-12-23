@@ -94,9 +94,9 @@ export const MainPage = () => {
             image: locImage,
           })
           map.setCenter(locPosition)
-          setMap(map)
         })
       }
+      setMap(map)
     }
     getTreesMarker()
   }, [myLocation.lat, myLocation.lon, myLocation.isLocLoading, container.current])
