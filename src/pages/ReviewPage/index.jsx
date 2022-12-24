@@ -11,10 +11,6 @@ const week = ['일', '월', '화', '수', '목', '금', '토']
 export const ReviewPage = () => {
   const { review_id } = useParams()
   const { data: review, isLoading, isError, error } = useGetReviewQuery(review_id)
-  // const {
-  //   state: { review },
-  // } = useLocation()
-  console.log(review)
 
   if (isLoading) return <p>Loading...</p>
 
@@ -47,8 +43,10 @@ export const ReviewPage = () => {
           <S.ReviewContent>
             <S.AuthorComment>{review.contents}</S.AuthorComment>
             <S.CommentList>
-              {review.comment_list.map(({ comment_id, comment }) => (
-                <S.CommentItem key={comment_id}>{comment}</S.CommentItem>
+              {review.comment_list.map(({ comment_id, comment, icon_img }) => (
+                <S.CommentItem key={comment_id} commentImg={icon_img}>
+                  {comment}
+                </S.CommentItem>
               ))}
             </S.CommentList>
           </S.ReviewContent>

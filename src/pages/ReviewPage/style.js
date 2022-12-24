@@ -85,5 +85,15 @@ export const CommentItem = styled.li`
   padding: 7px 6px;
   background-color: #F1F1F1;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  border-radius: 5px;
 
+  &::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url(${({ commentImg }) => commentImg}) no-repeat center / 15px 15px;
+  }
 `
