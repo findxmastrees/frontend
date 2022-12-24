@@ -9,7 +9,7 @@ export const ReviewImg = ({ img, review, review_id, reviewImg, toInfo }) => {
     <ImgWrapper>
       {img ? (
         <Link to={`/review/${review_id}`}>
-          <Image src={img} alt='Image' />
+          <Image src={img} alt='Image' toInfo={!!img} />
         </Link>
       ) : (
         <Image src={ExImage} alt='' />

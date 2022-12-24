@@ -32,14 +32,16 @@ export const ReviewItem = ({ comment_list, reg_id, contents, user_img, review_im
           </S.ImgWrapper>
         )}
       </S.ReviewTop>
-      <S.ReviewBottom>
-        <S.ReviewComment commentImg={comment_list[0].icon_img}>
-          {comment_list[0].comment}
-        </S.ReviewComment>
-        {comment_list.length > 1 && (
-          <S.CommentMoreInfo>+ {comment_list.length - 1}</S.CommentMoreInfo>
-        )}
-      </S.ReviewBottom>
+      {comment_list.length > 0 && (
+        <S.ReviewBottom>
+          <S.ReviewComment commentImg={comment_list[0].icon_img}>
+            {comment_list[0].comment}
+          </S.ReviewComment>
+          {comment_list.length > 1 && (
+            <S.CommentMoreInfo>+ {comment_list.length - 1}</S.CommentMoreInfo>
+          )}
+        </S.ReviewBottom>
+      )}
     </S.ReviewItem>
   )
 }
