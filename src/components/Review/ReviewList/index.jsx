@@ -3,6 +3,8 @@ import { ReviewItem, ReviewTitle } from '../..'
 import * as S from './style'
 
 export const ReviewList = ({ reviewList }) => {
+  console.log(reviewList)
+  
   return (
     <S.ReviewSection>
       <ReviewTitle title='방문자 후기' total={reviewList.length} />
