@@ -1,6 +1,5 @@
 import React from 'react'
-import { ReviewItem } from '../ReviewItem'
-import { ReviewTitle } from '../ReviewTitle'
+import { ReviewItem, ReviewTitle } from '../..'
 import * as S from './style'
 
 export const ReviewList = ({ reviewList }) => {

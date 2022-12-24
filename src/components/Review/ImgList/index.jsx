@@ -1,24 +1,18 @@
 import React from 'react'
 import { useMemo } from 'react'
-import { ReviewImg } from '../../../components'
-import { ReviewTitle } from '../ReviewTitle'
+import { ReviewImg, ReviewTitle } from '../..'
 import * as S from './style'
 
-export const ImgList = ({ reviewImgs, reviewList }) => {
-  const filteredReviewImgs = useMemo(
-    () =>
-      reviewList.reduce(
-        (arr, obj, idx) => (arr.length < 6 && obj.review_img ? [...arr, obj] : [...arr]),
-        [],
-      ),
-    [reviewList],
-  )
+export const ImgList = ({ reviewImgs, reviewList  }) => {
+  const filteredReviewImgs = useMemo(() => reviewList.reduce((arr, obj, idx) => (
+    (arr.length < 6 && obj.review_img) ? [...arr, obj] : [...arr]
+  ), []), [reviewList])
   console.log(filteredReviewImgs)
 
   const imgList = reviewImgs.length ? (
     <>
       {filteredReviewImgs.map((review, i) => (
-        <ReviewImg key={i} img={review.review_img} review={review} />
+        <ReviewImg key={i} img={review.review_img} tree_id={review} review={review} />
       ))}
     </>
   ) : (
