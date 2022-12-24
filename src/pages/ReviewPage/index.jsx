@@ -1,17 +1,24 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Header } from '../../components'
 import { ProfileTreeIcon } from '../../components/Icons'
+import { useGetReviewQuery } from '../../store/api/reviewApiSlice'
 
 import * as S from './style'
 
 const week = ['일', '월', '화', '수', '목', '금', '토']
 
 export const ReviewPage = () => {
-  const {
-    state: { review },
-  } = useLocation()
+  const { review_id } = useParams()
+  const { data: review, isLoading, isError, error } = useGetReviewQuery(review_id)
+  // const {
+  //   state: { review },
+  // } = useLocation()
   console.log(review)
+
+  if (isLoading) return <p>Loading...</p>
+
+  if (isError) return <p>{error}</p>
 
   return (
     <>

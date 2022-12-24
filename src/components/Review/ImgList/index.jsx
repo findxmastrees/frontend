@@ -12,7 +12,7 @@ export const ImgList = ({ reviewImgs, reviewList  }) => {
   const imgList = reviewImgs.length ? (
     <>
       {filteredReviewImgs.map((review, i) => (
-        <ReviewImg key={i} img={review.review_img} tree_id={review} review={review} />
+        <ReviewImg key={i} img={review.review_img} review_id={review.review_id} />
       ))}
     </>
   ) : (

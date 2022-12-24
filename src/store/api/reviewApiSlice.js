@@ -11,3 +11,5 @@ export const reviewApiSlice = apiSlice.injectEndpoints({
     }),
   }),
 })
+
+export const { useGetReviewQuery } = reviewApiSlice

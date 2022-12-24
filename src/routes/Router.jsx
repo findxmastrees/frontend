@@ -31,7 +31,7 @@ export const Router = () => {
             <Route path='/my' element={<MyPage />} />
           </Route>
           <Route path='/search' element={<SearchPage />} />
-          <Route path='/review' element={<ReviewPage />} />
+          <Route path='/review/:review_id' element={<ReviewPage />} />
         </Route>
       </Routes>
     </div>
