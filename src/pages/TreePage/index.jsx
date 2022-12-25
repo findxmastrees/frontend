@@ -15,7 +15,6 @@ import * as S from './style'
 
 export const TreePage = () => {
   const { tree_id } = useParams()
-
   const myLocation = useSelector((store) => store.auth.myLocation)
   const {
     data: tree,
@@ -23,7 +22,7 @@ export const TreePage = () => {
     isError,
     error,
   } = useGetTreeQuery({ tree_id, map_x: myLocation.lat, map_y: myLocation.lon })
-
+  
   if (isLoading) return <p>Loaindg...</p>
 
   if (isError) return <p>{error}</p>

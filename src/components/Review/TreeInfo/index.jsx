@@ -18,7 +18,7 @@ export const TreeInfo = ({ able_days, pet_yn, end_date, etc, outdoor_yn, start_d
         </S.InfoItem>
         <S.InfoItem>
           <S.ItemTitle>영업일</S.ItemTitle>
-          <span>{able_days}</span>
+          <span>{able_days?.split(',')?.join(', ')}</span>
         </S.InfoItem>
         <S.InfoItem>
           <S.ItemTitle>전시 기간</S.ItemTitle>
