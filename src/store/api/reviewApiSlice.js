@@ -24,15 +24,17 @@ export const reviewApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+
     setReview: builder.mutation({
       query: (formData) => ({
-        url: '/star',
+        url: '/review',
         method: 'POST',
         headers: {
           'Content-Type': 'multipart/form-data',
         },
         body: formData,
       }),
+      invalidatesTags: ['Review'],
     }),
   }),
 })

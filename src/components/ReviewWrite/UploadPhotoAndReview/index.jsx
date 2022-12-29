@@ -1,14 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import * as S from './style'
 import { Review_uploadIcon, CloseIcon } from '../../Icons'
 
-export const UploadPhotoAndReview = () => {
-  const [char, setChar] = useState(0)
-  const [image, setImage] = useState({
-    image_file: '',
-    preview_URL: '',
-  })
-
+export const UploadPhotoAndReview = ({ image, setImage, char, showLimitChar }) => {
   const handleChange = (e) => {
     e.preventDefault()
 
@@ -23,11 +17,6 @@ export const UploadPhotoAndReview = () => {
         preview_URL: fileReader.result,
       })
     }
-  }
-
-  const showLimitChar = (e) => {
-    const char = e.target.value
-    setChar(char.length)
   }
 
   return (
@@ -66,7 +55,7 @@ export const UploadPhotoAndReview = () => {
         onChange={showLimitChar}
       />
       <S.LimitCharBox>
-        <S.LimitChar>{char}</S.LimitChar> / 150
+        <S.LimitChar>{char.length}</S.LimitChar> / 150
       </S.LimitCharBox>
     </>
   )

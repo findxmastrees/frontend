@@ -1,55 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
-import { useGetCommentsListQuery } from '../../store/api/reviewApiSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { useGetTreeQuery } from '../../store/api/treeApiSlice'
+import { selectComment } from '../../store/slices/reviewSlice'
+import { useGetCommentsListQuery, useSetReviewMutation } from '../../store/api/reviewApiSlice'
 import { SelectComments } from '../../components/ReviewWrite/SelectComments'
 import { ReviewButton } from '../../components/Review/ReviewButton'
 import { ReviewWriteTitle } from '../../components/ReviewWrite/ReviewWriteTitle'
 import { UploadPhotoAndReview } from '../../components/ReviewWrite/UploadPhotoAndReview'
 import * as S from './style'
-// import Review_heart from '../../assets/img/review_heart.png'
-// import Review_baby from '../../assets/img/review_baby.png'
-// import Review_cafe from '../../assets/img/review_cafe.png'
-// import Review_coldoutside from '../../assets/img/review_coldoutside.png'
-// import Review_camera from '../../assets/img/review_camera.png'
-
-// const IMG_DATA = [
-//   { id: 1, img: Review_coldoutside, isClick: false },
-//   { id: 2, img: Review_camera, isClick: false },
-//   { id: 3, img: Review_heart, isClick: false },
-//   { id: 4, img: Review_baby, isClick: false },
-//   { id: 5, img: Review_cafe, isClick: false },
-// ]
 
 export const WriteReviewPage = () => {
-  const { data: comments, isLoading } = useGetCommentsListQuery()
+  const dispatch = useDispatch()
+  // const navigate = useNavigate()
   const { tree_id } = useParams()
-  // const [ImgDataList, setImgDataList] = useState(IMG_DATA)
+  const [setReview] = useSetReviewMutation()
+  const { data: tree, isTreeLoading } = useGetTreeQuery({ tree_id })
+  const { data: commentsList, isLoading } = useGetCommentsListQuery()
 
-  // active 추가해서 comment color state 변화
-  // console.log(setCommentsList)
+  const { comment } = useSelector((store) => store.review)
+  const [char, setChar] = useState('')
+  const [image, setImage] = useState({
+    image_file: '',
+    preview_URL: '',
+  })
 
-  // const handleSubmit = (id, comment) => {
-  //   setIsSelected(
-  //     commentsList.map((prev) =>
-  //       prev.comment_id === id ? { ...prev, isClick: !comment.isClick } : prev,
-  //     ),
-  //   )
-  // }
+  const onActive = (selectedComment) => {
+    dispatch(selectComment(selectedComment))
+  }
 
-  //   const removeDuple = () => {
-  //     return selectComments.filter((item, i) => {
-  //       return (
-  //         selectComments.findIndex((item2, j) => {
-  //           return item.id === item2.id
-  //         }) === i
-  //       )
-  //     })
-  //   }
-  //   return removeDuple
-  // }
+  const showLimitChar = (e) => {
+    const char = e.target.value
+    setChar(char)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const formData = new FormData()
+    // formData.append('file', files[0])
+    const commentList = comment.map((list) => list.comment_id)
+
+    let value = {
+      title: `${tree && tree.tree_name}`,
+      content: `${char}`,
+      tree_id: `${tree && tree.tree_id}`,
+      img: image ? image.preview_URL : null,
+      comment_id_list: commentList ? commentList.join(',') : null,
+    }
+
+    // const blob = new Blob([JSON.stringify(value)], { type: 'application/json' })
+    // console.log(blob)
+    // formData.append('data', blob)
+    formData.append('data', value)
+    console.log(formData)
+    setReview(formData)
+    // .then(navigate(`/review/${tree.tree_id}`))
+  }
 
   if (isLoading) {
+    return <p>...loading</p>
+  }
+
+  if (isTreeLoading) {
     return <p>...loading</p>
   }
 
@@ -57,24 +71,29 @@ export const WriteReviewPage = () => {
     <>
       <Header />
       <S.Container>
-        <ReviewWriteTitle tree_id={tree_id} />
+        <ReviewWriteTitle {...tree} />
         <S.Section>
           <S.CommentsTitle>
             코멘트 리뷰
             {/* <S.CommentsSmallTitle>(1개 ~ 3개)</S.CommentsSmallTitle> */}
           </S.CommentsTitle>
           <S.CommentsDesc>이 트리에 어울리는 코멘트를 골라주세요.</S.CommentsDesc>
-          <form style={{ position: 'relative' }}>
+          <form onSubmit={handleSubmit} style={{ position: 'relative' }}>
             <S.CommentsBox>
-              {comments?.map((comment) => (
-                <SelectComments key={comment.comment_id} comment={comment} />
+              {commentsList?.map((comment) => (
+                <SelectComments key={comment.comment_id} comment={comment} onActive={onActive} />
               ))}
             </S.CommentsBox>
             <S.ReviewBox>
-              <UploadPhotoAndReview />
+              <UploadPhotoAndReview
+                image={image}
+                setImage={setImage}
+                char={char}
+                showLimitChar={showLimitChar}
+              />
             </S.ReviewBox>
+            <ReviewButton write typeSubmit='submit' />
           </form>
-          <ReviewButton write />
         </S.Section>
       </S.Container>
     </>
