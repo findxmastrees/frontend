@@ -3,12 +3,6 @@ import { SharingModal, ToastAlert } from '../../../components'
 import * as S from './style'
 import { SharingIcon } from '../../Icons'
 
-// const SHARING_INFO = {
-//   title: '어쩔트리',
-//   text: '어쩔트리로 트리를 공유해보세요!',
-//   baseUrl: 'https://63860b066ed8c30db7349d3b--comforting-moonbeam-e55e7d.netlify.app/',
-// }
-
 export const Sharing = ({ IsOpenShareModal, setOpenShareModal, responsive }) => {
   const [urlCopiedAlert, setUrlCopiedAlert] = useState(false)
 

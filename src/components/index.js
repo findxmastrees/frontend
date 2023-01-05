@@ -20,18 +20,18 @@ export { ZoomButton } from './main/ZoomButton'
 export { ResearchButton } from './main/ResearchButton'
 
 //review
-export { ImgList } from './review/ImgList'
-export { ReviewButton } from './review/ReviewButton'
-export { ReviewItem } from './review/ReviewItem'
-export { ReviewList } from './review/ReviewList'
-export { ReviewTitle } from './review/ReviewTitle'
-export { TreeInfo } from './review/TreeInfo'
-export { ReviewImg } from './review/ReviewImg'
+export { ImgList } from './Review/ImgList'
+export { ReviewButton } from './Review/ReviewButton'
+export { ReviewItem } from './Review/ReviewItem'
+export { ReviewList } from './Review/ReviewList'
+export { ReviewTitle } from './Review/ReviewTitle'
+export { TreeInfo } from './Review/TreeInfo'
+export { ReviewImg } from './Review/ReviewImg'
 
 //review write
-export { ReviewWriteTitle } from './reviewWrite/ReviewWriteTitle'
-export { SelectComments } from './reviewWrite/SelectComments'
-export { UploadPhotoAndReview } from './reviewWrite/UploadPhotoAndReview'
+export { ReviewWriteTitle } from './ReviewWrite/ReviewWriteTitle'
+export { SelectComments } from './ReviewWrite/SelectComments'
+export { UploadPhotoAndReview } from './ReviewWrite/UploadPhotoAndReview'
 
 //search
 export { SearchCard } from './search/SearchCard'
