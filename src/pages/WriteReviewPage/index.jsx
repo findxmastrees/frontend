@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
-import { SelectComments } from '../../components/ReviewWrite/SelectComments'
-import { ReviewButton } from '../../components/Review/ReviewButton'
-import { ReviewWriteTitle } from '../../components/ReviewWrite/ReviewWriteTitle'
-import { UploadPhotoAndReview } from '../../components/ReviewWrite/UploadPhotoAndReview'
+import {
+  Header,
+  SelectComments,
+  ReviewButton,
+  ReviewWriteTitle,
+  UploadPhotoAndReview,
+} from '../../components'
 import * as S from './style'
 import Review_heart from '../../assets/img/review_heart.png'
 import Review_baby from '../../assets/img/review_baby.png'

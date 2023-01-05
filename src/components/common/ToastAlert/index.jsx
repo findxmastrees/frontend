@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import * as S from './style'
 
-const ToastAlert = ({ setAdCopiedAlert, urlCopiedAlert, setUrlCopiedAlert }) => {
+export const ToastAlert = ({ setAdCopiedAlert, urlCopiedAlert, setUrlCopiedAlert }) => {
   useEffect(() => {
     if (urlCopiedAlert) {
       let urlTimer = setTimeout(() => {
@@ -36,5 +36,3 @@ const ToastAlert = ({ setAdCopiedAlert, urlCopiedAlert, setUrlCopiedAlert }) => 
     </>
   )
 }
-
-export default ToastAlert

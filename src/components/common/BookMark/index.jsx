@@ -5,7 +5,7 @@ import { useStarTreeMutation } from '../../../store/api/treeApiSlice'
 import * as S from './style'
 import { BookmarkerIcon } from '../../Icons'
 
-export const Bookmark = ({ tree_id, responsive }) => {
+export const BookMark = ({ tree_id, responsive }) => {
   const navigate = useNavigate()
 
   const { uid } = useSelector((store) => store.auth)
