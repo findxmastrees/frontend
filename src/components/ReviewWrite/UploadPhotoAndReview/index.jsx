@@ -2,7 +2,12 @@ import React from 'react'
 import * as S from './style'
 import { Review_uploadIcon, CloseIcon } from '../../Icons'
 
-export const UploadPhotoAndReview = ({ image, setImage, reviewChar, showLimitChar }) => {
+export const UploadPhotoAndReview = ({ image, setImage, reviewChar, setReviewChar }) => {
+  const showLimitChar = (e) => {
+    const reviewChar = e.target.value
+    setReviewChar(reviewChar)
+  }
+
   const handleChange = (e) => {
     e.preventDefault()
 

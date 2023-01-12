@@ -15,10 +15,11 @@ export const WriteReviewPage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { tree_id } = useParams()
+  const { comment } = useSelector((store) => store.review)
+
   const [setReview] = useSetReviewMutation()
   const { data: tree, isTreeLoading } = useGetTreeQuery({ tree_id })
   const { data: commentsList, isLoading } = useGetCommentsListQuery()
-  const { comment } = useSelector((store) => store.review)
 
   const [reviewChar, setReviewChar] = useState('')
   const [image, setImage] = useState({
@@ -30,35 +31,28 @@ export const WriteReviewPage = () => {
     dispatch(selectComment(comment))
   }
 
-  const showLimitChar = (e) => {
-    const reviewChar = e.target.value
-    setReviewChar(reviewChar)
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     const commentId = comment.map((list) => list.comment_id)
 
-    let data = {
-      img: image ? image.image_file : null,
-      title: tree && `${tree.tree_name}`,
-      contents: reviewChar && `${reviewChar}`,
-      user_id: '',
-      tree_id: tree && `${tree.tree_id}`,
-      comment_id_list: commentId ? commentId.join(',') : null,
-    }
+    const title = tree && `${tree.tree_name}`
+    const user_id = ''
+    const tree_id = tree && `${tree.tree_id}`
+    let img = image ? image.image_file : null
+    let contents = reviewChar && `${reviewChar}`
+    let comment_id_list = commentId ? commentId.join(',') : null
 
     const formData = new FormData()
-    if (data.img) formData.append('img', data.img)
-    formData.append('title', data.title)
-    formData.append('contents', data.contents)
-    formData.append('user_id', data.user_id)
-    formData.append('tree_id', data.tree_id)
-    formData.append('comment_id_list', data.comment_id_list)
+    if (img) formData.append('img', img)
+    formData.append('title', title)
+    formData.append('contents', contents)
+    formData.append('user_id', user_id)
+    formData.append('tree_id', tree_id)
+    formData.append('comment_id_list', comment_id_list)
     setReview(formData).then(navigate(`/tree/${tree_id}`, { replace: true }))
   }
 
-  if (isLoading && isTreeLoading) {
+  if (isLoading || isTreeLoading) {
     return <p>...loading</p>
   }
 
@@ -84,7 +78,7 @@ export const WriteReviewPage = () => {
                 image={image}
                 setImage={setImage}
                 reviewChar={reviewChar}
-                showLimitChar={showLimitChar}
+                setReviewChar={setReviewChar}
               />
             </S.ReviewBox>
             <ReviewButton write typeSubmit='submit' />
