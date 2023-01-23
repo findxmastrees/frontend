@@ -8,7 +8,7 @@ import { Map } from './Component/Map'
 
 // CSS
 import '../MapPage/index.css'
-import Header from '../../components/Header'
+import { Header } from '../../components'
 
 export const MapPage = () => {
   const [keyword, setKeyword] = useState('')
@@ -19,7 +19,7 @@ export const MapPage = () => {
   // const {kakao} = window;
 
   useEffect(() => {
-    if(keyword){
+    if (keyword) {
       searchLocation().then((r) => console.log(r))
     }
   }, [keyword])
@@ -89,7 +89,9 @@ export const MapPage = () => {
                       setSelectedLocation(item)
                     }}
                   >
-                    <div className={'placeName'} style={{'fontSize': '14px'}}>{item['place_name']}</div>
+                    <div className={'placeName'} style={{ fontSize: '14px' }}>
+                      {item['place_name']}
+                    </div>
                     <div className={'addressName'}>
                       <div className={'tagName'}>도로명</div>
                       <div className={'detailAddress'}>{item['address_name']}</div>
