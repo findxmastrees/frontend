@@ -1,15 +1,38 @@
 import { apiSlice } from './apiSlice'
+import { getComments } from '../slices/reviewSlice'
 
 export const reviewApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getReview: builder.query({
+    getCommentsList: builder.query({
       query: (arg) => ({
-        url: `/review/${arg}`,
+        url: '/comment',
+        params: {
+          ...arg,
+        },
+        method: 'GET',
       }),
-      transformResponse: (responseData) => responseData.data,
-      providesTags: (result = [], error, arg) => [{ type: 'Review', id: arg }],
+      transformResponse: (responseData) => {
+        return responseData.data
+      },
+      providesTags: (result, err, id) => [{ type: 'comment', id }],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(getComments(data))
+        } catch (err) {
+          console.log(err)
+        }
+      },
+    }),
+
+    setReview: builder.mutation({
+      query: (formData) => ({
+        url: '/review',
+        method: 'POST',
+        body: formData,
+      }),
+      invalidatesTags: [{ type: 'Review' }],
     }),
   }),
 })
-
-export const { useGetReviewQuery } = reviewApiSlice
+export const { useGetCommentsListQuery, useSetReviewMutation } = reviewApiSlice

@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Header } from '../../components'
 import { ProfileTreeIcon } from '../../components/Icons'
-import { useGetReviewQuery } from '../../store/api/reviewApiSlice'
+import { useGetCommentsListQuery } from '../../store/api/reviewApiSlice'
 
 import * as S from './style'
 
@@ -10,7 +10,7 @@ const week = ['일', '월', '화', '수', '목', '금', '토']
 
 export const ReviewPage = () => {
   const { review_id } = useParams()
-  const { data: review, isLoading, isError, error } = useGetReviewQuery(review_id)
+  const { data: review, isLoading, isError, error } = useGetCommentsListQuery(review_id)
 
   if (isLoading) return <p>Loading...</p>
 

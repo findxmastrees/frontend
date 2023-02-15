@@ -12,6 +12,7 @@ export const MainAddress = styled.div`
   margin-left: 24px;
   font-weight: 800;
   font-size: 16px;
+  margin-bottom: 2px;
 `
 
 export const DetailAddess = styled.div`

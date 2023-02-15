@@ -187,6 +187,12 @@ export const My01 = () => (
 )
 // 주스
 
+export const CloseIcon = () => (
+  <svg width='11' height='12' viewBox='0 0 11 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <line x1='0.353553' y1='0.646447' x2='10.3535' y2='10.6464' stroke='white' />
+    <line x1='10.3536' y1='1.35355' x2='0.353601' y2='11.3535' stroke='white' />
+  </svg>
+)
 export const Sharing_kakaoIcon = () => (
   <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <circle cx='12' cy='12' r='12' fill='#FFE812' />

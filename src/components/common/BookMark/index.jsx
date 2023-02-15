@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useStarTreeMutation } from '../../../store/api/treeApiSlice'
+import { useUpdateStarMutation } from '../../../store/api/treeApiSlice'
 import * as S from './style'
 import { BookmarkerIcon } from '../../Icons'
 
@@ -11,7 +11,7 @@ export const BookMark = ({ tree_id, responsive }) => {
   const { uid } = useSelector((store) => store.auth)
   const [IsBookMarking, setIsBookMarking] = useState(false)
 
-  const [updateStarTree] = useStarTreeMutation()
+  const [updateStarTree] = useUpdateStarMutation()
 
   const handleStarTree = () => {
     setIsBookMarking(!IsBookMarking)

@@ -21,8 +21,11 @@ export const TreePage = () => {
     isLoading,
     isError,
     error,
-  } = useGetTreeQuery({ tree_id, map_x: myLocation.lat, map_y: myLocation.lon })
-  
+  } = useGetTreeQuery(
+    { tree_id, map_x: myLocation.lat, map_y: myLocation.lon },
+    { refetchOnMountOrArgChange: true },
+  )
+
   if (isLoading) return <p>Loaindg...</p>
 
   if (isError) return <p>{error}</p>

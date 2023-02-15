@@ -8,8 +8,8 @@ export const Container = styled.li`
   border: 1px solid #f1f1f1;
   border-radius: 5px;
   margin-bottom: 7px;
-  background: ${(props) => (props.green ? 'green' : '#FFFFFF')};
-  color: ${(props) => (props.green ? '#FFFFFF;' : '#1A1A1A')};
+  background: ${(props) => (props.selected ? '#1F7158' : '#FFFFFF')};
+  color: ${(props) => (props.selected ? '#FFFFFF;' : '#1A1A1A')};
   cursor: pointer;
 `
 export const CommentsImg = styled.img`
@@ -18,5 +18,6 @@ export const CommentsImg = styled.img`
 `
 
 export const CommentsBtn = styled.div`
-  margin-left: 5px;
+  margin-left: 6px;
+  font-size: 14px;
 `
