@@ -1,7 +1,6 @@
 import React from 'react'
 import { useMemo } from 'react'
-import { ReviewImg } from '../../common/TreeImg'
-import { ReviewTitle } from '../ReviewTitle'
+import { ReviewImg, ReviewTitle } from '../..'
 import * as S from './style'
 
 export const ImgList = ({ reviewImgs, reviewList  }) => {
@@ -13,7 +12,7 @@ export const ImgList = ({ reviewImgs, reviewList  }) => {
   const imgList = reviewImgs.length ? (
     <>
       {filteredReviewImgs.map((review, i) => (
-        <ReviewImg key={i} img={review.review_img} review={review} />
+        <ReviewImg key={i} img={review.review_img} review_id={review.review_id} />
       ))}
     </>
   ) : (

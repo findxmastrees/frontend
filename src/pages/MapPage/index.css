@@ -127,6 +127,45 @@
   margin-right: 10px;
 }
 
+.mapContainer .outContainer,
+.mapContainer .dayContainer,
+.mapContainer .petContainer {
+  display: flex;
+  font-size: 12px;
+}
+
+.mapContainer .outContainer .outBtn {
+  border: 1px solid #eaeaea;
+  padding: 10px 15px;
+  border-radius: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.mapContainer .outContainer .outBtn.on,
+.mapContainer .petContainer .petBtn.on,
+.mapContainer .dayContainer .day.on {
+  background-color: #1F7158;
+  color: white;
+}
+
+.mapContainer .dayContainer .day {
+  border: 1px solid #eaeaea;
+  padding: 10px 15px;
+  border-radius: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
+.mapContainer .petContainer .petBtn {
+  border: 1px solid #eaeaea;
+  padding: 10px 15px;
+  border-radius: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 @media (min-width: 480px) {
   /*.mapContainer {*/
   /*  background-color: yellow;*/

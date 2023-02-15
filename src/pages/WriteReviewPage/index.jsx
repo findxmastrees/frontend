@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header'
+import { Header } from '../../components'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useGetTreeQuery } from '../../store/api/treeApiSlice'
@@ -52,7 +52,11 @@ export const WriteReviewPage = () => {
     setReview(formData).then(navigate(`/tree/${tree_id}`, { replace: true }))
   }
 
-  if (isLoading || isTreeLoading) {
+  if (isLoading) {
+    return <p>...loading</p>
+  }
+
+  if (isTreeLoading) {
     return <p>...loading</p>
   }
 
